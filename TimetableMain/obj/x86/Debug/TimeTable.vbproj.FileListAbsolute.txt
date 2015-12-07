@@ -36,3 +36,7 @@ D:\TIMETABLE_15\TimetableMain\obj\x86\Debug\TimeTable.application
 D:\TIMETABLE_15\TimetableMain\obj\x86\Debug\TimeTable.exe
 D:\TIMETABLE_15\TimetableMain\obj\x86\Debug\TimeTable.xml
 D:\TIMETABLE_15\TimetableMain\obj\x86\Debug\TimeTable.pdb
+C:\Users\Amit K Awasthi\Documents\GitHubVisualStudio\Time16\TimetableMain\bin\Debug\TimeTable.exe.config
+C:\Users\Amit K Awasthi\Documents\GitHubVisualStudio\Time16\TimetableMain\obj\x86\Debug\TimeTable.exe
+C:\Users\Amit K Awasthi\Documents\GitHubVisualStudio\Time16\TimetableMain\obj\x86\Debug\TimeTable.xml
+C:\Users\Amit K Awasthi\Documents\GitHubVisualStudio\Time16\TimetableMain\obj\x86\Debug\TimeTable.pdb
