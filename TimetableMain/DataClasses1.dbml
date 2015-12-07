@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TIMETABLE_JAN2014.MDF" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.\sqlexpress;Initial Catalog=TIMETABLE_JAN2014.MDF;Integrated Security=True" SettingsObjectName="TimeTableManager.My.MySettings" SettingsPropertyName="eCollegeConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.M_Time_Table" Member="M_Time_Tables">
+    <Type Name="M_Time_Table">
+      <Column Name="TimeTableId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Section_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TT_Day" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TT_Period" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="CSF_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Room_Id" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Batch_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Section_Group_Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="MergeCSF" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ActivityTag" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
