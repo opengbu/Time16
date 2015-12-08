@@ -139,6 +139,7 @@ Public Class frmMain
         LoginForm1.Close()
     End Sub
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Me.Text = ApplicationName
 
         ' frmCourseStructure.ShowDialog()
         Dim schoolname As String = Module1._school

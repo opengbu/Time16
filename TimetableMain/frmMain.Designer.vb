@@ -1800,54 +1800,54 @@ Partial Class frmMain
         Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CheckTeacherConflictsToolStripMenuItem, Me.CheckRoomConflictsToolStripMenuItem, Me.SetDefaultRoomToolStripMenuItem, Me.SelctBatchG1ToolStripMenuItem, Me.SelectBatchG2ToolStripMenuItem, Me.RefreshToolStripMenuItem, Me.TimetablesPreviewToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         Me.ToolsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5
-        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(48, 20)
+        Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
         Me.ToolsToolStripMenuItem.Text = "Tools"
         '
         'CheckTeacherConflictsToolStripMenuItem
         '
         Me.CheckTeacherConflictsToolStripMenuItem.Name = "CheckTeacherConflictsToolStripMenuItem"
         Me.CheckTeacherConflictsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.T), System.Windows.Forms.Keys)
-        Me.CheckTeacherConflictsToolStripMenuItem.Size = New System.Drawing.Size(243, 22)
+        Me.CheckTeacherConflictsToolStripMenuItem.Size = New System.Drawing.Size(242, 22)
         Me.CheckTeacherConflictsToolStripMenuItem.Text = "Check Teacher Conflicts"
         '
         'CheckRoomConflictsToolStripMenuItem
         '
         Me.CheckRoomConflictsToolStripMenuItem.Name = "CheckRoomConflictsToolStripMenuItem"
         Me.CheckRoomConflictsToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.R), System.Windows.Forms.Keys)
-        Me.CheckRoomConflictsToolStripMenuItem.Size = New System.Drawing.Size(243, 22)
+        Me.CheckRoomConflictsToolStripMenuItem.Size = New System.Drawing.Size(242, 22)
         Me.CheckRoomConflictsToolStripMenuItem.Text = "Check Room Conflicts"
         '
         'SetDefaultRoomToolStripMenuItem
         '
         Me.SetDefaultRoomToolStripMenuItem.Name = "SetDefaultRoomToolStripMenuItem"
-        Me.SetDefaultRoomToolStripMenuItem.Size = New System.Drawing.Size(243, 22)
+        Me.SetDefaultRoomToolStripMenuItem.Size = New System.Drawing.Size(242, 22)
         Me.SetDefaultRoomToolStripMenuItem.Text = "Set Default Room"
         '
         'SelctBatchG1ToolStripMenuItem
         '
         Me.SelctBatchG1ToolStripMenuItem.Name = "SelctBatchG1ToolStripMenuItem"
         Me.SelctBatchG1ToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F11
-        Me.SelctBatchG1ToolStripMenuItem.Size = New System.Drawing.Size(243, 22)
+        Me.SelctBatchG1ToolStripMenuItem.Size = New System.Drawing.Size(242, 22)
         Me.SelctBatchG1ToolStripMenuItem.Text = "Select Batch-G1"
         '
         'SelectBatchG2ToolStripMenuItem
         '
         Me.SelectBatchG2ToolStripMenuItem.Name = "SelectBatchG2ToolStripMenuItem"
         Me.SelectBatchG2ToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F12
-        Me.SelectBatchG2ToolStripMenuItem.Size = New System.Drawing.Size(243, 22)
+        Me.SelectBatchG2ToolStripMenuItem.Size = New System.Drawing.Size(242, 22)
         Me.SelectBatchG2ToolStripMenuItem.Text = "Select Batch-G2"
         '
         'RefreshToolStripMenuItem
         '
         Me.RefreshToolStripMenuItem.Name = "RefreshToolStripMenuItem"
         Me.RefreshToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5
-        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(243, 22)
+        Me.RefreshToolStripMenuItem.Size = New System.Drawing.Size(242, 22)
         Me.RefreshToolStripMenuItem.Text = "Refresh"
         '
         'TimetablesPreviewToolStripMenuItem
         '
         Me.TimetablesPreviewToolStripMenuItem.Name = "TimetablesPreviewToolStripMenuItem"
-        Me.TimetablesPreviewToolStripMenuItem.Size = New System.Drawing.Size(243, 22)
+        Me.TimetablesPreviewToolStripMenuItem.Size = New System.Drawing.Size(242, 22)
         Me.TimetablesPreviewToolStripMenuItem.Text = "Timetables Preview"
         '
         'ActionsToolStripMenuItem
@@ -2266,7 +2266,6 @@ Partial Class frmMain
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmMain"
-        Me.Text = "Timetable :: 2013-14"
         Me.WindowState = System.Windows.Forms.FormWindowState.Maximized
         Me.TableLayoutPanel1.ResumeLayout(False)
         Me.TableLayoutPanel1.PerformLayout()
