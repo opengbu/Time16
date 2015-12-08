@@ -4,6 +4,6 @@
     Public _currentcsf As Integer
     Public _currentfacids As String
     'Public _school As String
-    Public _currentSemester As Integer = 0
+    Public _currentSemester As Integer = 1
 
 End Module

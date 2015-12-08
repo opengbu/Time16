@@ -25,7 +25,7 @@ Partial Class frmFacultyWiseAllocation
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(frmFacultyWiseAllocation))
-        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
@@ -53,6 +53,16 @@ Partial Class frmFacultyWiseAllocation
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
+        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
+        Me.SectionNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SemesterDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SubjectCodeDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SubjectNameDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IsLabDataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.LDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.CSFViewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.DataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.SubjectCodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -64,7 +74,6 @@ Partial Class frmFacultyWiseAllocation
         Me.DataGridViewTextBoxColumn2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.DataGridViewTextBoxColumn3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.VCourseStructureBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.CSFViewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SectionTableAdapter = New TimeTableManager.eCollegeDataSetTableAdapters.SectionTableAdapter()
         Me.SubjectTableAdapter = New TimeTableManager.eCollegeDataSetTableAdapters.SubjectTableAdapter()
         Me.TeacherTableAdapter = New TimeTableManager.eCollegeDataSetTableAdapters.TeacherTableAdapter()
@@ -76,15 +85,6 @@ Partial Class frmFacultyWiseAllocation
         Me.V_CourseStructureTableAdapter = New TimeTableManager.eCollegeDataSetTableAdapters.V_CourseStructureTableAdapter()
         Me.ProgramTableAdapter1 = New TimeTableManager.eCollegeDataSetTableAdapters.ProgramTableAdapter()
         Me.bsProgram = New System.Windows.Forms.BindingSource(Me.components)
-        Me.DataGridView2 = New System.Windows.Forms.DataGridView()
-        Me.SectionNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SemesterDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SubjectCodeDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SubjectNameDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IsLabDataGridViewCheckBoxColumn1 = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.LDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PDataGridViewTextBoxColumn1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.ToolStrip1.SuspendLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
@@ -97,12 +97,12 @@ Partial Class frmFacultyWiseAllocation
         CType(Me.nTA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.nLA, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TeacherBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.CSFViewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VCourseStructureBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.CSFViewBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FillByToolStrip.SuspendLayout()
         CType(Me.bsProgram, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'StatusStrip1
@@ -140,38 +140,38 @@ Partial Class frmFacultyWiseAllocation
         '
         'SplitContainer1.Panel1
         '
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Button5)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Button2)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Label5)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.cbsession)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox4)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Label4)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.nPA)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.nTA)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.nLA)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Button4)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Button3)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.TextBox1)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Button1)
+        Me.SplitContainer1.Panel1.Controls.Add(Me.DataGridView2)
         Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox3)
         Me.SplitContainer1.Panel1.Controls.Add(Me.Label3)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox2)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Label2)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.Label1)
-        Me.SplitContainer1.Panel1.Controls.Add(Me.ComboBox1)
         '
         'SplitContainer1.Panel2
         '
-        Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridView2)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Button5)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Button2)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Label5)
         Me.SplitContainer1.Panel2.Controls.Add(Me.DataGridView1)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.ComboBox4)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.cbsession)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Label4)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Label1)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.nPA)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.ComboBox1)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.nTA)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Label2)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.nLA)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.ComboBox2)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Button3)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.TextBox1)
+        Me.SplitContainer1.Panel2.Controls.Add(Me.Button1)
         Me.SplitContainer1.Size = New System.Drawing.Size(1085, 488)
-        Me.SplitContainer1.SplitterDistance = 141
+        Me.SplitContainer1.SplitterDistance = 195
         Me.SplitContainer1.TabIndex = 2
         '
         'Button5
         '
         Me.Button5.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button5.Location = New System.Drawing.Point(854, 38)
+        Me.Button5.Location = New System.Drawing.Point(331, 161)
         Me.Button5.Name = "Button5"
         Me.Button5.Size = New System.Drawing.Size(34, 23)
         Me.Button5.TabIndex = 17
@@ -181,7 +181,7 @@ Partial Class frmFacultyWiseAllocation
         'Button2
         '
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button2.Location = New System.Drawing.Point(854, 68)
+        Me.Button2.Location = New System.Drawing.Point(331, 191)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(34, 23)
         Me.Button2.TabIndex = 16
@@ -193,7 +193,7 @@ Partial Class frmFacultyWiseAllocation
         Me.Label5.AutoSize = True
         Me.Label5.DataBindings.Add(New System.Windows.Forms.Binding("Text", Me.SubjectBindingSource, "name", True))
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label5.Location = New System.Drawing.Point(864, 107)
+        Me.Label5.Location = New System.Drawing.Point(341, 230)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(11, 16)
         Me.Label5.TabIndex = 15
@@ -212,16 +212,17 @@ Partial Class frmFacultyWiseAllocation
         '
         'cbsession
         '
+        Me.cbsession.BackColor = System.Drawing.SystemColors.InactiveCaption
         Me.cbsession.DataSource = Me.SectionBindingSource
         Me.cbsession.DisplayMember = "Name"
         Me.cbsession.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.cbsession.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbsession.FormattingEnabled = True
         Me.cbsession.ItemHeight = 16
-        Me.cbsession.Location = New System.Drawing.Point(106, 80)
+        Me.cbsession.Location = New System.Drawing.Point(25, 42)
         Me.cbsession.MaxDropDownItems = 10
         Me.cbsession.Name = "cbsession"
-        Me.cbsession.Size = New System.Drawing.Size(278, 24)
+        Me.cbsession.Size = New System.Drawing.Size(312, 24)
         Me.cbsession.TabIndex = 18
         Me.cbsession.ValueMember = "Id"
         '
@@ -238,7 +239,7 @@ Partial Class frmFacultyWiseAllocation
         Me.ComboBox4.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox4.FormattingEnabled = True
         Me.ComboBox4.ItemHeight = 16
-        Me.ComboBox4.Location = New System.Drawing.Point(548, 67)
+        Me.ComboBox4.Location = New System.Drawing.Point(25, 190)
         Me.ComboBox4.MaxDropDownItems = 10
         Me.ComboBox4.Name = "ComboBox4"
         Me.ComboBox4.Size = New System.Drawing.Size(300, 24)
@@ -247,7 +248,7 @@ Partial Class frmFacultyWiseAllocation
         'Label4
         '
         Me.Label4.AutoSize = True
-        Me.Label4.Location = New System.Drawing.Point(649, 91)
+        Me.Label4.Location = New System.Drawing.Point(126, 214)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(96, 13)
         Me.Label4.TabIndex = 14
@@ -257,7 +258,7 @@ Partial Class frmFacultyWiseAllocation
         '
         Me.nPA.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.SubjectBindingSource, "P", True))
         Me.nPA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nPA.Location = New System.Drawing.Point(726, 107)
+        Me.nPA.Location = New System.Drawing.Point(203, 230)
         Me.nPA.Maximum = New Decimal(New Integer() {6, 0, 0, 0})
         Me.nPA.Name = "nPA"
         Me.nPA.ReadOnly = True
@@ -268,7 +269,7 @@ Partial Class frmFacultyWiseAllocation
         '
         Me.nTA.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.SubjectBindingSource, "T", True))
         Me.nTA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nTA.Location = New System.Drawing.Point(687, 107)
+        Me.nTA.Location = New System.Drawing.Point(164, 230)
         Me.nTA.Maximum = New Decimal(New Integer() {4, 0, 0, 0})
         Me.nTA.Name = "nTA"
         Me.nTA.ReadOnly = True
@@ -280,7 +281,7 @@ Partial Class frmFacultyWiseAllocation
         '
         Me.nLA.DataBindings.Add(New System.Windows.Forms.Binding("Value", Me.SubjectBindingSource, "L", True))
         Me.nLA.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.nLA.Location = New System.Drawing.Point(652, 107)
+        Me.nLA.Location = New System.Drawing.Point(129, 230)
         Me.nLA.Maximum = New Decimal(New Integer() {9, 0, 0, 0})
         Me.nLA.Name = "nLA"
         Me.nLA.ReadOnly = True
@@ -301,7 +302,7 @@ Partial Class frmFacultyWiseAllocation
         '
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button3.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button3.Location = New System.Drawing.Point(826, 18)
+        Me.Button3.Location = New System.Drawing.Point(304, 134)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(22, 20)
         Me.Button3.TabIndex = 9
@@ -311,7 +312,7 @@ Partial Class frmFacultyWiseAllocation
         'TextBox1
         '
         Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(789, 107)
+        Me.TextBox1.Location = New System.Drawing.Point(266, 230)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.ReadOnly = True
         Me.TextBox1.Size = New System.Drawing.Size(59, 22)
@@ -322,7 +323,7 @@ Partial Class frmFacultyWiseAllocation
         'Button1
         '
         Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.Location = New System.Drawing.Point(948, 23)
+        Me.Button1.Location = New System.Drawing.Point(255, 270)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(110, 53)
         Me.Button1.TabIndex = 6
@@ -366,7 +367,7 @@ Partial Class frmFacultyWiseAllocation
         Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.ItemHeight = 16
-        Me.ComboBox2.Location = New System.Drawing.Point(548, 38)
+        Me.ComboBox2.Location = New System.Drawing.Point(25, 160)
         Me.ComboBox2.MaxDropDownItems = 10
         Me.ComboBox2.Name = "ComboBox2"
         Me.ComboBox2.Size = New System.Drawing.Size(301, 24)
@@ -377,7 +378,7 @@ Partial Class frmFacultyWiseAllocation
         '
         Me.Label2.AutoSize = True
         Me.Label2.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label2.Location = New System.Drawing.Point(545, 22)
+        Me.Label2.Location = New System.Drawing.Point(22, 141)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(53, 16)
         Me.Label2.TabIndex = 2
@@ -387,7 +388,7 @@ Partial Class frmFacultyWiseAllocation
         '
         Me.Label1.AutoSize = True
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label1.Location = New System.Drawing.Point(400, 60)
+        Me.Label1.Location = New System.Drawing.Point(22, 80)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(53, 16)
         Me.Label1.TabIndex = 1
@@ -401,17 +402,87 @@ Partial Class frmFacultyWiseAllocation
         Me.ComboBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox1.FormattingEnabled = True
         Me.ComboBox1.ItemHeight = 16
-        Me.ComboBox1.Location = New System.Drawing.Point(403, 80)
+        Me.ComboBox1.Location = New System.Drawing.Point(229, 72)
         Me.ComboBox1.MaxDropDownItems = 10
         Me.ComboBox1.Name = "ComboBox1"
         Me.ComboBox1.Size = New System.Drawing.Size(108, 24)
         Me.ComboBox1.TabIndex = 0
         Me.ComboBox1.ValueMember = "Id"
         '
+        'DataGridView2
+        '
+        Me.DataGridView2.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.DataGridView2.AutoGenerateColumns = False
+        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SectionNameDataGridViewTextBoxColumn, Me.SemesterDataGridViewTextBoxColumn, Me.SubjectCodeDataGridViewTextBoxColumn1, Me.SubjectNameDataGridViewTextBoxColumn1, Me.IsLabDataGridViewCheckBoxColumn1, Me.LDataGridViewTextBoxColumn1, Me.TDataGridViewTextBoxColumn1, Me.PDataGridViewTextBoxColumn1})
+        Me.DataGridView2.DataSource = Me.CSFViewBindingSource
+        Me.DataGridView2.Location = New System.Drawing.Point(371, 3)
+        Me.DataGridView2.Name = "DataGridView2"
+        Me.DataGridView2.Size = New System.Drawing.Size(702, 189)
+        Me.DataGridView2.TabIndex = 1
+        '
+        'SectionNameDataGridViewTextBoxColumn
+        '
+        Me.SectionNameDataGridViewTextBoxColumn.DataPropertyName = "Section_Name"
+        Me.SectionNameDataGridViewTextBoxColumn.HeaderText = "Section_Name"
+        Me.SectionNameDataGridViewTextBoxColumn.Name = "SectionNameDataGridViewTextBoxColumn"
+        '
+        'SemesterDataGridViewTextBoxColumn
+        '
+        Me.SemesterDataGridViewTextBoxColumn.DataPropertyName = "Semester"
+        Me.SemesterDataGridViewTextBoxColumn.HeaderText = "Semester"
+        Me.SemesterDataGridViewTextBoxColumn.Name = "SemesterDataGridViewTextBoxColumn"
+        '
+        'SubjectCodeDataGridViewTextBoxColumn1
+        '
+        Me.SubjectCodeDataGridViewTextBoxColumn1.DataPropertyName = "Subject_Code"
+        Me.SubjectCodeDataGridViewTextBoxColumn1.HeaderText = "Subject_Code"
+        Me.SubjectCodeDataGridViewTextBoxColumn1.Name = "SubjectCodeDataGridViewTextBoxColumn1"
+        '
+        'SubjectNameDataGridViewTextBoxColumn1
+        '
+        Me.SubjectNameDataGridViewTextBoxColumn1.DataPropertyName = "Subject_Name"
+        Me.SubjectNameDataGridViewTextBoxColumn1.HeaderText = "Subject_Name"
+        Me.SubjectNameDataGridViewTextBoxColumn1.Name = "SubjectNameDataGridViewTextBoxColumn1"
+        '
+        'IsLabDataGridViewCheckBoxColumn1
+        '
+        Me.IsLabDataGridViewCheckBoxColumn1.DataPropertyName = "IsLab"
+        Me.IsLabDataGridViewCheckBoxColumn1.HeaderText = "IsLab"
+        Me.IsLabDataGridViewCheckBoxColumn1.Name = "IsLabDataGridViewCheckBoxColumn1"
+        '
+        'LDataGridViewTextBoxColumn1
+        '
+        Me.LDataGridViewTextBoxColumn1.DataPropertyName = "L"
+        Me.LDataGridViewTextBoxColumn1.HeaderText = "L"
+        Me.LDataGridViewTextBoxColumn1.Name = "LDataGridViewTextBoxColumn1"
+        '
+        'TDataGridViewTextBoxColumn1
+        '
+        Me.TDataGridViewTextBoxColumn1.DataPropertyName = "T"
+        Me.TDataGridViewTextBoxColumn1.HeaderText = "T"
+        Me.TDataGridViewTextBoxColumn1.Name = "TDataGridViewTextBoxColumn1"
+        '
+        'PDataGridViewTextBoxColumn1
+        '
+        Me.PDataGridViewTextBoxColumn1.DataPropertyName = "P"
+        Me.PDataGridViewTextBoxColumn1.HeaderText = "P"
+        Me.PDataGridViewTextBoxColumn1.Name = "PDataGridViewTextBoxColumn1"
+        '
+        'CSFViewBindingSource
+        '
+        Me.CSFViewBindingSource.DataMember = "CSF_View"
+        Me.CSFViewBindingSource.DataSource = Me.ECollegeDataSet
+        '
         'DataGridView1
         '
-        DataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle2
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.DataGridView1.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
+        Me.DataGridView1.Anchor = CType((((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
+            Or System.Windows.Forms.AnchorStyles.Left) _
+            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
         Me.DataGridView1.AutoGenerateColumns = False
         Me.DataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.DataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
@@ -419,7 +490,7 @@ Partial Class frmFacultyWiseAllocation
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.DataGridViewTextBoxColumn1, Me.SubjectCodeDataGridViewTextBoxColumn, Me.SubjectNameDataGridViewTextBoxColumn, Me.IsLabDataGridViewCheckBoxColumn, Me.LDataGridViewTextBoxColumn, Me.TDataGridViewTextBoxColumn, Me.PDataGridViewTextBoxColumn, Me.DataGridViewTextBoxColumn2, Me.DataGridViewTextBoxColumn3})
         Me.DataGridView1.DataSource = Me.VCourseStructureBindingSource
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
+        Me.DataGridView1.Location = New System.Drawing.Point(371, 3)
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.[Single]
         Me.DataGridView1.RowHeadersWidth = 50
@@ -427,7 +498,7 @@ Partial Class frmFacultyWiseAllocation
         Me.DataGridView1.RowTemplate.Height = 25
         Me.DataGridView1.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.[True]
         Me.DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
-        Me.DataGridView1.Size = New System.Drawing.Size(252, 343)
+        Me.DataGridView1.Size = New System.Drawing.Size(702, 286)
         Me.DataGridView1.TabIndex = 0
         Me.DataGridView1.TabStop = False
         '
@@ -492,11 +563,6 @@ Partial Class frmFacultyWiseAllocation
         Me.VCourseStructureBindingSource.DataMember = "V_CourseStructure"
         Me.VCourseStructureBindingSource.DataSource = Me.ECollegeDataSet
         '
-        'CSFViewBindingSource
-        '
-        Me.CSFViewBindingSource.DataMember = "CSF_View"
-        Me.CSFViewBindingSource.DataSource = Me.ECollegeDataSet
-        '
         'SectionTableAdapter
         '
         Me.SectionTableAdapter.ClearBeforeFill = True
@@ -557,67 +623,6 @@ Partial Class frmFacultyWiseAllocation
         Me.bsProgram.DataMember = "Program"
         Me.bsProgram.DataSource = Me.ECollegeDataSet
         '
-        'DataGridView2
-        '
-        Me.DataGridView2.Anchor = CType(((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Bottom) _
-            Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.DataGridView2.AutoGenerateColumns = False
-        Me.DataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView2.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.SectionNameDataGridViewTextBoxColumn, Me.SemesterDataGridViewTextBoxColumn, Me.SubjectCodeDataGridViewTextBoxColumn1, Me.SubjectNameDataGridViewTextBoxColumn1, Me.IsLabDataGridViewCheckBoxColumn1, Me.LDataGridViewTextBoxColumn1, Me.TDataGridViewTextBoxColumn1, Me.PDataGridViewTextBoxColumn1})
-        Me.DataGridView2.DataSource = Me.CSFViewBindingSource
-        Me.DataGridView2.Location = New System.Drawing.Point(258, 3)
-        Me.DataGridView2.Name = "DataGridView2"
-        Me.DataGridView2.Size = New System.Drawing.Size(815, 249)
-        Me.DataGridView2.TabIndex = 1
-        '
-        'SectionNameDataGridViewTextBoxColumn
-        '
-        Me.SectionNameDataGridViewTextBoxColumn.DataPropertyName = "Section_Name"
-        Me.SectionNameDataGridViewTextBoxColumn.HeaderText = "Section_Name"
-        Me.SectionNameDataGridViewTextBoxColumn.Name = "SectionNameDataGridViewTextBoxColumn"
-        '
-        'SemesterDataGridViewTextBoxColumn
-        '
-        Me.SemesterDataGridViewTextBoxColumn.DataPropertyName = "Semester"
-        Me.SemesterDataGridViewTextBoxColumn.HeaderText = "Semester"
-        Me.SemesterDataGridViewTextBoxColumn.Name = "SemesterDataGridViewTextBoxColumn"
-        '
-        'SubjectCodeDataGridViewTextBoxColumn1
-        '
-        Me.SubjectCodeDataGridViewTextBoxColumn1.DataPropertyName = "Subject_Code"
-        Me.SubjectCodeDataGridViewTextBoxColumn1.HeaderText = "Subject_Code"
-        Me.SubjectCodeDataGridViewTextBoxColumn1.Name = "SubjectCodeDataGridViewTextBoxColumn1"
-        '
-        'SubjectNameDataGridViewTextBoxColumn1
-        '
-        Me.SubjectNameDataGridViewTextBoxColumn1.DataPropertyName = "Subject_Name"
-        Me.SubjectNameDataGridViewTextBoxColumn1.HeaderText = "Subject_Name"
-        Me.SubjectNameDataGridViewTextBoxColumn1.Name = "SubjectNameDataGridViewTextBoxColumn1"
-        '
-        'IsLabDataGridViewCheckBoxColumn1
-        '
-        Me.IsLabDataGridViewCheckBoxColumn1.DataPropertyName = "IsLab"
-        Me.IsLabDataGridViewCheckBoxColumn1.HeaderText = "IsLab"
-        Me.IsLabDataGridViewCheckBoxColumn1.Name = "IsLabDataGridViewCheckBoxColumn1"
-        '
-        'LDataGridViewTextBoxColumn1
-        '
-        Me.LDataGridViewTextBoxColumn1.DataPropertyName = "L"
-        Me.LDataGridViewTextBoxColumn1.HeaderText = "L"
-        Me.LDataGridViewTextBoxColumn1.Name = "LDataGridViewTextBoxColumn1"
-        '
-        'TDataGridViewTextBoxColumn1
-        '
-        Me.TDataGridViewTextBoxColumn1.DataPropertyName = "T"
-        Me.TDataGridViewTextBoxColumn1.HeaderText = "T"
-        Me.TDataGridViewTextBoxColumn1.Name = "TDataGridViewTextBoxColumn1"
-        '
-        'PDataGridViewTextBoxColumn1
-        '
-        Me.PDataGridViewTextBoxColumn1.DataPropertyName = "P"
-        Me.PDataGridViewTextBoxColumn1.HeaderText = "P"
-        Me.PDataGridViewTextBoxColumn1.Name = "PDataGridViewTextBoxColumn1"
-        '
         'frmFacultyWiseAllocation
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -635,6 +640,7 @@ Partial Class frmFacultyWiseAllocation
         Me.SplitContainer1.Panel1.ResumeLayout(False)
         Me.SplitContainer1.Panel1.PerformLayout()
         Me.SplitContainer1.Panel2.ResumeLayout(False)
+        Me.SplitContainer1.Panel2.PerformLayout()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.SplitContainer1.ResumeLayout(False)
         CType(Me.SubjectBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
@@ -644,13 +650,13 @@ Partial Class frmFacultyWiseAllocation
         CType(Me.nTA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.nLA, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.TeacherBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.CSFViewBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VCourseStructureBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.CSFViewBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FillByToolStrip.ResumeLayout(False)
         Me.FillByToolStrip.PerformLayout()
         CType(Me.bsProgram, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.DataGridView2, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

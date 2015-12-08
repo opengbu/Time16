@@ -42,7 +42,7 @@ Partial Class LoginForm1
         'UsernameLabel
         '
         Me.UsernameLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.UsernameLabel.Location = New System.Drawing.Point(208, 70)
+        Me.UsernameLabel.Location = New System.Drawing.Point(217, 70)
         Me.UsernameLabel.Name = "UsernameLabel"
         Me.UsernameLabel.Size = New System.Drawing.Size(94, 23)
         Me.UsernameLabel.TabIndex = 0
@@ -52,7 +52,7 @@ Partial Class LoginForm1
         'PasswordLabel
         '
         Me.PasswordLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PasswordLabel.Location = New System.Drawing.Point(208, 138)
+        Me.PasswordLabel.Location = New System.Drawing.Point(217, 138)
         Me.PasswordLabel.Name = "PasswordLabel"
         Me.PasswordLabel.Size = New System.Drawing.Size(94, 23)
         Me.PasswordLabel.TabIndex = 2
@@ -65,7 +65,7 @@ Partial Class LoginForm1
         Me.UsernameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.UsernameTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.UsernameTextBox.ForeColor = System.Drawing.SystemColors.WindowFrame
-        Me.UsernameTextBox.Location = New System.Drawing.Point(121, 96)
+        Me.UsernameTextBox.Location = New System.Drawing.Point(221, 96)
         Me.UsernameTextBox.Name = "UsernameTextBox"
         Me.UsernameTextBox.Size = New System.Drawing.Size(263, 38)
         Me.UsernameTextBox.TabIndex = 1
@@ -77,7 +77,7 @@ Partial Class LoginForm1
         Me.PasswordTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
         Me.PasswordTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 20.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.PasswordTextBox.ForeColor = System.Drawing.SystemColors.WindowFrame
-        Me.PasswordTextBox.Location = New System.Drawing.Point(121, 164)
+        Me.PasswordTextBox.Location = New System.Drawing.Point(221, 164)
         Me.PasswordTextBox.Name = "PasswordTextBox"
         Me.PasswordTextBox.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
         Me.PasswordTextBox.Size = New System.Drawing.Size(263, 38)
@@ -90,41 +90,40 @@ Partial Class LoginForm1
         Me.OK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver
         Me.OK.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.OK.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.OK.Location = New System.Drawing.Point(153, 232)
+        Me.OK.Location = New System.Drawing.Point(221, 222)
         Me.OK.Name = "OK"
-        Me.OK.Size = New System.Drawing.Size(198, 42)
+        Me.OK.Size = New System.Drawing.Size(102, 42)
         Me.OK.TabIndex = 4
         Me.OK.Text = "&OK"
         '
         'Cancel
         '
         Me.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Cancel.FlatAppearance.BorderSize = 0
         Me.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat
         Me.Cancel.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Cancel.Location = New System.Drawing.Point(153, 280)
+        Me.Cancel.Location = New System.Drawing.Point(329, 222)
         Me.Cancel.Name = "Cancel"
-        Me.Cancel.Size = New System.Drawing.Size(198, 36)
+        Me.Cancel.Size = New System.Drawing.Size(155, 42)
         Me.Cancel.TabIndex = 5
         Me.Cancel.Text = "&Cancel"
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.BackColor = System.Drawing.Color.FromArgb(CType(CType(255, Byte), Integer), CType(CType(192, Byte), Integer), CType(CType(192, Byte), Integer))
+        Me.Label1.BackColor = System.Drawing.Color.Transparent
         Me.Label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Label1.Font = New System.Drawing.Font("Microsoft Sans Serif", 30.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label1.ForeColor = System.Drawing.Color.OliveDrab
-        Me.Label1.Location = New System.Drawing.Point(91, 9)
+        Me.Label1.Location = New System.Drawing.Point(24, 70)
         Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(351, 46)
+        Me.Label1.Size = New System.Drawing.Size(163, 46)
         Me.Label1.TabIndex = 6
-        Me.Label1.Text = "TIME TABLE 2015"
+        Me.Label1.Text = "Time 16"
         '
         'appVer
         '
         Me.appVer.AutoSize = True
-        Me.appVer.Location = New System.Drawing.Point(387, 320)
+        Me.appVer.Location = New System.Drawing.Point(39, 113)
         Me.appVer.Name = "appVer"
         Me.appVer.Size = New System.Drawing.Size(16, 13)
         Me.appVer.TabIndex = 7
@@ -135,7 +134,7 @@ Partial Class LoginForm1
         Me.AcceptButton = Me.OK
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackgroundImage = Global.TimeTableManager.My.Resources.Resources.introbg
+        Me.BackColor = System.Drawing.Color.Maroon
         Me.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch
         Me.CancelButton = Me.Cancel
         Me.ClientSize = New System.Drawing.Size(526, 348)
@@ -148,14 +147,14 @@ Partial Class LoginForm1
         Me.Controls.Add(Me.UsernameTextBox)
         Me.Controls.Add(Me.PasswordLabel)
         Me.Controls.Add(Me.UsernameLabel)
-        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None
+        Me.ForeColor = System.Drawing.SystemColors.ButtonHighlight
+        Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
         Me.MaximizeBox = False
         Me.MinimizeBox = False
         Me.Name = "LoginForm1"
         Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
-        Me.Text = "Time Table 2015"
         Me.TopMost = True
-        Me.TransparencyKey = System.Drawing.Color.White
+        Me.TransparencyKey = System.Drawing.Color.Black
         Me.ResumeLayout(False)
         Me.PerformLayout()
 

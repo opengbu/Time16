@@ -43,6 +43,14 @@ Public Class frmFacultyWiseAllocation
         Me.SubjectTableAdapter.Fill(Me.ECollegeDataSet.Subject)
 
 
+        ComboBox1.Focus()
+        Me.CSF_ViewTableAdapter.FillByFacultyId(Me.ECollegeDataSet.CSF_View, ComboBox3.SelectedValue)
+        Me.V_CourseStructureTableAdapter.FillBySemester(Me.ECollegeDataSet.V_CourseStructure, Me.ComboBox1.SelectedValue, _currentSemester)
+        Me.DataGridView1.Invalidate()
+
+        Me.Refresh()
+
+
     End Sub
 
 
@@ -125,6 +133,7 @@ Public Class frmFacultyWiseAllocation
         'Me.CSF_ViewTableAdapter.Fill(Me.ECollegeDataSet.CSF_View)
 
         ComboBox1.Focus()
+
         Me.CSF_ViewTableAdapter.FillByFacultyId(Me.ECollegeDataSet.CSF_View, ComboBox3.SelectedValue)
         Me.V_CourseStructureTableAdapter.FillBySemester(Me.ECollegeDataSet.V_CourseStructure, Me.ComboBox1.SelectedValue, _currentSemester)
 
@@ -188,20 +197,32 @@ Public Class frmFacultyWiseAllocation
 
         'End Try
 
-        Try
-            Me.V_CourseStructureTableAdapter.Fill(Me.ECollegeDataSet.V_CourseStructure, ComboBox1.SelectedValue)
-            Me.DataGridView1.Invalidate()
-            Me.Refresh()
-        Catch ex As Exception
+        '  Try
+        ' Me.V_CourseStructureTableAdapter.Fill(Me.ECollegeDataSet.V_CourseStructure, ComboBox1.SelectedValue)
+        ' Me.DataGridView1.Invalidate()
+        ' Me.Refresh()
+        ' Catch ex As Exception
 
-        End Try
+        '  End Try
     End Sub
 
     Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ComboBox1.SelectedIndexChanged
         Try
-            Me.V_CourseStructureTableAdapter.Fill(Me.ECollegeDataSet.V_CourseStructure, ComboBox1.SelectedValue)
+            ' Me.V_CourseStructureTableAdapter.Fill(Me.ECollegeDataSet.V_CourseStructure, ComboBox1.SelectedValue)
+            Me.V_CourseStructureTableAdapter.FillBySemester(Me.ECollegeDataSet.V_CourseStructure, Me.ComboBox1.SelectedValue, _currentSemester)
             Me.DataGridView1.Invalidate()
             Me.Refresh()
+
+
+            ComboBox1.Focus()
+
+            'Me.CSF_ViewTableAdapter.FillByFacultyId(Me.ECollegeDataSet.CSF_View, ComboBox3.SelectedValue)
+
+
+            'Me.DataGridView1.Invalidate()
+
+            'Me.Refresh()
+
         Catch ex As Exception
 
         End Try
@@ -226,5 +247,9 @@ Public Class frmFacultyWiseAllocation
             System.Windows.Forms.MessageBox.Show(ex.Message)
         End Try
         Me.ComboBox3.Invalidate()
+    End Sub
+
+    Private Sub DataGridView1_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles DataGridView1.CellContentClick
+
     End Sub
 End Class

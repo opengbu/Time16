@@ -91,7 +91,6 @@ Module Module1
         cn.ConnectionString = My.Settings.eCollegeConnectionString
         ValidateLoginByEmail = False
         Try
-            _currentSemester = 0
             Dim sQry As String = ""
             sQry = "SELECT  uid,school FROM [user] WHERE  (uid = @Id) and (pwd=@pw)"
             Dim cmd As New SqlCommand(sQry, cn)
