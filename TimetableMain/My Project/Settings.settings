@@ -5,10 +5,10 @@
     <Setting Name="eCollegeConnectionString" Type="(Connection string)" Scope="Application">
       <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
 &lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=10.10.32.10;Initial Catalog=TIMETABLE_JAN2014.MDF;User ID=sa;Password=12345;Network Library=dbmssocn&lt;/ConnectionString&gt;
+  &lt;ConnectionString&gt;Data Source=10.10.32.10;Initial Catalog=TIMETABLE_JAN2015;User ID=sa;Password=12345;Network Library=dbmssocn&lt;/ConnectionString&gt;
   &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
 &lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=10.10.32.10;Initial Catalog=TIMETABLE_JAN2014.MDF;User ID=sa;Password=12345;Network Library=dbmssocn</Value>
+      <Value Profile="(Default)">Data Source=10.10.32.10;Initial Catalog=TIMETABLE_JAN2015;User ID=sa;Password=12345;Network Library=dbmssocn</Value>
     </Setting>
     <Setting Name="DeleteConfirm" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
@@ -24,14 +24,6 @@
     </Setting>
     <Setting Name="Setting" Type="System.String" Scope="User">
       <Value Profile="(Default)">Data Source=10.10.32.10;Initial Catalog=TIMETABLE_JAN2014.MDF;Persist Security Info=True;User ID=sa;Password=12345</Value>
-    </Setting>
-    <Setting Name="TIMETABLE_JAN2014_MDFConnectionString" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=10.10.32.10;Initial Catalog=TIMETABLE_JAN2014.MDF;User ID=sa;Password=12345;Network Library=dbmssocn&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=10.10.32.10;Initial Catalog=TIMETABLE_JAN2014.MDF;User ID=sa;Password=12345;Network Library=dbmssocn</Value>
     </Setting>
   </Settings>
 </SettingsFile>
