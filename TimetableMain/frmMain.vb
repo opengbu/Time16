@@ -2,6 +2,7 @@
 Imports System.Data
 Imports System.Data.OleDb
 Imports System.IO
+Imports System.Net
 
 Public Class frmMain
     Dim cn As New SqlConnection
@@ -28,6 +29,8 @@ Public Class frmMain
     Private _colorMode As Boolean = True
     Private _pathToImport As String = "D:\Timetables2014"
     Dim disession As SessionData
+    Private url As Object = "http://172.25.5.15/tt/upload.php"
+
     Sub TTAdd(ByVal day As Integer, ByVal period As Integer, ByVal value As String)
         TableLayoutPanel1.GetControlFromPosition(period - 1, day - 1).Text = TableLayoutPanel1.GetControlFromPosition(period - 1, day - 1).Text.Trim & vbCrLf & value
     End Sub
@@ -105,7 +108,7 @@ Public Class frmMain
             TableLayoutPanel1.Controls.Item(i).Text = ""
         Next
 
-         Dim sQry = "SELECT distinct TimeTableId, Section_Id, TT_Day, TT_Period, CSF_Id, Room_Id, Batch_Id, Abr_n as abr, Subject_Code, Subject, IsLab, Section_Name, Semester, Room, Group_Id  FROM [V_TimeTable_2013] WHERE (TimeTableId = " & My.Settings.TTid & ") and (Section_id=" & SectionId & ")"
+        Dim sQry = "SELECT distinct TimeTableId, Section_Id, TT_Day, TT_Period, CSF_Id, Room_Id, Batch_Id, Abr_n as abr, Subject_Code, Subject, IsLab, Section_Name, Semester, Room, Group_Id  FROM [V_TimeTable_2013] WHERE (TimeTableId = " & My.Settings.TTid & ") and (Section_id=" & SectionId & ")"
         Dim cmd As New SqlCommand(sQry)
         'SqlCommand cmd = new SqlCommand(sQry, GlobalCnx); 
         Dim ad As SqlDataReader
@@ -235,7 +238,7 @@ Public Class frmMain
         Finally
             If cn.State = ConnectionState.Open Then cn.Close()
         End Try
-       
+
 
     End Sub
 
@@ -394,7 +397,7 @@ Public Class frmMain
         ColorCSFLTP()
 
     End Sub
- 
+
     Private Sub FillByToolStripButton_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles FillByToolStripButton.Click
         Try
             ' Me.M_SessionTableAdapter.FillBy(Me.ECollegeDataSet1.M_Session)
@@ -476,7 +479,7 @@ Public Class frmMain
             Dim res = FRMcsfupdate.ShowDialog()
             If res = Windows.Forms.DialogResult.OK Then CSFUpdate(_section)
             If cbSession.SelectedIndex = -1 Then Exit Sub
-            
+
         Catch ex As Exception
 
         End Try
@@ -656,7 +659,7 @@ Public Class frmMain
         Dim Str As String = """" & "Subject" & """"
         While rd.Read
             Str += vbNewLine & """" & rd(0) & """"
-            End While
+        End While
         cn.Close()
         Dim w As StreamWriter
         w = File.CreateText(_pathToImport & "\gbu2014_subjects.csv")
@@ -898,7 +901,7 @@ Public Class frmMain
             _TTDayCopy = TableLayoutPanel1.GetRow(ContextMenuStrip1.SourceControl) + 1
             _TTPeriodCopy = TableLayoutPanel1.GetColumn(ContextMenuStrip1.SourceControl) + 1
         End If
-        
+
 
     End Sub
     Private Sub Swap(iDay As Integer, iPeriod As Integer, jDay As Integer, jPeriod As Integer)
@@ -1007,7 +1010,7 @@ Public Class frmMain
         c.Show()
     End Sub
 
-    
+
     Private Sub ToolStripButton4_Click(sender As Object, e As EventArgs) Handles ToolStripButton4.Click
         UploadThisTimetable()
     End Sub
@@ -1016,7 +1019,8 @@ Public Class frmMain
         ' TimetableView.Form1.doSection(7)
         Dim tup As New TTUpload
         tup.doSection(_section)
-        tup.UploadNow()
+        'tup.UploadNow()
+        tup.UploadNow2()
 
     End Sub
 
@@ -1031,7 +1035,7 @@ Public Class frmMain
     End Sub
 
 
- 
+
 
     Private Sub cbSection_GotFocus(sender As Object, e As EventArgs) Handles cbSection.GotFocus
         If cbSection.SelectedIndex = -1 Then Exit Sub
@@ -1045,7 +1049,7 @@ Public Class frmMain
         End Try
     End Sub
 
- 
+
 
     Private Sub cbSession_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbSession.SelectedIndexChanged
         If cbSession.SelectedIndex = -1 Then Exit Sub
@@ -1058,7 +1062,7 @@ Public Class frmMain
         End Try
     End Sub
 
- 
+
 
     Private Sub cbSection_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbSection.SelectedIndexChanged
         If cbSection.SelectedItem Is Nothing Then Exit Sub
@@ -1076,7 +1080,7 @@ Public Class frmMain
     End Sub
 
 
- 
+
 
     Private Sub FillByToolStripButton1_Click(sender As Object, e As EventArgs) Handles FillByToolStripButton1.Click
         Try
@@ -1087,7 +1091,7 @@ Public Class frmMain
 
     End Sub
 
-    
+
     Private Sub ToolStripMenuItem4_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem4.Click
         Try
             _currentcsf = -1
@@ -1144,7 +1148,7 @@ Public Class frmMain
 
 
 
- 
+
     Private Sub FacultyWiseAllocationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FacultyWiseAllocationToolStripMenuItem.Click
         frmFacultyWiseAllocation.ShowDialog()
     End Sub
@@ -1153,6 +1157,8 @@ Public Class frmMain
     Private Sub cbSection_Click(sender As Object, e As EventArgs) Handles cbSection.Click
 
     End Sub
+
+
 End Class
 'Public Sub restore(ByVal dat As Date, Optional ByVal Encrypt As Boolean = False, Optional ByVal key As String = "")
 '    frmMain.ActiveForm.Text = "Waiting"

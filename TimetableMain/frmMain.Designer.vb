@@ -196,6 +196,7 @@ Partial Class frmMain
         Me.userinfo = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.VTimeTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.CSFList, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1918,7 +1919,7 @@ Partial Class frmMain
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.cbSession, Me.cbSection, Me.ToolStripButton1, Me.ToolStripTextBox1, Me.ToolStripButton2, Me.ToolStripButton3, Me.ToolStripButton4, Me.ToolStripButton5})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.cbSession, Me.cbSection, Me.ToolStripButton1, Me.ToolStripTextBox1, Me.ToolStripButton2, Me.ToolStripButton3, Me.ToolStripButton4, Me.ToolStripButton5, Me.ToolStripButton6})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 24)
         Me.ToolStrip1.Margin = New System.Windows.Forms.Padding(5)
         Me.ToolStrip1.MaximumSize = New System.Drawing.Size(0, 60)
@@ -2243,6 +2244,15 @@ Partial Class frmMain
         Me.userinfo.TabIndex = 23
         Me.userinfo.Text = "..."
         '
+        'ToolStripButton6
+        '
+        Me.ToolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton6.Image = CType(resources.GetObject("ToolStripButton6.Image"), System.Drawing.Image)
+        Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton6.Name = "ToolStripButton6"
+        Me.ToolStripButton6.Size = New System.Drawing.Size(23, 20)
+        Me.ToolStripButton6.Text = "ToolStripButton6"
+        '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -2471,5 +2481,5 @@ Partial Class frmMain
     Friend WithEvents TextBox73 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox72 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox71 As System.Windows.Forms.TextBox
-
+    Friend WithEvents ToolStripButton6 As ToolStripButton
 End Class

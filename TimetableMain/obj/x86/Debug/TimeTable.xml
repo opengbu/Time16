@@ -6,306 +6,380 @@ TimeTable
 </name>
 </assembly>
 <members>
+<member name="T:TimeTableManager.eCollegeDataSet">
+<summary>
+Represents a strongly typed in-memory cache of data.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.V_TimeTableDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.L_Section_Subject_FacultyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.M_SubjectDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.V_FacultyDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.TeacherDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.SubjectDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.SectionDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.M_RoomDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.CSF_ViewDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.ProgramDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.CourseStructureDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.V_CourseStructureDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.SchoolDataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.CSF_View1DataTable">
+<summary>
+Represents the strongly named DataTable class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.V_TimeTableRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.L_Section_Subject_FacultyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.M_SubjectRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.V_FacultyRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.TeacherRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.SubjectRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.SectionRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.M_RoomRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.CSF_ViewRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.ProgramRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.CourseStructureRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.V_CourseStructureRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.SchoolRow">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.CSF_View1Row">
+<summary>
+Represents strongly named DataRow class.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.V_TimeTableRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.L_Section_Subject_FacultyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.M_SubjectRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.V_FacultyRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.TeacherRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.SubjectRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.SectionRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.M_RoomRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.CSF_ViewRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.ProgramRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.CourseStructureRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.V_CourseStructureRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.SchoolRowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSet.CSF_View1RowChangeEvent">
+<summary>
+Row event argument class
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSetTableAdapters.V_TimeTableTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSetTableAdapters.L_Section_Subject_FacultyTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSetTableAdapters.M_SubjectTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSetTableAdapters.V_FacultyTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSetTableAdapters.TeacherTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSetTableAdapters.SubjectTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSetTableAdapters.SectionTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSetTableAdapters.M_RoomTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSetTableAdapters.CSF_ViewTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSetTableAdapters.ProgramTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSetTableAdapters.CourseStructureTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSetTableAdapters.V_CourseStructureTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSetTableAdapters.SchoolTableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSetTableAdapters.CSF_View1TableAdapter">
+<summary>
+Represents the connection and commands used to retrieve and save data.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSetTableAdapters.TableAdapterManager">
+<summary>
+TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
+</summary>
+</member>
+<member name="M:TimeTableManager.eCollegeDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(TimeTableManager.eCollegeDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Update rows in top-down order.
+</summary>
+</member>
+<member name="M:TimeTableManager.eCollegeDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(TimeTableManager.eCollegeDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Insert rows in top-down order.
+</summary>
+</member>
+<member name="M:TimeTableManager.eCollegeDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(TimeTableManager.eCollegeDataSet,System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Delete rows in bottom-up order.
+</summary>
+</member>
+<member name="M:TimeTableManager.eCollegeDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
+<summary>
+Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
+</summary>
+</member>
+<member name="M:TimeTableManager.eCollegeDataSetTableAdapters.TableAdapterManager.UpdateAll(TimeTableManager.eCollegeDataSet)">
+<summary>
+Update all changes to the dataset.
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
+<summary>
+Update Order Option
+</summary>
+</member>
+<member name="T:TimeTableManager.eCollegeDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
+<summary>
+Used to sort self-referenced table's rows
+</summary>
+</member>
+<member name="T:TimeTableManager.My.Resources.Resources">
+<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
 <member name="P:TimeTableManager.My.Resources.Resources.ResourceManager">
-	<summary>
+<summary>
   Returns the cached ResourceManager instance used by this class.
 </summary>
-</member><member name="P:TimeTableManager.My.Resources.Resources.Culture">
-	<summary>
+</member>
+<member name="P:TimeTableManager.My.Resources.Resources.Culture">
+<summary>
   Overrides the current thread's CurrentUICulture property for all
   resource lookups using this strongly typed resource class.
 </summary>
-</member><member name="P:TimeTableManager.My.Resources.Resources.ComponentDiagramFile_componentdiagram_13449">
-	<summary>
+</member>
+<member name="P:TimeTableManager.My.Resources.Resources.ComponentDiagramFile_componentdiagram_13449">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:TimeTableManager.My.Resources.Resources.introbg">
-	<summary>
+</member>
+<member name="P:TimeTableManager.My.Resources.Resources.introbg">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:TimeTableManager.My.Resources.Resources.Open_6296">
-	<summary>
+</member>
+<member name="P:TimeTableManager.My.Resources.Resources.Open_6296">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:TimeTableManager.My.Resources.Resources.refresh_16xLG">
-	<summary>
+</member>
+<member name="P:TimeTableManager.My.Resources.Resources.refresh_16xLG">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:TimeTableManager.My.Resources.Resources.Save_6530">
-	<summary>
+</member>
+<member name="P:TimeTableManager.My.Resources.Resources.Save_6530">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:TimeTableManager.My.Resources.Resources.view_16xLG">
-	<summary>
+</member>
+<member name="P:TimeTableManager.My.Resources.Resources.view_16xLG">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
-</member><member name="P:TimeTableManager.My.Resources.Resources.VSNETWebServiceDynamicDiscovery_8215">
-	<summary>
+</member>
+<member name="P:TimeTableManager.My.Resources.Resources.VSNETWebServiceDynamicDiscovery_8215">
+<summary>
   Looks up a localized resource of type System.Drawing.Bitmap.
-</summary>
-</member><member name="T:TimeTableManager.My.Resources.Resources">
-	<summary>
-  A strongly-typed resource class, for looking up localized strings, etc.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.V_TimeTableDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.L_Section_Subject_FacultyDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.M_SubjectDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.V_FacultyDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.TeacherDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.SubjectDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.SectionDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.M_RoomDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.CSF_ViewDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.ProgramDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.CourseStructureDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.V_CourseStructureDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.SchoolDataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.CSF_View1DataTable">
-	<summary>
-Represents the strongly named DataTable class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.V_TimeTableRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.L_Section_Subject_FacultyRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.M_SubjectRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.V_FacultyRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.TeacherRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.SubjectRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.SectionRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.M_RoomRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.CSF_ViewRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.ProgramRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.CourseStructureRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.V_CourseStructureRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.SchoolRow">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.CSF_View1Row">
-	<summary>
-Represents strongly named DataRow class.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.V_TimeTableRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.L_Section_Subject_FacultyRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.M_SubjectRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.V_FacultyRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.TeacherRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.SubjectRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.SectionRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.M_RoomRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.CSF_ViewRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.ProgramRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.CourseStructureRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.V_CourseStructureRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.SchoolRowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet.CSF_View1RowChangeEvent">
-	<summary>
-Row event argument class
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSet">
-	<summary>
-Represents a strongly typed in-memory cache of data.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSetTableAdapters.V_TimeTableTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSetTableAdapters.L_Section_Subject_FacultyTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSetTableAdapters.M_SubjectTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSetTableAdapters.V_FacultyTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSetTableAdapters.TeacherTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSetTableAdapters.SubjectTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSetTableAdapters.SectionTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSetTableAdapters.M_RoomTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSetTableAdapters.CSF_ViewTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSetTableAdapters.ProgramTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSetTableAdapters.CourseStructureTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSetTableAdapters.V_CourseStructureTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSetTableAdapters.SchoolTableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSetTableAdapters.CSF_View1TableAdapter">
-	<summary>
-Represents the connection and commands used to retrieve and save data.
-</summary>
-</member><member name="M:TimeTableManager.eCollegeDataSetTableAdapters.TableAdapterManager.UpdateUpdatedRows(TimeTableManager.eCollegeDataSet,System.Collections.Generic.List{System.Data.DataRow},System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Update rows in top-down order.
-</summary>
-</member><member name="M:TimeTableManager.eCollegeDataSetTableAdapters.TableAdapterManager.UpdateInsertedRows(TimeTableManager.eCollegeDataSet,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Insert rows in top-down order.
-</summary>
-</member><member name="M:TimeTableManager.eCollegeDataSetTableAdapters.TableAdapterManager.UpdateDeletedRows(TimeTableManager.eCollegeDataSet,System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Delete rows in bottom-up order.
-</summary>
-</member><member name="M:TimeTableManager.eCollegeDataSetTableAdapters.TableAdapterManager.GetRealUpdatedRows(System.Data.DataRow[],System.Collections.Generic.List{System.Data.DataRow})">
-	<summary>
-Remove inserted rows that become updated rows after calling TableAdapter.Update(inserted rows) first
-</summary>
-</member><member name="M:TimeTableManager.eCollegeDataSetTableAdapters.TableAdapterManager.UpdateAll(TimeTableManager.eCollegeDataSet)">
-	<summary>
-Update all changes to the dataset.
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSetTableAdapters.TableAdapterManager.UpdateOrderOption">
-	<summary>
-Update Order Option
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSetTableAdapters.TableAdapterManager.SelfReferenceComparer">
-	<summary>
-Used to sort self-referenced table's rows
-</summary>
-</member><member name="T:TimeTableManager.eCollegeDataSetTableAdapters.TableAdapterManager">
-	<summary>
-TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
 </summary>
 </member>
 </members>

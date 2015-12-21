@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TimetableView.exe" size="860160">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="TimetableView.exe" size="825856">
       <assemblyIdentity name="TimetableView" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-        <dsig:DigestValue>hMK/1Y6M/ndWE0oyZ8qtCE/ywJ0=</dsig:DigestValue>
+        <dsig:DigestValue>bmBH6mI8FwEzRVEb40bWzdgfFAI=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
@@ -72,13 +72,13 @@
       <dsig:DigestValue>/yvThvbHUdYsgDrfJEiJFlneXdc=</dsig:DigestValue>
     </hash>
   </file>
-  <file name="View.HTML" size="4077">
+  <file name="View.HTML" size="4232">
     <hash>
       <dsig:Transforms>
         <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
       </dsig:Transforms>
       <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1" />
-      <dsig:DigestValue>psVQjftAbd0gdPL9PeVs5B6Spm4=</dsig:DigestValue>
+      <dsig:DigestValue>ei6PTwxHIeMl4WQxopVQlYNqR9c=</dsig:DigestValue>
     </hash>
   </file>
 </asmv1:assembly>

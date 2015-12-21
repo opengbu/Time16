@@ -1,5 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
+Imports System.Net
+
 Public Class TTUpload
     Dim uctSign As String = "<br/><br/><div><img src='sign.png' width='150'><br/> University Cordinator, Timetables</div>"
     Dim currFileName As String = ""
@@ -233,7 +235,7 @@ Public Class TTUpload
     Private Sub getCSF(SectionId As Object)
         Dim sQry = "SELECT distinct csf_id,subject_code, subject_name as subject,L,T,P, " _
                            & " abr_n as abr,Teacher_name_n as name, " _
-                           & " [TEACHER_ID_n] AS ID2 from CSF_View_with_Load WHERE (section_id=" & sectionid & ")"
+                           & " [TEACHER_ID_n] AS ID2 from CSF_View_with_Load WHERE (section_id=" & SectionId & ")"
 
         Dim cn As New SqlConnection
         cn.ConnectionString = My.Settings.eCollegeConnectionString
@@ -345,6 +347,30 @@ Public Class TTUpload
         '    End Try
         'End If
     End Sub
+
+    Sub UploadNow2()
+        If currFileName = "" Then
+            MsgBox("No timetable is selected.")
+        Else
+            Dim currFileNamerev As String = currFileName.Split(".")(0) + "_" + Now.Ticks.ToString + ".htm"
+            Try
+                HttpUpload("http://172.25.5.15/tt/upload.php", pagePath + currFileName)
+                HttpUpload("http://gbuonline.in/timetables/upload.php", pagePath + currFileName)
+            Catch ex As Exception
+                MsgBox(Err.Description)
+            End Try
+        End If
+    End Sub
+
+    Sub HttpUpload(url, filename)
+        Dim Fileuri As String
+        Using we As New WebClient
+
+            Dim responseArray As Byte()
+            responseArray = we.UploadFile(url, filename)
+            Fileuri = System.Text.Encoding.ASCII.GetString(responseArray)
+        End Using
+    End Sub
     Sub PDFUpload(_section, filename)
         currFileName = "tt_" + "3" + "_" + _section.ToString.Trim + ".pdf"
         Dim ftpclient = New ftp("ftp://172.25.5.15", "awasthi", "tuajlkkl")
@@ -356,5 +382,5 @@ Public Class TTUpload
         End Try
 
     End Sub
-    
+
 End Class

@@ -1,11 +1,33 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.21005.1
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TimeTable", "TimetableMain\TimeTable.vbproj", "{F4348F8F-750A-41FE-9EC7-F445C1340D5B}"
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TimetableView", "TimetableView\TimetableView.vbproj", "{222087AC-A926-49E8-B526-A16F212B13E0}"
+EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "Time16", "..\..\..\Documents\Visual Studio 2015\WebSites\Time16\", "{100431A8-9CFA-459E-B674-7C249101A756}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.5.2"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_54753"
+		Debug.AspNetCompiler.PhysicalPath = "..\..\..\Documents\Visual Studio 2015\WebSites\Time16\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54753\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_54753"
+		Release.AspNetCompiler.PhysicalPath = "..\..\..\Documents\Visual Studio 2015\WebSites\Time16\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_54753\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "54753"
+		SlnRelativePath = "..\..\..\Documents\Visual Studio 2015\WebSites\Time16\"
+		DefaultWebSiteLanguage = "Visual Basic"
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +61,18 @@ Global
 		{222087AC-A926-49E8-B526-A16F212B13E0}.Release|Mixed Platforms.Build.0 = Release|x86
 		{222087AC-A926-49E8-B526-A16F212B13E0}.Release|x86.ActiveCfg = Release|x86
 		{222087AC-A926-49E8-B526-A16F212B13E0}.Release|x86.Build.0 = Release|x86
+		{100431A8-9CFA-459E-B674-7C249101A756}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{100431A8-9CFA-459E-B674-7C249101A756}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{100431A8-9CFA-459E-B674-7C249101A756}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{100431A8-9CFA-459E-B674-7C249101A756}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{100431A8-9CFA-459E-B674-7C249101A756}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{100431A8-9CFA-459E-B674-7C249101A756}.Debug|x86.Build.0 = Debug|Any CPU
+		{100431A8-9CFA-459E-B674-7C249101A756}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{100431A8-9CFA-459E-B674-7C249101A756}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{100431A8-9CFA-459E-B674-7C249101A756}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{100431A8-9CFA-459E-B674-7C249101A756}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{100431A8-9CFA-459E-B674-7C249101A756}.Release|x86.ActiveCfg = Debug|Any CPU
+		{100431A8-9CFA-459E-B674-7C249101A756}.Release|x86.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
