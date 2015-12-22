@@ -146,6 +146,7 @@ Public Class frmMain
 
         ' frmCourseStructure.ShowDialog()
         Dim schoolname As String = Module1._school
+        ' schoolname = "all"
         userinfo.Text = UCase(schoolname)
         Try
             'MsgBox(schoolname)
@@ -475,7 +476,7 @@ Public Class frmMain
             _currentfacids = CSFList.Item(3, e.RowIndex).Value
             _currentSection = cbSection.ComboBox.SelectedValue
             _currentSession = cbSession.ComboBox.SelectedValue
-            MsgBox(_currentSession)
+            ' MsgBox(_currentSession)
             Dim res = FRMcsfupdate.ShowDialog()
             If res = Windows.Forms.DialogResult.OK Then CSFUpdate(_section)
             If cbSession.SelectedIndex = -1 Then Exit Sub
@@ -1116,7 +1117,7 @@ Public Class frmMain
     '    ToolTip1.Show(msg, sender)
     'End Sub
     Sub ShowHint(sender As Object, e As EventArgs) Handles TextBox1.MouseEnter, TextBox2.MouseEnter, TextBox3.MouseEnter, TextBox4.MouseEnter, TextBox5.MouseEnter, TextBox6.MouseEnter, TextBox7.MouseEnter, TextBox8.MouseEnter, TextBox9.MouseEnter, TextBox10.MouseEnter, TextBox11.MouseEnter, TextBox12.MouseEnter, TextBox13.MouseEnter, TextBox14.MouseEnter, TextBox15.MouseEnter, TextBox16.MouseEnter, TextBox17.MouseEnter, TextBox18.MouseEnter, TextBox19.MouseEnter, TextBox20.MouseEnter, TextBox21.MouseEnter, TextBox22.MouseEnter, TextBox23.MouseEnter, TextBox24.MouseEnter, TextBox25.MouseEnter, TextBox26.MouseEnter, TextBox27.MouseEnter, TextBox28.MouseEnter, TextBox29.MouseEnter, TextBox30.MouseEnter, TextBox31.MouseEnter, TextBox32.MouseEnter, TextBox33.MouseEnter, TextBox34.MouseEnter, TextBox35.MouseEnter, TextBox36.MouseEnter, TextBox37.MouseEnter, TextBox38.MouseEnter, TextBox39.MouseEnter, TextBox40.MouseEnter, TextBox41.MouseEnter, TextBox42.MouseEnter, TextBox43.MouseEnter, TextBox44.MouseEnter, TextBox45.MouseEnter, TextBox46.MouseEnter, TextBox47.MouseEnter, TextBox48.MouseEnter, TextBox49.MouseEnter, TextBox50.MouseEnter, TextBox51.MouseEnter, TextBox52.MouseEnter, TextBox53.MouseEnter, TextBox54.MouseEnter, TextBox55.MouseEnter, TextBox56.MouseEnter, TextBox57.MouseEnter, TextBox58.MouseEnter, TextBox59.MouseEnter, TextBox60.MouseEnter, TextBox61.MouseEnter, TextBox62.MouseEnter, TextBox63.MouseEnter, TextBox64.MouseEnter, TextBox65.MouseEnter, TextBox66.MouseEnter, TextBox67.MouseEnter, TextBox68.MouseEnter, TextBox69.MouseEnter, TextBox70.MouseEnter, TextBox71.MouseEnter, TextBox72.MouseEnter, TextBox73.MouseEnter, TextBox74.MouseEnter, TextBox75.MouseEnter, TextBox76.MouseEnter, TextBox77.MouseEnter
-        Dim msg = WeekdayName(TableLayoutPanel1.GetRow(sender) + 1) & " (" & PeriodToTime(TableLayoutPanel1.GetColumn(sender) + 1) & ")"
+        Dim msg = WeekdayName(TableLayoutPanel1.GetRow(sender) + 1,, FirstDayOfWeek.Monday) & " (" & PeriodToTime(TableLayoutPanel1.GetColumn(sender) + 1) & ")"
         ToolTip1.Show(msg, sender)
     End Sub
 

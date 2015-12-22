@@ -69,7 +69,7 @@ Partial Class FRMcsfupdate
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.63547!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.36453!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 55.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 56.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Button2, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Delete_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
@@ -84,7 +84,7 @@ Partial Class FRMcsfupdate
         'Button2
         '
         Me.Button2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button2.Location = New System.Drawing.Point(144, 3)
+        Me.Button2.Location = New System.Drawing.Point(143, 3)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(84, 23)
         Me.Button2.TabIndex = 3
@@ -95,7 +95,7 @@ Partial Class FRMcsfupdate
         Me.Delete_Button.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Delete_Button.Location = New System.Drawing.Point(84, 3)
         Me.Delete_Button.Name = "Delete_Button"
-        Me.Delete_Button.Size = New System.Drawing.Size(54, 23)
+        Me.Delete_Button.Size = New System.Drawing.Size(53, 23)
         Me.Delete_Button.TabIndex = 2
         Me.Delete_Button.Text = "Delete"
         '
@@ -112,7 +112,7 @@ Partial Class FRMcsfupdate
         '
         Me.Cancel_Button.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Cancel_Button.Location = New System.Drawing.Point(235, 3)
+        Me.Cancel_Button.Location = New System.Drawing.Point(234, 3)
         Me.Cancel_Button.Name = "Cancel_Button"
         Me.Cancel_Button.Size = New System.Drawing.Size(48, 23)
         Me.Cancel_Button.TabIndex = 1
@@ -121,6 +121,7 @@ Partial Class FRMcsfupdate
         'CheckBox1
         '
         Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Enabled = False
         Me.CheckBox1.Location = New System.Drawing.Point(12, 12)
         Me.CheckBox1.Name = "CheckBox1"
         Me.CheckBox1.Size = New System.Drawing.Size(201, 17)
@@ -181,6 +182,7 @@ Partial Class FRMcsfupdate
         '
         Me.ComboBox2.DataSource = Me.SubjectBindingSource
         Me.ComboBox2.DisplayMember = "code"
+        Me.ComboBox2.Enabled = False
         Me.ComboBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.ComboBox2.FormattingEnabled = True
         Me.ComboBox2.Location = New System.Drawing.Point(72, 76)
@@ -283,6 +285,7 @@ Partial Class FRMcsfupdate
         '
         'Button1
         '
+        Me.Button1.Enabled = False
         Me.Button1.Location = New System.Drawing.Point(214, 77)
         Me.Button1.Name = "Button1"
         Me.Button1.Size = New System.Drawing.Size(75, 23)

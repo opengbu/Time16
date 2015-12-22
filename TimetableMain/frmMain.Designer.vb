@@ -164,6 +164,7 @@ Partial Class frmMain
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.chkLabs = New System.Windows.Forms.CheckBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
@@ -196,7 +197,6 @@ Partial Class frmMain
         Me.userinfo = New System.Windows.Forms.Label()
         Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
         Me.VTimeTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.CSFList, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -1993,6 +1993,15 @@ Partial Class frmMain
         Me.ToolStripButton5.Size = New System.Drawing.Size(103, 20)
         Me.ToolStripButton5.Text = "Upload as PDF"
         '
+        'ToolStripButton6
+        '
+        Me.ToolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
+        Me.ToolStripButton6.Image = CType(resources.GetObject("ToolStripButton6.Image"), System.Drawing.Image)
+        Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
+        Me.ToolStripButton6.Name = "ToolStripButton6"
+        Me.ToolStripButton6.Size = New System.Drawing.Size(23, 20)
+        Me.ToolStripButton6.Text = "ToolStripButton6"
+        '
         'chkLabs
         '
         Me.chkLabs.AutoSize = True
@@ -2243,15 +2252,6 @@ Partial Class frmMain
         Me.userinfo.Size = New System.Drawing.Size(16, 13)
         Me.userinfo.TabIndex = 23
         Me.userinfo.Text = "..."
-        '
-        'ToolStripButton6
-        '
-        Me.ToolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton6.Image = CType(resources.GetObject("ToolStripButton6.Image"), System.Drawing.Image)
-        Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton6.Name = "ToolStripButton6"
-        Me.ToolStripButton6.Size = New System.Drawing.Size(23, 20)
-        Me.ToolStripButton6.Text = "ToolStripButton6"
         '
         'frmMain
         '

@@ -1426,4 +1426,8 @@ Public Class Form1
 
         MsgBox("Done.")
     End Sub
+
+    Private Sub UploadAllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UploadAllToolStripMenuItem.Click
+
+    End Sub
 End Class

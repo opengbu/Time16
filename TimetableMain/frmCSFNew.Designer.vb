@@ -85,7 +85,7 @@ Partial Class FRMcsfnew
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.63547!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.36453!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 60.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 61.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Button2, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Delete_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
@@ -100,7 +100,7 @@ Partial Class FRMcsfnew
         'Button2
         '
         Me.Button2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button2.Location = New System.Drawing.Point(139, 3)
+        Me.Button2.Location = New System.Drawing.Point(138, 3)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(84, 23)
         Me.Button2.TabIndex = 3
@@ -112,7 +112,7 @@ Partial Class FRMcsfnew
         Me.Delete_Button.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Delete_Button.Location = New System.Drawing.Point(81, 3)
         Me.Delete_Button.Name = "Delete_Button"
-        Me.Delete_Button.Size = New System.Drawing.Size(52, 23)
+        Me.Delete_Button.Size = New System.Drawing.Size(51, 23)
         Me.Delete_Button.TabIndex = 2
         Me.Delete_Button.Text = "Delete"
         Me.Delete_Button.Visible = False

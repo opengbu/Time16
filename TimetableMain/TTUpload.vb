@@ -282,7 +282,7 @@ Public Class TTUpload
             tmpabr = rd.Item("abr").ToString.Split(",")
             faclink = ""
             For iiii = 0 To tmplink.Length - 1
-                faclink += "<a href='"
+                faclink += "<a href='/timetables/2015/E/"
                 faclink += "tt_1_" + tmplink(iiii).Trim + ".htm"
                 faclink += "'>"
                 faclink += tmpabr(iiii).Trim

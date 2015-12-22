@@ -111,7 +111,7 @@ Public Class FRMcsfnew
         'TODO: This line of code loads data into the 'ECollegeDataSet.Teacher' table. You can move, or remove it, as needed.
         Me.TeacherTableAdapter.Fill(Me.ECollegeDataSet.Teacher)
 
-        V_CourseStructureTableAdapter.Fill(ECollegeDataSet.V_CourseStructure, _currentSection)
+        V_CourseStructureTableAdapter.FillBySemester(ECollegeDataSet.V_CourseStructure, _currentSection, _currentSemester)
         Array.Clear(facidlist, 0, 5)
         'If _currentcsf <> -1 Then
         '    _csf = _currentcsf
@@ -230,7 +230,7 @@ Public Class FRMcsfnew
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
         Dim fSub As New frmCS
         fSub.ShowDialog()
-        V_CourseStructureTableAdapter.Fill(ECollegeDataSet.V_CourseStructure, _currentSection)
+        V_CourseStructureTableAdapter.FillBySemester(ECollegeDataSet.V_CourseStructure, _currentSection, _currentSemester)
         ListBox1.Invalidate()
         ListBox2.Invalidate()
         Me.Refresh()

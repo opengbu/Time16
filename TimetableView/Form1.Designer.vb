@@ -100,30 +100,30 @@ Partial Class Form1
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(147, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
         '
         'SaveLocalToolStripMenuItem
         '
         Me.SaveLocalToolStripMenuItem.Name = "SaveLocalToolStripMenuItem"
-        Me.SaveLocalToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.SaveLocalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.SaveLocalToolStripMenuItem.Text = "Save Local ..."
         '
         'UploadOnlineToolStripMenuItem
         '
         Me.UploadOnlineToolStripMenuItem.Name = "UploadOnlineToolStripMenuItem"
-        Me.UploadOnlineToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.UploadOnlineToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.UploadOnlineToolStripMenuItem.Text = "Upload Online"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(147, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(149, 6)
         '
         'UploadAllToolStripMenuItem
         '
         Me.UploadAllToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FacultyTimetabelsToolStripMenuItem, Me.ClassSectionTimetablesToolStripMenuItem})
         Me.UploadAllToolStripMenuItem.Name = "UploadAllToolStripMenuItem"
-        Me.UploadAllToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.UploadAllToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
         Me.UploadAllToolStripMenuItem.Text = "Upload all "
         '
         'FacultyTimetabelsToolStripMenuItem
