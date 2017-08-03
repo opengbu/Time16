@@ -57,6 +57,16 @@ Partial Class frmCSF
         Me.ComboBox1 = New System.Windows.Forms.ComboBox()
         Me.SectionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.dgvCSF = New System.Windows.Forms.DataGridView()
+        Me.CSFIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SubjectCodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SubjectNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.IsLabDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
+        Me.LDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.PDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Abr_n = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Teacher_Id_n = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.TeacherNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CSFViewBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SubjectBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.SectionTableAdapter = New TimeTableManager.eCollegeDataSetTableAdapters.SectionTableAdapter()
@@ -76,16 +86,6 @@ Partial Class frmCSF
         Me.ECollegeDataSet1 = New TimeTableManager.eCollegeDataSet()
         Me.CSFView1BindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.CSF_View1TableAdapter = New TimeTableManager.eCollegeDataSetTableAdapters.CSF_View1TableAdapter()
-        Me.CSFIdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SubjectCodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.SubjectNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.IsLabDataGridViewCheckBoxColumn = New System.Windows.Forms.DataGridViewCheckBoxColumn()
-        Me.LDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.PDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Abr_n = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Teacher_Id_n = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.TeacherNameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.SplitContainer1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SplitContainer1.Panel1.SuspendLayout()
         Me.SplitContainer1.Panel2.SuspendLayout()
@@ -448,6 +448,79 @@ Partial Class frmCSF
         Me.dgvCSF.Size = New System.Drawing.Size(771, 423)
         Me.dgvCSF.TabIndex = 0
         '
+        'CSFIdDataGridViewTextBoxColumn
+        '
+        Me.CSFIdDataGridViewTextBoxColumn.DataPropertyName = "CSF_Id"
+        Me.CSFIdDataGridViewTextBoxColumn.HeaderText = "CSF_Id"
+        Me.CSFIdDataGridViewTextBoxColumn.Name = "CSFIdDataGridViewTextBoxColumn"
+        Me.CSFIdDataGridViewTextBoxColumn.Width = 21
+        '
+        'SubjectCodeDataGridViewTextBoxColumn
+        '
+        Me.SubjectCodeDataGridViewTextBoxColumn.DataPropertyName = "Subject_Code"
+        Me.SubjectCodeDataGridViewTextBoxColumn.HeaderText = "Subject_Code"
+        Me.SubjectCodeDataGridViewTextBoxColumn.Name = "SubjectCodeDataGridViewTextBoxColumn"
+        Me.SubjectCodeDataGridViewTextBoxColumn.Width = 21
+        '
+        'SubjectNameDataGridViewTextBoxColumn
+        '
+        Me.SubjectNameDataGridViewTextBoxColumn.DataPropertyName = "Subject_Name"
+        Me.SubjectNameDataGridViewTextBoxColumn.HeaderText = "Subject_Name"
+        Me.SubjectNameDataGridViewTextBoxColumn.Name = "SubjectNameDataGridViewTextBoxColumn"
+        Me.SubjectNameDataGridViewTextBoxColumn.Width = 21
+        '
+        'IsLabDataGridViewCheckBoxColumn
+        '
+        Me.IsLabDataGridViewCheckBoxColumn.DataPropertyName = "IsLab"
+        Me.IsLabDataGridViewCheckBoxColumn.HeaderText = "IsLab"
+        Me.IsLabDataGridViewCheckBoxColumn.Name = "IsLabDataGridViewCheckBoxColumn"
+        Me.IsLabDataGridViewCheckBoxColumn.Width = 21
+        '
+        'LDataGridViewTextBoxColumn
+        '
+        Me.LDataGridViewTextBoxColumn.DataPropertyName = "L"
+        Me.LDataGridViewTextBoxColumn.HeaderText = "L"
+        Me.LDataGridViewTextBoxColumn.Name = "LDataGridViewTextBoxColumn"
+        Me.LDataGridViewTextBoxColumn.Width = 21
+        '
+        'TDataGridViewTextBoxColumn
+        '
+        Me.TDataGridViewTextBoxColumn.DataPropertyName = "T"
+        Me.TDataGridViewTextBoxColumn.HeaderText = "T"
+        Me.TDataGridViewTextBoxColumn.Name = "TDataGridViewTextBoxColumn"
+        Me.TDataGridViewTextBoxColumn.Width = 21
+        '
+        'PDataGridViewTextBoxColumn
+        '
+        Me.PDataGridViewTextBoxColumn.DataPropertyName = "P"
+        Me.PDataGridViewTextBoxColumn.HeaderText = "P"
+        Me.PDataGridViewTextBoxColumn.Name = "PDataGridViewTextBoxColumn"
+        Me.PDataGridViewTextBoxColumn.Width = 21
+        '
+        'Abr_n
+        '
+        Me.Abr_n.DataPropertyName = "Abr_n"
+        Me.Abr_n.HeaderText = "ABR"
+        Me.Abr_n.Name = "Abr_n"
+        Me.Abr_n.ReadOnly = True
+        Me.Abr_n.Width = 21
+        '
+        'Teacher_Id_n
+        '
+        Me.Teacher_Id_n.DataPropertyName = "Teacher_Id_n"
+        Me.Teacher_Id_n.HeaderText = "Teacher_Id_n"
+        Me.Teacher_Id_n.Name = "Teacher_Id_n"
+        Me.Teacher_Id_n.ReadOnly = True
+        Me.Teacher_Id_n.Width = 21
+        '
+        'TeacherNameDataGridViewTextBoxColumn
+        '
+        Me.TeacherNameDataGridViewTextBoxColumn.DataPropertyName = "Teacher_name_n"
+        Me.TeacherNameDataGridViewTextBoxColumn.HeaderText = "Teacher_Name"
+        Me.TeacherNameDataGridViewTextBoxColumn.Name = "TeacherNameDataGridViewTextBoxColumn"
+        Me.TeacherNameDataGridViewTextBoxColumn.ReadOnly = True
+        Me.TeacherNameDataGridViewTextBoxColumn.Width = 21
+        '
         'CSFViewBindingSource
         '
         Me.CSFViewBindingSource.DataMember = "CSF_View"
@@ -554,79 +627,6 @@ Partial Class frmCSF
         'CSF_View1TableAdapter
         '
         Me.CSF_View1TableAdapter.ClearBeforeFill = True
-        '
-        'CSFIdDataGridViewTextBoxColumn
-        '
-        Me.CSFIdDataGridViewTextBoxColumn.DataPropertyName = "CSF_Id"
-        Me.CSFIdDataGridViewTextBoxColumn.HeaderText = "CSF_Id"
-        Me.CSFIdDataGridViewTextBoxColumn.Name = "CSFIdDataGridViewTextBoxColumn"
-        Me.CSFIdDataGridViewTextBoxColumn.Width = 21
-        '
-        'SubjectCodeDataGridViewTextBoxColumn
-        '
-        Me.SubjectCodeDataGridViewTextBoxColumn.DataPropertyName = "Subject_Code"
-        Me.SubjectCodeDataGridViewTextBoxColumn.HeaderText = "Subject_Code"
-        Me.SubjectCodeDataGridViewTextBoxColumn.Name = "SubjectCodeDataGridViewTextBoxColumn"
-        Me.SubjectCodeDataGridViewTextBoxColumn.Width = 21
-        '
-        'SubjectNameDataGridViewTextBoxColumn
-        '
-        Me.SubjectNameDataGridViewTextBoxColumn.DataPropertyName = "Subject_Name"
-        Me.SubjectNameDataGridViewTextBoxColumn.HeaderText = "Subject_Name"
-        Me.SubjectNameDataGridViewTextBoxColumn.Name = "SubjectNameDataGridViewTextBoxColumn"
-        Me.SubjectNameDataGridViewTextBoxColumn.Width = 21
-        '
-        'IsLabDataGridViewCheckBoxColumn
-        '
-        Me.IsLabDataGridViewCheckBoxColumn.DataPropertyName = "IsLab"
-        Me.IsLabDataGridViewCheckBoxColumn.HeaderText = "IsLab"
-        Me.IsLabDataGridViewCheckBoxColumn.Name = "IsLabDataGridViewCheckBoxColumn"
-        Me.IsLabDataGridViewCheckBoxColumn.Width = 21
-        '
-        'LDataGridViewTextBoxColumn
-        '
-        Me.LDataGridViewTextBoxColumn.DataPropertyName = "L"
-        Me.LDataGridViewTextBoxColumn.HeaderText = "L"
-        Me.LDataGridViewTextBoxColumn.Name = "LDataGridViewTextBoxColumn"
-        Me.LDataGridViewTextBoxColumn.Width = 21
-        '
-        'TDataGridViewTextBoxColumn
-        '
-        Me.TDataGridViewTextBoxColumn.DataPropertyName = "T"
-        Me.TDataGridViewTextBoxColumn.HeaderText = "T"
-        Me.TDataGridViewTextBoxColumn.Name = "TDataGridViewTextBoxColumn"
-        Me.TDataGridViewTextBoxColumn.Width = 21
-        '
-        'PDataGridViewTextBoxColumn
-        '
-        Me.PDataGridViewTextBoxColumn.DataPropertyName = "P"
-        Me.PDataGridViewTextBoxColumn.HeaderText = "P"
-        Me.PDataGridViewTextBoxColumn.Name = "PDataGridViewTextBoxColumn"
-        Me.PDataGridViewTextBoxColumn.Width = 21
-        '
-        'Abr_n
-        '
-        Me.Abr_n.DataPropertyName = "Abr_n"
-        Me.Abr_n.HeaderText = "ABR"
-        Me.Abr_n.Name = "Abr_n"
-        Me.Abr_n.ReadOnly = True
-        Me.Abr_n.Width = 21
-        '
-        'Teacher_Id_n
-        '
-        Me.Teacher_Id_n.DataPropertyName = "Teacher_Id_n"
-        Me.Teacher_Id_n.HeaderText = "Teacher_Id_n"
-        Me.Teacher_Id_n.Name = "Teacher_Id_n"
-        Me.Teacher_Id_n.ReadOnly = True
-        Me.Teacher_Id_n.Width = 21
-        '
-        'TeacherNameDataGridViewTextBoxColumn
-        '
-        Me.TeacherNameDataGridViewTextBoxColumn.DataPropertyName = "Teacher_name_n"
-        Me.TeacherNameDataGridViewTextBoxColumn.HeaderText = "Teacher_Name"
-        Me.TeacherNameDataGridViewTextBoxColumn.Name = "TeacherNameDataGridViewTextBoxColumn"
-        Me.TeacherNameDataGridViewTextBoxColumn.ReadOnly = True
-        Me.TeacherNameDataGridViewTextBoxColumn.Width = 21
         '
         'frmCSF
         '

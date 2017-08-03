@@ -23,11 +23,12 @@ Partial Class frmTeacher
     <System.Diagnostics.DebuggerStepThrough()> _
     Private Sub InitializeComponent()
         Me.components = New System.ComponentModel.Container()
-        Dim DataGridViewCellStyle3 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
-        Dim DataGridViewCellStyle4 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle1 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
+        Dim DataGridViewCellStyle2 As System.Windows.Forms.DataGridViewCellStyle = New System.Windows.Forms.DataGridViewCellStyle()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.frmTeacher_Menu_Filter = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ShowSchoolFacultyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.dgvTeacher = New System.Windows.Forms.DataGridView()
         Me.VCourseStructureBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ECollegeDataSet = New TimeTableManager.eCollegeDataSet()
@@ -58,7 +59,6 @@ Partial Class frmTeacher
         Me.Label1 = New System.Windows.Forms.Label()
         Me.cbDept = New System.Windows.Forms.ComboBox()
         Me.cbSchool = New System.Windows.Forms.ComboBox()
-        Me.ShowSchoolFacultyToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.dgvTeacher, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VCourseStructureBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -97,21 +97,27 @@ Partial Class frmTeacher
         Me.frmTeacher_Menu_Filter.Size = New System.Drawing.Size(106, 20)
         Me.frmTeacher_Menu_Filter.Text = "Show All Faculty"
         '
+        'ShowSchoolFacultyToolStripMenuItem
+        '
+        Me.ShowSchoolFacultyToolStripMenuItem.Name = "ShowSchoolFacultyToolStripMenuItem"
+        Me.ShowSchoolFacultyToolStripMenuItem.Size = New System.Drawing.Size(128, 20)
+        Me.ShowSchoolFacultyToolStripMenuItem.Text = "Show School Faculty"
+        '
         'dgvTeacher
         '
-        DataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
-        Me.dgvTeacher.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle3
+        DataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer), CType(CType(224, Byte), Integer))
+        Me.dgvTeacher.AlternatingRowsDefaultCellStyle = DataGridViewCellStyle1
         Me.dgvTeacher.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D
         Me.dgvTeacher.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal
         Me.dgvTeacher.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None
-        DataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
-        DataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control
-        DataGridViewCellStyle4.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        DataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText
-        DataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight
-        DataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText
-        DataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
-        Me.dgvTeacher.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle4
+        DataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft
+        DataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control
+        DataGridViewCellStyle2.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        DataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText
+        DataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight
+        DataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText
+        DataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.[True]
+        Me.dgvTeacher.ColumnHeadersDefaultCellStyle = DataGridViewCellStyle2
         Me.dgvTeacher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.dgvTeacher.Dock = System.Windows.Forms.DockStyle.Fill
         Me.dgvTeacher.Location = New System.Drawing.Point(0, 0)
@@ -398,7 +404,6 @@ Partial Class frmTeacher
         'cbSchool
         '
         Me.cbSchool.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList
-        Me.cbSchool.Enabled = False
         Me.cbSchool.Font = New System.Drawing.Font("Microsoft Sans Serif", 10.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbSchool.FormattingEnabled = True
         Me.cbSchool.Items.AddRange(New Object() {"SOE", "SOICT", "SOBT", "SOVSAS", "SOM", "SOLJ", "SOHSS", "SOBSC"})
@@ -406,12 +411,6 @@ Partial Class frmTeacher
         Me.cbSchool.Name = "cbSchool"
         Me.cbSchool.Size = New System.Drawing.Size(149, 24)
         Me.cbSchool.TabIndex = 4
-        '
-        'ShowSchoolFacultyToolStripMenuItem
-        '
-        Me.ShowSchoolFacultyToolStripMenuItem.Name = "ShowSchoolFacultyToolStripMenuItem"
-        Me.ShowSchoolFacultyToolStripMenuItem.Size = New System.Drawing.Size(128, 20)
-        Me.ShowSchoolFacultyToolStripMenuItem.Text = "Show School Faculty"
         '
         'frmTeacher
         '

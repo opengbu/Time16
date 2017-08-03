@@ -12,8 +12,9 @@ Public Class FRMcsfnew
         If TextBox1.Text.Trim > 0 Then
             ''sQry = "Exec UpdateCSF @csfid=" & TextBox1.Text.Trim & ",@facid=" & Me.ComboBox3.SelectedValue
             'sQry = "Update CSF Set Faculty_Id=@facid WHERE (csf_id = @csfid)"
-            Dim cn As New SqlConnection
-            cn.ConnectionString = My.Settings.eCollegeConnectionString
+            Dim cn As New SqlConnection With {
+                .ConnectionString = My.Settings.eCollegeConnectionString
+            }
             Dim pfacid As Integer
             pfacid = GetFaculty()
             Try
@@ -28,14 +29,17 @@ Public Class FRMcsfnew
             End Try
         Else
             Dim cn As New SqlConnection
+            Dim data, data1 As String
             cn.ConnectionString = My.Settings.eCollegeConnectionString
             Try
+                Data = dgvCourse.Item(0, dgvCourse.CurrentRow.Index).Value.ToString
+                data1 = dgvCourse.Item(1, dgvCourse.CurrentRow.Index).Value.ToString
                 Dim csfid As Integer = 0
                 sQry = "Exec InsertCSf " _
                                         & " @facid=" & Me.ComboBox3.SelectedValue _
                                         & ", @sectionid=" & Me.ComboBox1.SelectedValue _
-                                        & ", @subjectid=" & Me.ComboBox2.SelectedValue _
-                                        & ", @subjectcode=" & Me.ComboBox2.Text.Trim _
+                                        & ", @subjectid=" & data _
+                                        & ", @subjectcode=" & data1 _
                                         & ", @L=" & Me.nLA.Value _
                                         & ", @T=" & Me.nTA.Value _
                                         & ", @P=" & Me.nPA.Value
@@ -99,9 +103,44 @@ Public Class FRMcsfnew
             cn.Close()
         End Try
     End Sub
+
+    Private Sub PrintAllErrs(ByVal dataSet As DataSet)
+        Dim rowsInError() As DataRow
+        Dim table As DataTable
+        Dim i As Integer
+        Dim column As DataColumn
+        For Each table In dataSet.Tables
+            ' Test if the table has errors. If not, skip it.
+            If table.HasErrors Then
+                ' Get an array of all rows with errors.
+                rowsInError = table.GetErrors()
+                ' Print the error of each column in each row.
+                For i = 0 To rowsInError.GetUpperBound(0)
+                    For Each column In table.Columns
+                        Console.WriteLine(column.ColumnName,
+                rowsInError(i).GetColumnError(column))
+                    Next
+                    ' Clear the row errors
+                    rowsInError(i).ClearErrors()
+                Next i
+            End If
+        Next
+    End Sub
+
     Private Sub csfupdate_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        Me.SectionTableAdapter.Fill(Me.ECollegeDataSet.Section)
+        Me.AcceptButton = Button8
+        ' Button8.DialogResult = System.Windows.Forms.DialogResult.OK
+
+        'TODO: This line of code loads data into the 'ECollegeDataSet3.CourseStructure' table. You can move, or remove it, as needed.
+        'TODO: This line of code loads data into the 'ECollegeDataSet3.Teacher' table. You can move, or remove it, as needed.
+        Me.TeacherTableAdapter1.Fill(Me.ECollegeDataSet3.Teacher)
+        'TODO: This line of code loads data into the 'ECollegeDataSet3.Section' table. You can move, or remove it, as needed.
+        Me.SectionTableAdapter1.Fill(Me.ECollegeDataSet3.Section)
+        'TODO: This line of code loads data into the 'ECollegeDataSet4.Section' table. You can move, or remove it, as needed.
+        'Me.SectionTableAdapter1.Fill(Me.ECollegeDataSet4.Section)
+        'Me.SectionTableAdapter.Fill(Me.ECollegeDataSet.Section)
         Me.ComboBox1.Enabled = False
+
         Try
             ComboBox1.SelectedValue = _currentSection
         Catch ex As Exception
@@ -109,16 +148,22 @@ Public Class FRMcsfnew
         End Try
 
         'TODO: This line of code loads data into the 'ECollegeDataSet.Teacher' table. You can move, or remove it, as needed.
-        Me.TeacherTableAdapter.Fill(Me.ECollegeDataSet.Teacher)
+        '  Me.TeacherTableAdapter.Fill(Me.ECollegeDataSet.Teacher)
 
-        V_CourseStructureTableAdapter.FillBySemester(ECollegeDataSet.V_CourseStructure, _currentSection, _currentSemester)
+        Try
+            V_CourseStructureTableAdapter1.FillBySemester(ECollegeDataSet3.V_CourseStructure, _currentSection, _currentSemester)
+
+
+        Catch ex As Exception
+            'PrintAllErrs(ECollegeDataSet)
+            ' MsgBox(ex.Message)
+        End Try
         Array.Clear(facidlist, 0, 5)
-        'If _currentcsf <> -1 Then
-        '    _csf = _currentcsf
-        '    Me.TextBox1.Text = _csf
-        '    Me.pfac.Text = _currentfacids.Trim
-
-        'End If
+        If _currentcsf <> -1 Then
+            _csf = _currentcsf
+            Me.TextBox1.Text = _csf
+            Me.pfac.Text = _currentfacids.Trim
+        End If
         'Try
         '    Dim i As Integer = 0
         '    For Each y In _currentfacids.Split(",")
@@ -227,43 +272,45 @@ Public Class FRMcsfnew
     End Sub
 
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    Private Sub Button1_Click(sender As Object, e As EventArgs) 
         Dim fSub As New frmCS
         fSub.ShowDialog()
-        V_CourseStructureTableAdapter.FillBySemester(ECollegeDataSet.V_CourseStructure, _currentSection, _currentSemester)
-        ListBox1.Invalidate()
-        ListBox2.Invalidate()
-        Me.Refresh()
+        V_CourseStructureTableAdapter1.FillBySemester(ECollegeDataSet3.V_CourseStructure, _currentSection, _currentSemester)
+        'ListBox1.Invalidate()
+        ' ListBox2.Invalidate()
+        'Me.Refresh()
     End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
-        Dim fSub As New frmEmployee
+        Dim fSub As New frmTeacher
         fSub.ShowDialog()
-        Me.TeacherTableAdapter.Fill(Me.ECollegeDataSet.Teacher)
+        Me.TeacherTableAdapter1.Fill(Me.ECollegeDataSet3.Teacher)
         Me.ComboBox3.Invalidate()
         Me.Refresh()
     End Sub
 
-    Private Sub ListBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox2.SelectedIndexChanged
-        GetFacultyBy(_currentSection, ListBox2.SelectedValue)
-    End Sub
+    'Private Sub ListBox2_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox2.SelectedIndexChanged
+    '    GetFacultyBy(_currentSection, ListBox2.SelectedValue)
+    'End Sub
 
-    Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
-
-        GetFacultyBy(_currentSection, ListBox1.SelectedValue)
-    End Sub
+    'Private Sub ListBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles ListBox1.SelectedIndexChanged
+    '    GetFacultyBy(_currentSection, ListBox1.SelectedValue)
+    'End Sub
 
     Private Sub Button4_Click(sender As Object, e As EventArgs) Handles Button4.Click
         Dim sQRy As String
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        Dim data, data1 As String
         Try
+            data = dgvCourse.Item(0, dgvCourse.CurrentRow.Index).Value.ToString
+            data1 = dgvCourse.Item(1, dgvCourse.CurrentRow.Index).Value.ToString
+            cn.ConnectionString = My.Settings.eCollegeConnectionString
             Dim csfid As Integer = 0
             sQRy = "Exec InsertCSf " _
                                     & " @facid=" & Me.ComboBox3.SelectedValue _
                                     & ", @sectionid=" & Me.ComboBox1.SelectedValue _
-                                    & ", @subjectid=" & Me.ComboBox2.SelectedValue _
-                                    & ", @subjectcode=" & Me.ComboBox2.Text.Trim _
+                                    & ", @subjectid=" & data _
+                                    & ", @subjectcode=" & data1 _
                                     & ", @L=" & Me.nLA.Value _
                                     & ", @T=" & Me.nTA.Value _
                                     & ", @P=" & Me.nPA.Value
@@ -272,11 +319,12 @@ Public Class FRMcsfnew
             Dim cmd As New SqlCommand(sQRy, cn)
             csfid = cmd.ExecuteScalar()
         Catch ex As Exception
-            MsgBox(Err.Description)
+            MsgBox(Err.Description & "::" & sQRy)
         Finally
             cn.Close()
         End Try
-        GetFacultyBy(_currentSection, ListBox2.SelectedValue)
+        TextBox2.Focus()
+        GetFacultyBy(_currentSection, data.Trim)
         ListBox3.Invalidate()
     End Sub
 
@@ -300,7 +348,8 @@ Public Class FRMcsfnew
         Else
             MsgBox("Select Faculty!")
         End If
-        GetFacultyBy(_currentSection, ListBox2.SelectedValue)
+        Dim data As String = dgvCourse.Item(0, dgvCourse.CurrentRow.Index).Value.ToString
+        GetFacultyBy(_currentSection, data.Trim)
         ListBox3.Invalidate()
     End Sub
 
@@ -331,7 +380,8 @@ Public Class FRMcsfnew
                 cn.Open()
                 Dim cmd As New SqlCommand(sQry, cn)
                 cmd.ExecuteNonQuery()
-                GetFacultyBy(_currentSection, ListBox2.SelectedValue)
+                Dim data As String = dgvCourse.Item(0, dgvCourse.CurrentRow.Index).Value.ToString
+                GetFacultyBy(_currentSection, data.Trim)
                 ListBox3.Invalidate()
             End If
 
@@ -400,7 +450,57 @@ Public Class FRMcsfnew
             cn.Close()
         End Try
         GroupBox1.Visible = False
-        GetFacultyBy(_currentSection, ListBox2.SelectedValue)
+        Dim data As String = dgvCourse.Item(0, dgvCourse.CurrentRow.Index).Value.ToString
+        GetFacultyBy(_currentSection, data.Trim)
         ListBox3.Invalidate()
+    End Sub
+
+    Private Sub dgvCourse_SelectionChanged(sender As Object, e As EventArgs) Handles dgvCourse.SelectionChanged
+        Try
+            Dim data As String = dgvCourse.Item(0, dgvCourse.CurrentRow.Index).Value.ToString
+            GetFacultyBy(_currentSection, data.Trim)
+        Catch ex As Exception
+
+        End Try
+
+    End Sub
+
+    Private Sub TextBox2_TextChanged(sender As Object, e As EventArgs) Handles TextBox2.TextChanged
+        If TextBox2.Text.Contains(" ") Then TextBox2.Text = TextBox2.Text.Replace(" ", String.Empty)
+
+    End Sub
+
+    Private Sub Button8_Click(sender As Object, e As EventArgs) Handles Button8.Click
+        Try
+            Dim sQry As String = ""
+            sQry = "INSERT INTO [CourseStructure] (ProgramId, CouseId,semester,SessionId) VALUES (" & Me.ComboBox1.SelectedValue & " ,'" & Me.TextBox2.Text.Trim & "'," & _currentSemester & "," & _Session & ")"
+
+            Dim cn As New SqlConnection
+            cn.ConnectionString = My.Settings.eCollegeConnectionString
+            cn.Open()
+
+            Dim cmd As New SqlCommand(sQry, cn)
+            cmd.ExecuteNonQuery()
+
+            If cn.State = ConnectionState.Open Then cn.Close()
+            TextBox2.Focus()
+            V_CourseStructureTableAdapter1.FillBySemester(ECollegeDataSet3.V_CourseStructure, _currentSection, _currentSemester)
+            'dgvCourse.Invalidate()
+        Catch ex As Exception
+            MsgBox(ex.Message)
+
+        End Try
+
+    End Sub
+
+    Private Sub dgvCourse_KeyDown(sender As Object, e As System.Windows.Forms.KeyEventArgs) Handles dgvCourse.KeyDown
+        If e.KeyCode = Keys.Delete Then
+            Try
+                DeleteCourse(Me.ComboBox1.SelectedValue, dgvCourse.SelectedRows(0).Cells(1).Value)
+                V_CourseStructureTableAdapter1.FillBySemester(ECollegeDataSet3.V_CourseStructure, _currentSection, _currentSemester)
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            End Try
+        End If
     End Sub
 End Class

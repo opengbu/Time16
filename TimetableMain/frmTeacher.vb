@@ -16,8 +16,16 @@ Public Class frmTeacher
 
     Private Sub frmTeacher_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         '_school = "SOICT"
+
         If _school <> "" Then _Faculty_School = _school
         cbSchool.Text = _school.Trim
+        If _Faculty_School.ToUpper = "ALL" Then
+
+            cbSchool.Text = "SOVSAS"
+            cbSchool.Enabled = True
+        Else
+            cbSchool.Enabled = False
+        End If
         ShowTeahers(_Faculty_School)
         dgvTeacher.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells
     End Sub
@@ -307,7 +315,8 @@ Public Class frmTeacher
     End Sub
 
     Private Sub ShowSchoolFacultyToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ShowSchoolFacultyToolStripMenuItem.Click
-        ShowTeahers(_school, _Faculty_Status)
+        'ShowTeahers(_school, _Faculty_Status)
+        ShowTeahers(cbSchool.Text.Trim, _Faculty_Status)
         RestrciMode = False
         lblEditMessage.Text = "To Update or Delete any record - Double click that record."
     End Sub

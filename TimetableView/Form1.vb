@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
+Imports System.Net
 'Imports MyFTP
 'Imports MyFTP.ftp
 'Imports Microsoft.Office.Interop
@@ -467,6 +468,10 @@ Public Class Form1
     Private Sub ComboBox3_SelectedIndexChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ComboBox3.SelectedIndexChanged
         _Timetable_Code = 3
         doSection(ComboBox3.SelectedValue)
+
+
+
+
     End Sub
     Private Sub doSection(sid As Integer)
         GetHTML3(sid, 3)
@@ -748,34 +753,14 @@ Public Class Form1
         'w.Close()
         If cn.State = ConnectionState.Open Then cn.Close()
     End Sub
-    Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
-        MakeIndexf()
-        MakeIndexr()
-        MakeIndexs()
-        LoadChart()
-    End Sub
-
-    Private Sub ToolStripButton2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton2.Click
-        'docstr = ""
-        'MakeIndexsd()
-        'Dim w As StreamWriter
-        'w = File.CreateText("d:\Timtables.doc")
-        'w.Write(docstr)
-        'w.Flush()
-        'w.Close()
-        doExcel()
+    'Private Sub ToolStripButton1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton1.Click
+    'MakeIndexf()
+    ' MakeIndexr()
+    ' MakeIndexs()
+    'LoadChart()
+    'End Sub
 
 
-    End Sub
-
-
-    Private Sub ToolStripButton3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles ToolStripButton3.Click
-        WebBrowser1.ShowSaveAsDialog()
-    End Sub
-
-    Private Sub ReportsToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ReportsToolStripMenuItem.Click
-        ' TimetableView.Reports.ShowDialog()
-    End Sub
 
 
 
@@ -1204,7 +1189,7 @@ Public Class Form1
         Catch ex As Exception
             MsgBox(ex.Message)
         End Try
-        
+
 
     End Sub
     Sub GetExcelArray(ByVal facid As Integer, ByVal typecode As Integer)
@@ -1301,7 +1286,7 @@ Public Class Form1
         End While
 
         tsHTML(0, 0) = _clsCode
-       daytime()
+        daytime()
 
         For mmm = 0 To 6
             For nnn = 0 To 8
@@ -1350,13 +1335,10 @@ Public Class Form1
                 MsgBox(Err.Description)
             End Try
         End If
-         
-    End Sub
-
-
-    Private Sub ToolStripButton5_Click(sender As Object, e As EventArgs) Handles ToolStripButton5.Click
 
     End Sub
+
+
 
     Private Sub SaveLocalToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SaveLocalToolStripMenuItem.Click
         Dim filename As String = pagePath + "tt_" + _Timetable_Code.ToString.Trim + "_" + ComboBox1.SelectedValue.ToString.Trim + ".htm"
@@ -1394,7 +1376,7 @@ Public Class Form1
         Finally
             ' MsgBox("Try Proxy Disable.")
         End Try
-        
+
         MsgBox("Done.")
     End Sub
 
@@ -1413,8 +1395,10 @@ Public Class Form1
                 If Not (row("Id").ToString = "") Then
                     'Dim filename As String = "tt_" + _Timetable_Code.ToString.Trim + "_" + ComboBox1.SelectedValue.ToString.Trim + ".htm"
                     filename = "tt_" + "3_" + row("Id").ToString + ".htm"
-                    cnt = GetTimetableByFacultyId(row("Id"))
-                    WriteToFile(cnt, filename, True)
+                    ' cnt = GetTimetableByFacultyId(row("Id"))
+                    doSection(row("Id"))
+                    UploadOnline2(filename)
+                    ' WriteToFile(cnt, filename, True)
                     ProgressBar1.Increment(1)
                 End If
             Next
@@ -1427,7 +1411,51 @@ Public Class Form1
         MsgBox("Done.")
     End Sub
 
-    Private Sub UploadAllToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UploadAllToolStripMenuItem.Click
+    Private Sub ExportToExcelToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportToExcelToolStripMenuItem.Click
+        doExcel()
+    End Sub
 
+    Private Sub ToolStripLabel1_Click(sender As Object, e As EventArgs) Handles ToolStripLabel1.Click
+        Dim webBrowserForPrinting As WebBrowser = WebBrowser1
+
+        ' Print the document now that it is fully loaded.
+        'WebBrowser1.Print()
+        webBrowserForPrinting.ShowPrintPreviewDialog()
+
+        'MessageBox.Show("print")
+        ' Dispose the WebBrowser now that the task is complete. 
+        'webBrowserForPrinting.Dispose()
+    End Sub
+
+    Sub UploadOnline2(ByVal currFileName As String)
+        Dim tmppath As String = Path.GetTempPath()
+
+        If currFileName = "" Then
+            MsgBox("No timetable is selected.")
+        Else
+            ' Dim currFileNamerev As String = currFileName.Split(".")(0) + "_" + Now.Ticks.ToString + ".htm"
+            If (currFileName.Contains("/")) Then
+                currFileName = tmppath + currFileName
+            End If
+            Try
+                HttpUpload("http://172.25.5.15/tt/upload.php", currFileName)
+                HttpUpload("http://gbuonline.in/timetables/upload.php", currFileName)
+            Catch ex As Exception
+                MsgBox(Err.Description)
+            End Try
+        End If
+    End Sub
+
+    Sub HttpUpload(url, filename)
+        Dim Fileuri As String
+        Using we As New WebClient
+
+            Dim responseArray As Byte()
+            responseArray = we.UploadFile(url, filename)
+            Fileuri = System.Text.Encoding.ASCII.GetString(responseArray)
+            'MsgBox(Fileuri)
+            'Dim response As String
+            'response = Encoding.UTF8.GetString(responseArray)
+        End Using
     End Sub
 End Class

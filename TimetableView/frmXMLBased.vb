@@ -28,6 +28,7 @@ Public Class frmXMLBased
         If facid = 0 Then Exit Sub
         Dim cn As New SqlConnection
         cn.ConnectionString = My.Settings.conn
+
         Dim cmd As New SqlCommand
         Dim rd As SqlDataReader
         If typecode = 1 Then
@@ -138,7 +139,9 @@ Public Class frmXMLBased
         Dim cn As New SqlConnection
         Dim cn2 As New SqlConnection
         cn.ConnectionString = My.Settings.conn
+
         cn2.ConnectionString = My.Settings.conn
+
         Dim cmd As New SqlCommand
         Dim rd As SqlDataReader
         If typecode = 1 Then
@@ -414,9 +417,11 @@ Public Class frmXMLBased
 
         Dim cn As New SqlConnection
         cn.ConnectionString = My.Settings.conn
+
         cn.Open()
         Dim cn2 As New SqlConnection
         cn2.ConnectionString = My.Settings.conn
+
         cn2.Open()
         Dim faclink As String = ""
         Dim shareFac As String = ""
@@ -593,6 +598,7 @@ Public Class frmXMLBased
 
         Dim cn As New SqlConnection
         cn.ConnectionString = My.Settings.conn
+
         cn.Open()
 
         Dim cmd As New SqlCommand(sQry3, cn)

@@ -1,6 +1,7 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
 Imports System.Net
+Imports System.Text
 
 Public Class TTUpload
     Dim uctSign As String = "<br/><br/><div><img src='sign.png' width='150'><br/> University Cordinator, Timetables</div>"
@@ -353,24 +354,42 @@ Public Class TTUpload
             MsgBox("No timetable is selected.")
         Else
             Dim currFileNamerev As String = currFileName.Split(".")(0) + "_" + Now.Ticks.ToString + ".htm"
-            Try
-                HttpUpload("http://172.25.5.15/tt/upload.php", pagePath + currFileName)
-                HttpUpload("http://gbuonline.in/timetables/upload.php", pagePath + currFileName)
-            Catch ex As Exception
-                MsgBox(Err.Description)
-            End Try
+            Dim Result As Boolean
+            ' Try
+            ' Result = HttpUpload("http://172.25.5.15/timetables/upload.php", pagePath + currFileName)
+            'If Not Result Then MsgBox("Local Not Updated. Server 172.25.5.15 may be down")
+            Result = HttpUpload("http://gbuonline.in/timetables/upload.php", pagePath + currFileName)
+            If Not Result Then MsgBox("Remote Not Updated. Either Remote connection is not working or proxy authentication problem.")
+            'Catch ex As Exception
+            'MsgBox(Err.Description)
+            'End Try
         End If
     End Sub
 
-    Sub HttpUpload(url, filename)
-        Dim Fileuri As String
-        Using we As New WebClient
+    Function HttpUpload(url, filename) As Boolean
 
-            Dim responseArray As Byte()
-            responseArray = we.UploadFile(url, filename)
-            Fileuri = System.Text.Encoding.ASCII.GetString(responseArray)
+        Dim Fileuri As String
+        Dim wpcred As NetworkCredential = New NetworkCredential(My.Settings.ProxyUser, My.Settings.ProxyPassword)
+        Dim wp As WebProxy = New WebProxy(My.Settings.Proxy)
+        wp.Credentials = wpcred
+
+        Using we As New WebClient
+            Try
+                we.Proxy = wp
+                Dim responseArray As Byte()
+                responseArray = we.UploadFile(url, filename)
+                ' responseArray = we.UploadFileAsync(New Uri(url), filename)
+                Fileuri = System.Text.Encoding.ASCII.GetString(responseArray)
+                HttpUpload = True
+            Catch ex As Exception
+                'MsgBox("Not Updated. " & url)
+                HttpUpload = False
+            End Try
+            'MsgBox(Fileuri)
+            'Dim response As String
+            'response = Encoding.UTF8.GetString(responseArray)
         End Using
-    End Sub
+    End Function
     Sub PDFUpload(_section, filename)
         currFileName = "tt_" + "3" + "_" + _section.ToString.Trim + ".pdf"
         Dim ftpclient = New ftp("ftp://172.25.5.15", "awasthi", "tuajlkkl")

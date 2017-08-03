@@ -27,6 +27,14 @@ Partial Class Preference
         Me.Cancel_Button = New System.Windows.Forms.Button()
         Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.prfFilterCourse = New System.Windows.Forms.CheckBox()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.tProxyServer = New System.Windows.Forms.TextBox()
+        Me.Label2 = New System.Windows.Forms.Label()
+        Me.Label3 = New System.Windows.Forms.Label()
+        Me.Label4 = New System.Windows.Forms.Label()
+        Me.tProxyUser = New System.Windows.Forms.TextBox()
+        Me.tProxyPassword = New System.Windows.Forms.TextBox()
+        Me.bSaveProxy = New System.Windows.Forms.Button()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.SuspendLayout()
         '
@@ -84,6 +92,73 @@ Partial Class Preference
         Me.prfFilterCourse.Text = "Filter Program Names"
         Me.prfFilterCourse.UseVisualStyleBackColor = True
         '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(27, 136)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(74, 13)
+        Me.Label1.TabIndex = 3
+        Me.Label1.Text = "Proxy Settings"
+        '
+        'tProxyServer
+        '
+        Me.tProxyServer.Location = New System.Drawing.Point(30, 153)
+        Me.tProxyServer.Name = "tProxyServer"
+        Me.tProxyServer.Size = New System.Drawing.Size(243, 20)
+        Me.tProxyServer.TabIndex = 4
+        '
+        'Label2
+        '
+        Me.Label2.AutoSize = True
+        Me.Label2.Location = New System.Drawing.Point(30, 198)
+        Me.Label2.Name = "Label2"
+        Me.Label2.Size = New System.Drawing.Size(75, 13)
+        Me.Label2.TabIndex = 5
+        Me.Label2.Text = "Authentication"
+        '
+        'Label3
+        '
+        Me.Label3.AutoSize = True
+        Me.Label3.Location = New System.Drawing.Point(35, 227)
+        Me.Label3.Name = "Label3"
+        Me.Label3.Size = New System.Drawing.Size(29, 13)
+        Me.Label3.TabIndex = 6
+        Me.Label3.Text = "User"
+        '
+        'Label4
+        '
+        Me.Label4.AutoSize = True
+        Me.Label4.Location = New System.Drawing.Point(242, 226)
+        Me.Label4.Name = "Label4"
+        Me.Label4.Size = New System.Drawing.Size(53, 13)
+        Me.Label4.TabIndex = 7
+        Me.Label4.Text = "Password"
+        '
+        'tProxyUser
+        '
+        Me.tProxyUser.Location = New System.Drawing.Point(71, 227)
+        Me.tProxyUser.Name = "tProxyUser"
+        Me.tProxyUser.Size = New System.Drawing.Size(143, 20)
+        Me.tProxyUser.TabIndex = 8
+        '
+        'tProxyPassword
+        '
+        Me.tProxyPassword.Location = New System.Drawing.Point(302, 226)
+        Me.tProxyPassword.Name = "tProxyPassword"
+        Me.tProxyPassword.PasswordChar = Global.Microsoft.VisualBasic.ChrW(42)
+        Me.tProxyPassword.Size = New System.Drawing.Size(174, 20)
+        Me.tProxyPassword.TabIndex = 9
+        '
+        'bSaveProxy
+        '
+        Me.bSaveProxy.Location = New System.Drawing.Point(38, 269)
+        Me.bSaveProxy.Name = "bSaveProxy"
+        Me.bSaveProxy.Size = New System.Drawing.Size(75, 23)
+        Me.bSaveProxy.TabIndex = 10
+        Me.bSaveProxy.Text = "Save Proxy"
+        Me.bSaveProxy.UseVisualStyleBackColor = True
+        '
         'Preference
         '
         Me.AcceptButton = Me.OK_Button
@@ -91,6 +166,14 @@ Partial Class Preference
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
         Me.ClientSize = New System.Drawing.Size(488, 370)
+        Me.Controls.Add(Me.bSaveProxy)
+        Me.Controls.Add(Me.tProxyPassword)
+        Me.Controls.Add(Me.tProxyUser)
+        Me.Controls.Add(Me.Label4)
+        Me.Controls.Add(Me.Label3)
+        Me.Controls.Add(Me.Label2)
+        Me.Controls.Add(Me.tProxyServer)
+        Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.prfFilterCourse)
         Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.TableLayoutPanel1)
@@ -111,5 +194,12 @@ Partial Class Preference
     Friend WithEvents Cancel_Button As System.Windows.Forms.Button
     Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents prfFilterCourse As System.Windows.Forms.CheckBox
-
+    Friend WithEvents Label1 As Label
+    Friend WithEvents tProxyServer As TextBox
+    Friend WithEvents Label2 As Label
+    Friend WithEvents Label3 As Label
+    Friend WithEvents Label4 As Label
+    Friend WithEvents tProxyUser As TextBox
+    Friend WithEvents tProxyPassword As TextBox
+    Friend WithEvents bSaveProxy As Button
 End Class

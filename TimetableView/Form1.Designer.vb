@@ -25,7 +25,6 @@ Partial Class Form1
         Me.components = New System.ComponentModel.Container()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
-        Me.ReportsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FileToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator1 = New System.Windows.Forms.ToolStripSeparator()
         Me.SaveLocalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -34,13 +33,11 @@ Partial Class Form1
         Me.UploadAllToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.FacultyTimetabelsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ClassSectionTimetablesToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ExportToExcelToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripLabel()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.chkSign = New System.Windows.Forms.CheckBox()
@@ -77,22 +74,16 @@ Partial Class Form1
         '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ReportsToolStripMenuItem, Me.FileToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FileToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.Size = New System.Drawing.Size(964, 24)
         Me.MenuStrip1.TabIndex = 0
         Me.MenuStrip1.Text = "MenuStrip1"
         '
-        'ReportsToolStripMenuItem
-        '
-        Me.ReportsToolStripMenuItem.Name = "ReportsToolStripMenuItem"
-        Me.ReportsToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
-        Me.ReportsToolStripMenuItem.Text = "Reports"
-        '
         'FileToolStripMenuItem
         '
-        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.SaveLocalToolStripMenuItem, Me.UploadOnlineToolStripMenuItem, Me.ToolStripSeparator2, Me.UploadAllToolStripMenuItem})
+        Me.FileToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.SaveLocalToolStripMenuItem, Me.UploadOnlineToolStripMenuItem, Me.ToolStripSeparator2, Me.UploadAllToolStripMenuItem, Me.ExportToExcelToolStripMenuItem})
         Me.FileToolStripMenuItem.Name = "FileToolStripMenuItem"
         Me.FileToolStripMenuItem.Size = New System.Drawing.Size(37, 20)
         Me.FileToolStripMenuItem.Text = "&File"
@@ -100,30 +91,30 @@ Partial Class Form1
         'ToolStripSeparator1
         '
         Me.ToolStripSeparator1.Name = "ToolStripSeparator1"
-        Me.ToolStripSeparator1.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripSeparator1.Size = New System.Drawing.Size(147, 6)
         '
         'SaveLocalToolStripMenuItem
         '
         Me.SaveLocalToolStripMenuItem.Name = "SaveLocalToolStripMenuItem"
-        Me.SaveLocalToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.SaveLocalToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.SaveLocalToolStripMenuItem.Text = "Save Local ..."
         '
         'UploadOnlineToolStripMenuItem
         '
         Me.UploadOnlineToolStripMenuItem.Name = "UploadOnlineToolStripMenuItem"
-        Me.UploadOnlineToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.UploadOnlineToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.UploadOnlineToolStripMenuItem.Text = "Upload Online"
         '
         'ToolStripSeparator2
         '
         Me.ToolStripSeparator2.Name = "ToolStripSeparator2"
-        Me.ToolStripSeparator2.Size = New System.Drawing.Size(149, 6)
+        Me.ToolStripSeparator2.Size = New System.Drawing.Size(147, 6)
         '
         'UploadAllToolStripMenuItem
         '
         Me.UploadAllToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FacultyTimetabelsToolStripMenuItem, Me.ClassSectionTimetablesToolStripMenuItem})
         Me.UploadAllToolStripMenuItem.Name = "UploadAllToolStripMenuItem"
-        Me.UploadAllToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.UploadAllToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
         Me.UploadAllToolStripMenuItem.Text = "Upload all "
         '
         'FacultyTimetabelsToolStripMenuItem
@@ -138,39 +129,20 @@ Partial Class Form1
         Me.ClassSectionTimetablesToolStripMenuItem.Size = New System.Drawing.Size(206, 22)
         Me.ClassSectionTimetablesToolStripMenuItem.Text = "Class/Section Timetables"
         '
+        'ExportToExcelToolStripMenuItem
+        '
+        Me.ExportToExcelToolStripMenuItem.Name = "ExportToExcelToolStripMenuItem"
+        Me.ExportToExcelToolStripMenuItem.Size = New System.Drawing.Size(150, 22)
+        Me.ExportToExcelToolStripMenuItem.Text = "Export to Excel"
+        '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton1, Me.ToolStripButton2, Me.ToolStripButton3, Me.ToolStripLabel2, Me.ToolStripButton4, Me.ToolStripButton5})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel2, Me.ToolStripButton4, Me.ToolStripLabel1})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 24)
         Me.ToolStrip1.Name = "ToolStrip1"
         Me.ToolStrip1.Size = New System.Drawing.Size(964, 25)
         Me.ToolStrip1.TabIndex = 1
         Me.ToolStrip1.Text = "ToolStrip1"
-        '
-        'ToolStripButton1
-        '
-        Me.ToolStripButton1.Image = CType(resources.GetObject("ToolStripButton1.Image"), System.Drawing.Image)
-        Me.ToolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton1.Name = "ToolStripButton1"
-        Me.ToolStripButton1.Size = New System.Drawing.Size(128, 22)
-        Me.ToolStripButton1.Text = "Make Faculty Index"
-        '
-        'ToolStripButton2
-        '
-        Me.ToolStripButton2.Image = CType(resources.GetObject("ToolStripButton2.Image"), System.Drawing.Image)
-        Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton2.Name = "ToolStripButton2"
-        Me.ToolStripButton2.Size = New System.Drawing.Size(100, 22)
-        Me.ToolStripButton2.Text = "Export to .doc"
-        '
-        'ToolStripButton3
-        '
-        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
-        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Size = New System.Drawing.Size(23, 22)
-        Me.ToolStripButton3.Text = "ToolStripButton3"
         '
         'ToolStripLabel2
         '
@@ -188,13 +160,11 @@ Partial Class Form1
         Me.ToolStripButton4.Size = New System.Drawing.Size(108, 22)
         Me.ToolStripButton4.Text = "Upload Current"
         '
-        'ToolStripButton5
+        'ToolStripLabel1
         '
-        Me.ToolStripButton5.Image = CType(resources.GetObject("ToolStripButton5.Image"), System.Drawing.Image)
-        Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton5.Name = "ToolStripButton5"
-        Me.ToolStripButton5.Size = New System.Drawing.Size(149, 22)
-        Me.ToolStripButton5.Text = "FTP Faculty Timetables"
+        Me.ToolStripLabel1.Name = "ToolStripLabel1"
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(32, 22)
+        Me.ToolStripLabel1.Text = "Print"
         '
         'StatusStrip1
         '
@@ -453,21 +423,16 @@ Partial Class Form1
     Friend WithEvents ComboBox3 As System.Windows.Forms.ComboBox
     Friend WithEvents SectionBindingSource As System.Windows.Forms.BindingSource
     Friend WithEvents SectionTableAdapter As TimetableView.TimetableDataSetTableAdapters.SectionTableAdapter
-    Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
     Friend WithEvents chkShowFacultyName As System.Windows.Forms.CheckBox
     Friend WithEvents chkShowRoom As System.Windows.Forms.CheckBox
     Friend WithEvents chkShowHeader As System.Windows.Forms.CheckBox
-    Friend WithEvents ToolStripButton2 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton3 As System.Windows.Forms.ToolStripButton
     Friend WithEvents chkMerge As System.Windows.Forms.CheckBox
-    Friend WithEvents ReportsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
     Friend WithEvents chkLTP As System.Windows.Forms.CheckBox
     Friend WithEvents txtMaxP As System.Windows.Forms.TextBox
     Friend WithEvents ToolStripLabel2 As System.Windows.Forms.ToolStripButton
     Friend WithEvents chkSign As System.Windows.Forms.CheckBox
     Friend WithEvents ToolStripButton4 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton5 As System.Windows.Forms.ToolStripButton
     Friend WithEvents FileToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents SaveLocalToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -477,5 +442,6 @@ Partial Class Form1
     Friend WithEvents FacultyTimetabelsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ProgressBar1 As System.Windows.Forms.ProgressBar
     Friend WithEvents ClassSectionTimetablesToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-
+    Friend WithEvents ExportToExcelToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripLabel1 As ToolStripLabel
 End Class

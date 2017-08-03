@@ -11,8 +11,8 @@ Imports System.Runtime.InteropServices
 <Assembly: AssemblyTitle("TimeTableManager")> 
 <Assembly: AssemblyDescription("Timetables")> 
 <Assembly: AssemblyCompany("infos Solution")> 
-<Assembly: AssemblyProduct("TimeTableManager")> 
-<Assembly: AssemblyCopyright("Copyright ©  2013, Amit K Awasthi")> 
+<Assembly: AssemblyProduct("TimeTableManager")>
+<Assembly: AssemblyCopyright("Copyright ©  2017, Amit K Awasthi")>
 <Assembly: AssemblyTrademark("infos")> 
 
 <Assembly: ComVisible(True)> 

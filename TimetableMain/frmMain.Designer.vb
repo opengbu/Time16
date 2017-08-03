@@ -37,6 +37,7 @@ Partial Class frmMain
         Me.SwapToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator3 = New System.Windows.Forms.ToolStripSeparator()
         Me.DeleteToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.QuickInsertToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TextBox77 = New System.Windows.Forms.TextBox()
         Me.TextBox76 = New System.Windows.Forms.TextBox()
         Me.TextBox75 = New System.Windows.Forms.TextBox()
@@ -121,12 +122,13 @@ Partial Class frmMain
         Me.RadioButton1 = New System.Windows.Forms.RadioButton()
         Me.RadioButton2 = New System.Windows.Forms.RadioButton()
         Me.ColorDialog1 = New System.Windows.Forms.ColorDialog()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
+        Me.ToolStripMenuItem5 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ChangePasswordToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.SettingsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PreferenceToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TeachersToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.SubjectsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ToolStripMenuItem1 = New System.Windows.Forms.ToolStripMenuItem()
         Me.SectionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripMenuItem4 = New System.Windows.Forms.ToolStripMenuItem()
         Me.CSFToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -135,6 +137,7 @@ Partial Class frmMain
         Me.FacultyWiseAllocationToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.HelpToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AboutToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.CurrentSessionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CheckTeacherConflictsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.CheckRoomConflictsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -143,9 +146,14 @@ Partial Class frmMain
         Me.SelectBatchG2ToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.RefreshToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TimetablesPreviewToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ColorModeToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.SendEmailsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ActionToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UploadLocalPortalToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.UploadPDFToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.ConvertToSQLITEToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ActionsToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.PublishToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TestToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ToolStripSeparator2 = New System.Windows.Forms.ToolStripSeparator()
         Me.ImportNWToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.ExportTeacherToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
@@ -161,15 +169,12 @@ Partial Class frmMain
         Me.ToolStripButton1 = New System.Windows.Forms.ToolStripButton()
         Me.ToolStripTextBox1 = New System.Windows.Forms.ToolStripTextBox()
         Me.ToolStripButton2 = New System.Windows.Forms.ToolStripButton()
+        Me.ToolStripSeparator4 = New System.Windows.Forms.ToolStripSeparator()
         Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton5 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton6 = New System.Windows.Forms.ToolStripButton()
-        Me.chkLabs = New System.Windows.Forms.CheckBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.ToolStripLabel1 = New System.Windows.Forms.ToolStripStatusLabel()
         Me.tsLTPLabel = New System.Windows.Forms.ToolStripStatusLabel()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.tslDayTime = New System.Windows.Forms.ToolStripStatusLabel()
         Me.rSOE = New System.Windows.Forms.RadioButton()
         Me.SplitContainer1 = New System.Windows.Forms.SplitContainer()
         Me.rSOHSS = New System.Windows.Forms.RadioButton()
@@ -186,6 +191,9 @@ Partial Class frmMain
         Me.SchoolToolStripLabel = New System.Windows.Forms.ToolStripLabel()
         Me.SchoolToolStripTextBox = New System.Windows.Forms.ToolStripTextBox()
         Me.FillByToolStripButton1 = New System.Windows.Forms.ToolStripButton()
+        Me.userinfo = New System.Windows.Forms.Label()
+        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
+        Me.VTimeTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.MSectionBindingSource = New System.Windows.Forms.BindingSource(Me.components)
         Me.ECollegeDataSet = New TimeTableManager.eCollegeDataSet()
         Me.bsProgram = New System.Windows.Forms.BindingSource(Me.components)
@@ -194,9 +202,10 @@ Partial Class frmMain
         Me.bsSection = New System.Windows.Forms.BindingSource(Me.components)
         Me.SectionTableAdapter = New TimeTableManager.eCollegeDataSetTableAdapters.SectionTableAdapter()
         Me.ProgramTableAdapter1 = New TimeTableManager.eCollegeDataSetTableAdapters.ProgramTableAdapter()
-        Me.userinfo = New System.Windows.Forms.Label()
-        Me.ToolTip1 = New System.Windows.Forms.ToolTip(Me.components)
-        Me.VTimeTableBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.Button1 = New System.Windows.Forms.Button()
+        Me.cbSchool = New System.Windows.Forms.ComboBox()
+        Me.ToolStripMenuItem6 = New System.Windows.Forms.ToolStripMenuItem()
+        Me.FacultyLoadToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.TableLayoutPanel1.SuspendLayout()
         Me.ContextMenuStrip1.SuspendLayout()
         CType(Me.CSFList, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -210,12 +219,12 @@ Partial Class frmMain
         Me.SplitContainer1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.FillByToolStrip1.SuspendLayout()
+        CType(Me.VTimeTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.MSectionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ECollegeDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.bsProgram, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ECollegeDataSet1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.bsSection, System.ComponentModel.ISupportInitialize).BeginInit()
-        CType(Me.VTimeTableBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -331,17 +340,17 @@ Partial Class frmMain
         '
         'ContextMenuStrip1
         '
-        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InsertToolStripMenuItem, Me.ToolStripMenuItem3, Me.CopyToolStripMenuItem1, Me.PasteToolStripMenuItem1, Me.SwapToolStripMenuItem, Me.ToolStripSeparator3, Me.DeleteToolStripMenuItem1})
+        Me.ContextMenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.InsertToolStripMenuItem, Me.ToolStripMenuItem3, Me.CopyToolStripMenuItem1, Me.PasteToolStripMenuItem1, Me.SwapToolStripMenuItem, Me.ToolStripSeparator3, Me.DeleteToolStripMenuItem1, Me.QuickInsertToolStripMenuItem})
         Me.ContextMenuStrip1.Name = "ContextMenuStrip1"
         Me.ContextMenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
         Me.ContextMenuStrip1.ShowImageMargin = False
-        Me.ContextMenuStrip1.Size = New System.Drawing.Size(126, 142)
+        Me.ContextMenuStrip1.Size = New System.Drawing.Size(156, 164)
         '
         'InsertToolStripMenuItem
         '
         Me.InsertToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem2, Me.DeleteToolStripMenuItem, Me.CopyToolStripMenuItem, Me.PasteToolStripMenuItem})
         Me.InsertToolStripMenuItem.Name = "InsertToolStripMenuItem"
-        Me.InsertToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.InsertToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
         Me.InsertToolStripMenuItem.Text = "Insert"
         '
         'ToolStripMenuItem2
@@ -371,37 +380,44 @@ Partial Class frmMain
         'ToolStripMenuItem3
         '
         Me.ToolStripMenuItem3.Name = "ToolStripMenuItem3"
-        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(125, 22)
+        Me.ToolStripMenuItem3.Size = New System.Drawing.Size(155, 22)
         Me.ToolStripMenuItem3.Text = "Cut"
         '
         'CopyToolStripMenuItem1
         '
         Me.CopyToolStripMenuItem1.Name = "CopyToolStripMenuItem1"
-        Me.CopyToolStripMenuItem1.Size = New System.Drawing.Size(125, 22)
+        Me.CopyToolStripMenuItem1.Size = New System.Drawing.Size(155, 22)
         Me.CopyToolStripMenuItem1.Text = "Copy"
         '
         'PasteToolStripMenuItem1
         '
         Me.PasteToolStripMenuItem1.Name = "PasteToolStripMenuItem1"
-        Me.PasteToolStripMenuItem1.Size = New System.Drawing.Size(125, 22)
+        Me.PasteToolStripMenuItem1.Size = New System.Drawing.Size(155, 22)
         Me.PasteToolStripMenuItem1.Text = "Paste"
         '
         'SwapToolStripMenuItem
         '
         Me.SwapToolStripMenuItem.Name = "SwapToolStripMenuItem"
-        Me.SwapToolStripMenuItem.Size = New System.Drawing.Size(125, 22)
+        Me.SwapToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
         Me.SwapToolStripMenuItem.Text = "Select to Swap"
         '
         'ToolStripSeparator3
         '
         Me.ToolStripSeparator3.Name = "ToolStripSeparator3"
-        Me.ToolStripSeparator3.Size = New System.Drawing.Size(122, 6)
+        Me.ToolStripSeparator3.Size = New System.Drawing.Size(152, 6)
         '
         'DeleteToolStripMenuItem1
         '
         Me.DeleteToolStripMenuItem1.Name = "DeleteToolStripMenuItem1"
-        Me.DeleteToolStripMenuItem1.Size = New System.Drawing.Size(125, 22)
+        Me.DeleteToolStripMenuItem1.Size = New System.Drawing.Size(155, 22)
         Me.DeleteToolStripMenuItem1.Text = "Delete"
+        '
+        'QuickInsertToolStripMenuItem
+        '
+        Me.QuickInsertToolStripMenuItem.Name = "QuickInsertToolStripMenuItem"
+        Me.QuickInsertToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.Q), System.Windows.Forms.Keys)
+        Me.QuickInsertToolStripMenuItem.Size = New System.Drawing.Size(155, 22)
+        Me.QuickInsertToolStripMenuItem.Text = "Quick Insert"
         '
         'TextBox77
         '
@@ -1672,7 +1688,7 @@ Partial Class frmMain
         '
         Me.BatchF.AutoSize = True
         Me.BatchF.Checked = True
-        Me.BatchF.Location = New System.Drawing.Point(292, 6)
+        Me.BatchF.Location = New System.Drawing.Point(372, 4)
         Me.BatchF.Name = "BatchF"
         Me.BatchF.Size = New System.Drawing.Size(41, 17)
         Me.BatchF.TabIndex = 10
@@ -1683,7 +1699,7 @@ Partial Class frmMain
         'RadioButton1
         '
         Me.RadioButton1.AutoSize = True
-        Me.RadioButton1.Location = New System.Drawing.Point(350, 6)
+        Me.RadioButton1.Location = New System.Drawing.Point(419, 4)
         Me.RadioButton1.Name = "RadioButton1"
         Me.RadioButton1.Size = New System.Drawing.Size(62, 17)
         Me.RadioButton1.TabIndex = 11
@@ -1693,26 +1709,16 @@ Partial Class frmMain
         'RadioButton2
         '
         Me.RadioButton2.AutoSize = True
-        Me.RadioButton2.Location = New System.Drawing.Point(429, 6)
+        Me.RadioButton2.Location = New System.Drawing.Point(487, 4)
         Me.RadioButton2.Name = "RadioButton2"
         Me.RadioButton2.Size = New System.Drawing.Size(62, 17)
         Me.RadioButton2.TabIndex = 12
         Me.RadioButton2.Text = "Batch-2"
         Me.RadioButton2.UseVisualStyleBackColor = True
         '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(508, 7)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(119, 17)
-        Me.CheckBox1.TabIndex = 13
-        Me.CheckBox1.Text = "Copy n Paste Mode"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
         'MenuStrip1
         '
-        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.SettingsToolStripMenuItem, Me.HelpToolStripMenuItem, Me.ToolsToolStripMenuItem, Me.ActionsToolStripMenuItem})
+        Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripMenuItem5, Me.SettingsToolStripMenuItem, Me.HelpToolStripMenuItem, Me.ToolStripMenuItem6, Me.ToolsToolStripMenuItem, Me.ActionToolStripMenuItem, Me.ActionsToolStripMenuItem})
         Me.MenuStrip1.Location = New System.Drawing.Point(0, 0)
         Me.MenuStrip1.Name = "MenuStrip1"
         Me.MenuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional
@@ -1720,9 +1726,22 @@ Partial Class frmMain
         Me.MenuStrip1.TabIndex = 14
         Me.MenuStrip1.Text = "MenuStrip1"
         '
+        'ToolStripMenuItem5
+        '
+        Me.ToolStripMenuItem5.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ChangePasswordToolStripMenuItem})
+        Me.ToolStripMenuItem5.Name = "ToolStripMenuItem5"
+        Me.ToolStripMenuItem5.Size = New System.Drawing.Size(42, 20)
+        Me.ToolStripMenuItem5.Text = "User"
+        '
+        'ChangePasswordToolStripMenuItem
+        '
+        Me.ChangePasswordToolStripMenuItem.Name = "ChangePasswordToolStripMenuItem"
+        Me.ChangePasswordToolStripMenuItem.Size = New System.Drawing.Size(168, 22)
+        Me.ChangePasswordToolStripMenuItem.Text = "Change Password"
+        '
         'SettingsToolStripMenuItem
         '
-        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PreferenceToolStripMenuItem, Me.TeachersToolStripMenuItem, Me.SubjectsToolStripMenuItem, Me.SectionsToolStripMenuItem, Me.ToolStripMenuItem4, Me.CSFToolStripMenuItem, Me.RoomsToolStripMenuItem, Me.CourseStructureToolStripMenuItem, Me.FacultyWiseAllocationToolStripMenuItem})
+        Me.SettingsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PreferenceToolStripMenuItem, Me.TeachersToolStripMenuItem, Me.ToolStripMenuItem1, Me.SectionsToolStripMenuItem, Me.ToolStripMenuItem4, Me.CSFToolStripMenuItem, Me.RoomsToolStripMenuItem, Me.CourseStructureToolStripMenuItem, Me.FacultyWiseAllocationToolStripMenuItem})
         Me.SettingsToolStripMenuItem.Name = "SettingsToolStripMenuItem"
         Me.SettingsToolStripMenuItem.Size = New System.Drawing.Size(61, 20)
         Me.SettingsToolStripMenuItem.Text = "Settings"
@@ -1730,62 +1749,62 @@ Partial Class frmMain
         'PreferenceToolStripMenuItem
         '
         Me.PreferenceToolStripMenuItem.Name = "PreferenceToolStripMenuItem"
-        Me.PreferenceToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.PreferenceToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.PreferenceToolStripMenuItem.Text = "Preference"
         '
         'TeachersToolStripMenuItem
         '
         Me.TeachersToolStripMenuItem.Name = "TeachersToolStripMenuItem"
-        Me.TeachersToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.TeachersToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.TeachersToolStripMenuItem.Text = "Teachers"
         '
-        'SubjectsToolStripMenuItem
+        'ToolStripMenuItem1
         '
-        Me.SubjectsToolStripMenuItem.Name = "SubjectsToolStripMenuItem"
-        Me.SubjectsToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
-        Me.SubjectsToolStripMenuItem.Text = "Subjects"
+        Me.ToolStripMenuItem1.Name = "ToolStripMenuItem1"
+        Me.ToolStripMenuItem1.Size = New System.Drawing.Size(205, 22)
+        Me.ToolStripMenuItem1.Text = "Subjects (NEW FEATURE)"
         '
         'SectionsToolStripMenuItem
         '
         Me.SectionsToolStripMenuItem.Name = "SectionsToolStripMenuItem"
-        Me.SectionsToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.SectionsToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.SectionsToolStripMenuItem.Text = "Sections"
         '
         'ToolStripMenuItem4
         '
         Me.ToolStripMenuItem4.Name = "ToolStripMenuItem4"
         Me.ToolStripMenuItem4.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.N), System.Windows.Forms.Keys)
-        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(194, 22)
+        Me.ToolStripMenuItem4.Size = New System.Drawing.Size(205, 22)
         Me.ToolStripMenuItem4.Text = "CSF New"
         '
         'CSFToolStripMenuItem
         '
         Me.CSFToolStripMenuItem.Name = "CSFToolStripMenuItem"
         Me.CSFToolStripMenuItem.ShortcutKeys = CType((System.Windows.Forms.Keys.Control Or System.Windows.Forms.Keys.A), System.Windows.Forms.Keys)
-        Me.CSFToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.CSFToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.CSFToolStripMenuItem.Text = "CSF Update"
         '
         'RoomsToolStripMenuItem
         '
         Me.RoomsToolStripMenuItem.Name = "RoomsToolStripMenuItem"
-        Me.RoomsToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.RoomsToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.RoomsToolStripMenuItem.Text = "Rooms"
         '
         'CourseStructureToolStripMenuItem
         '
         Me.CourseStructureToolStripMenuItem.Name = "CourseStructureToolStripMenuItem"
-        Me.CourseStructureToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.CourseStructureToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.CourseStructureToolStripMenuItem.Text = "Course Structure"
         '
         'FacultyWiseAllocationToolStripMenuItem
         '
         Me.FacultyWiseAllocationToolStripMenuItem.Name = "FacultyWiseAllocationToolStripMenuItem"
-        Me.FacultyWiseAllocationToolStripMenuItem.Size = New System.Drawing.Size(194, 22)
+        Me.FacultyWiseAllocationToolStripMenuItem.Size = New System.Drawing.Size(205, 22)
         Me.FacultyWiseAllocationToolStripMenuItem.Text = "FacultyWise Allocation"
         '
         'HelpToolStripMenuItem
         '
-        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem})
+        Me.HelpToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.AboutToolStripMenuItem, Me.CurrentSessionToolStripMenuItem})
         Me.HelpToolStripMenuItem.Name = "HelpToolStripMenuItem"
         Me.HelpToolStripMenuItem.Size = New System.Drawing.Size(44, 20)
         Me.HelpToolStripMenuItem.Text = "Help"
@@ -1793,12 +1812,18 @@ Partial Class frmMain
         'AboutToolStripMenuItem
         '
         Me.AboutToolStripMenuItem.Name = "AboutToolStripMenuItem"
-        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(107, 22)
+        Me.AboutToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
         Me.AboutToolStripMenuItem.Text = "About"
+        '
+        'CurrentSessionToolStripMenuItem
+        '
+        Me.CurrentSessionToolStripMenuItem.Name = "CurrentSessionToolStripMenuItem"
+        Me.CurrentSessionToolStripMenuItem.Size = New System.Drawing.Size(156, 22)
+        Me.CurrentSessionToolStripMenuItem.Text = "Current Session"
         '
         'ToolsToolStripMenuItem
         '
-        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CheckTeacherConflictsToolStripMenuItem, Me.CheckRoomConflictsToolStripMenuItem, Me.SetDefaultRoomToolStripMenuItem, Me.SelctBatchG1ToolStripMenuItem, Me.SelectBatchG2ToolStripMenuItem, Me.RefreshToolStripMenuItem, Me.TimetablesPreviewToolStripMenuItem})
+        Me.ToolsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.CheckTeacherConflictsToolStripMenuItem, Me.CheckRoomConflictsToolStripMenuItem, Me.SetDefaultRoomToolStripMenuItem, Me.SelctBatchG1ToolStripMenuItem, Me.SelectBatchG2ToolStripMenuItem, Me.RefreshToolStripMenuItem, Me.TimetablesPreviewToolStripMenuItem, Me.ColorModeToolStripMenuItem, Me.SendEmailsToolStripMenuItem})
         Me.ToolsToolStripMenuItem.Name = "ToolsToolStripMenuItem"
         Me.ToolsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F5
         Me.ToolsToolStripMenuItem.Size = New System.Drawing.Size(47, 20)
@@ -1851,24 +1876,59 @@ Partial Class frmMain
         Me.TimetablesPreviewToolStripMenuItem.Size = New System.Drawing.Size(242, 22)
         Me.TimetablesPreviewToolStripMenuItem.Text = "Timetables Preview"
         '
+        'ColorModeToolStripMenuItem
+        '
+        Me.ColorModeToolStripMenuItem.Name = "ColorModeToolStripMenuItem"
+        Me.ColorModeToolStripMenuItem.Size = New System.Drawing.Size(242, 22)
+        Me.ColorModeToolStripMenuItem.Text = "ColorMode"
+        '
+        'SendEmailsToolStripMenuItem
+        '
+        Me.SendEmailsToolStripMenuItem.Name = "SendEmailsToolStripMenuItem"
+        Me.SendEmailsToolStripMenuItem.Size = New System.Drawing.Size(242, 22)
+        Me.SendEmailsToolStripMenuItem.Text = "Send Emails"
+        '
+        'ActionToolStripMenuItem
+        '
+        Me.ActionToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.UploadLocalPortalToolStripMenuItem, Me.UploadPDFToolStripMenuItem, Me.ConvertToSQLITEToolStripMenuItem})
+        Me.ActionToolStripMenuItem.Enabled = False
+        Me.ActionToolStripMenuItem.Name = "ActionToolStripMenuItem"
+        Me.ActionToolStripMenuItem.Size = New System.Drawing.Size(54, 20)
+        Me.ActionToolStripMenuItem.Text = "Action"
+        '
+        'UploadLocalPortalToolStripMenuItem
+        '
+        Me.UploadLocalPortalToolStripMenuItem.Enabled = False
+        Me.UploadLocalPortalToolStripMenuItem.Name = "UploadLocalPortalToolStripMenuItem"
+        Me.UploadLocalPortalToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.F6
+        Me.UploadLocalPortalToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
+        Me.UploadLocalPortalToolStripMenuItem.Text = "Upload Local Portal"
+        '
+        'UploadPDFToolStripMenuItem
+        '
+        Me.UploadPDFToolStripMenuItem.Enabled = False
+        Me.UploadPDFToolStripMenuItem.Name = "UploadPDFToolStripMenuItem"
+        Me.UploadPDFToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
+        Me.UploadPDFToolStripMenuItem.Text = "Upload PDF"
+        '
+        'ConvertToSQLITEToolStripMenuItem
+        '
+        Me.ConvertToSQLITEToolStripMenuItem.Name = "ConvertToSQLITEToolStripMenuItem"
+        Me.ConvertToSQLITEToolStripMenuItem.Size = New System.Drawing.Size(196, 22)
+        Me.ConvertToSQLITEToolStripMenuItem.Text = "Convert to SQLITE"
+        '
         'ActionsToolStripMenuItem
         '
-        Me.ActionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PublishToolStripMenuItem, Me.TestToolStripMenuItem, Me.ToolStripSeparator2, Me.ImportNWToolStripMenuItem, Me.ExportTeacherToolStripMenuItem, Me.ExportSubjectToolStripMenuItem, Me.ExportSectionsToolStripMenuItem, Me.ExportRoomsToolStripMenuItem, Me.ExportCSFToolStripMenuItem, Me.ExportActivitiesToolStripMenuItem})
+        Me.ActionsToolStripMenuItem.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.PublishToolStripMenuItem, Me.ToolStripSeparator2, Me.ImportNWToolStripMenuItem, Me.ExportTeacherToolStripMenuItem, Me.ExportSubjectToolStripMenuItem, Me.ExportSectionsToolStripMenuItem, Me.ExportRoomsToolStripMenuItem, Me.ExportCSFToolStripMenuItem, Me.ExportActivitiesToolStripMenuItem})
         Me.ActionsToolStripMenuItem.Name = "ActionsToolStripMenuItem"
-        Me.ActionsToolStripMenuItem.Size = New System.Drawing.Size(59, 20)
-        Me.ActionsToolStripMenuItem.Text = "Actions"
+        Me.ActionsToolStripMenuItem.Size = New System.Drawing.Size(108, 20)
+        Me.ActionsToolStripMenuItem.Text = "Auto-Timetables"
         '
         'PublishToolStripMenuItem
         '
         Me.PublishToolStripMenuItem.Name = "PublishToolStripMenuItem"
         Me.PublishToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
         Me.PublishToolStripMenuItem.Text = "Publish"
-        '
-        'TestToolStripMenuItem
-        '
-        Me.TestToolStripMenuItem.Name = "TestToolStripMenuItem"
-        Me.TestToolStripMenuItem.Size = New System.Drawing.Size(158, 22)
-        Me.TestToolStripMenuItem.Text = "Test"
         '
         'ToolStripSeparator2
         '
@@ -1919,7 +1979,7 @@ Partial Class frmMain
         '
         'ToolStrip1
         '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.cbSession, Me.cbSection, Me.ToolStripButton1, Me.ToolStripTextBox1, Me.ToolStripButton2, Me.ToolStripButton3, Me.ToolStripButton4, Me.ToolStripButton5, Me.ToolStripButton6})
+        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripSeparator1, Me.cbSession, Me.cbSection, Me.ToolStripButton1, Me.ToolStripTextBox1, Me.ToolStripButton2, Me.ToolStripSeparator4, Me.ToolStripButton3})
         Me.ToolStrip1.Location = New System.Drawing.Point(0, 24)
         Me.ToolStrip1.Margin = New System.Windows.Forms.Padding(5)
         Me.ToolStrip1.MaximumSize = New System.Drawing.Size(0, 60)
@@ -1937,6 +1997,8 @@ Partial Class frmMain
         '
         'cbSession
         '
+        Me.cbSession.DropDownHeight = 200
+        Me.cbSession.IntegralHeight = False
         Me.cbSession.Name = "cbSession"
         Me.cbSession.Size = New System.Drawing.Size(250, 23)
         '
@@ -1961,12 +2023,17 @@ Partial Class frmMain
         'ToolStripButton2
         '
         Me.ToolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton2.Image = Global.TimeTableManager.My.Resources.Resources.view_16xLG
+        Me.ToolStripButton2.Image = Global.TimeTableManager.My.Resources.Resources.Preview_Thumbnail_
         Me.ToolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta
         Me.ToolStripButton2.Name = "ToolStripButton2"
         Me.ToolStripButton2.Size = New System.Drawing.Size(23, 20)
         Me.ToolStripButton2.Text = "ToolStripButton2"
         Me.ToolStripButton2.ToolTipText = "Timetable Preview"
+        '
+        'ToolStripSeparator4
+        '
+        Me.ToolStripSeparator4.Name = "ToolStripSeparator4"
+        Me.ToolStripSeparator4.Size = New System.Drawing.Size(6, 23)
         '
         'ToolStripButton3
         '
@@ -1978,43 +2045,9 @@ Partial Class frmMain
         Me.ToolStripButton3.Text = "Multiclass View"
         Me.ToolStripButton3.ToolTipText = "Multiclass View"
         '
-        'ToolStripButton4
-        '
-        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton4.Name = "ToolStripButton4"
-        Me.ToolStripButton4.Size = New System.Drawing.Size(49, 20)
-        Me.ToolStripButton4.Text = "Upload"
-        '
-        'ToolStripButton5
-        '
-        Me.ToolStripButton5.Image = Global.TimeTableManager.My.Resources.Resources.VSNETWebServiceDynamicDiscovery_8215
-        Me.ToolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton5.Name = "ToolStripButton5"
-        Me.ToolStripButton5.Size = New System.Drawing.Size(103, 20)
-        Me.ToolStripButton5.Text = "Upload as PDF"
-        '
-        'ToolStripButton6
-        '
-        Me.ToolStripButton6.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton6.Image = CType(resources.GetObject("ToolStripButton6.Image"), System.Drawing.Image)
-        Me.ToolStripButton6.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton6.Name = "ToolStripButton6"
-        Me.ToolStripButton6.Size = New System.Drawing.Size(23, 20)
-        Me.ToolStripButton6.Text = "ToolStripButton6"
-        '
-        'chkLabs
-        '
-        Me.chkLabs.AutoSize = True
-        Me.chkLabs.Location = New System.Drawing.Point(644, 6)
-        Me.chkLabs.Name = "chkLabs"
-        Me.chkLabs.Size = New System.Drawing.Size(49, 17)
-        Me.chkLabs.TabIndex = 16
-        Me.chkLabs.Text = "Labs"
-        Me.chkLabs.UseVisualStyleBackColor = True
-        '
         'StatusStrip1
         '
-        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.tsLTPLabel})
+        Me.StatusStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripLabel1, Me.tsLTPLabel, Me.tslDayTime})
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 621)
         Me.StatusStrip1.Name = "StatusStrip1"
         Me.StatusStrip1.Size = New System.Drawing.Size(1202, 22)
@@ -2033,14 +2066,11 @@ Partial Class frmMain
         Me.tsLTPLabel.Size = New System.Drawing.Size(46, 17)
         Me.tsLTPLabel.Text = "Lecture"
         '
-        'Button1
+        'tslDayTime
         '
-        Me.Button1.Location = New System.Drawing.Point(711, 0)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(89, 24)
-        Me.Button1.TabIndex = 18
-        Me.Button1.Text = "ColorMode"
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.tslDayTime.Name = "tslDayTime"
+        Me.tslDayTime.Size = New System.Drawing.Size(101, 17)
+        Me.tslDayTime.Text = "      Day (Time)      "
         '
         'rSOE
         '
@@ -2205,6 +2235,16 @@ Partial Class frmMain
         Me.FillByToolStripButton1.Size = New System.Drawing.Size(39, 22)
         Me.FillByToolStripButton1.Text = "FillBy"
         '
+        'userinfo
+        '
+        Me.userinfo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
+        Me.userinfo.AutoSize = True
+        Me.userinfo.Location = New System.Drawing.Point(1151, 6)
+        Me.userinfo.Name = "userinfo"
+        Me.userinfo.Size = New System.Drawing.Size(16, 13)
+        Me.userinfo.TabIndex = 23
+        Me.userinfo.Text = "..."
+        '
         'MSectionBindingSource
         '
         Me.MSectionBindingSource.DataMember = "Section"
@@ -2214,6 +2254,7 @@ Partial Class frmMain
         'ECollegeDataSet
         '
         Me.ECollegeDataSet.DataSetName = "eCollegeDataSet"
+        Me.ECollegeDataSet.EnforceConstraints = False
         Me.ECollegeDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema
         '
         'bsProgram
@@ -2243,29 +2284,50 @@ Partial Class frmMain
         '
         Me.ProgramTableAdapter1.ClearBeforeFill = True
         '
-        'userinfo
+        'Button1
         '
-        Me.userinfo.Anchor = CType((System.Windows.Forms.AnchorStyles.Top Or System.Windows.Forms.AnchorStyles.Right), System.Windows.Forms.AnchorStyles)
-        Me.userinfo.AutoSize = True
-        Me.userinfo.Location = New System.Drawing.Point(1151, 6)
-        Me.userinfo.Name = "userinfo"
-        Me.userinfo.Size = New System.Drawing.Size(16, 13)
-        Me.userinfo.TabIndex = 23
-        Me.userinfo.Text = "..."
+        Me.Button1.Location = New System.Drawing.Point(852, 46)
+        Me.Button1.Name = "Button1"
+        Me.Button1.Size = New System.Drawing.Size(75, 23)
+        Me.Button1.TabIndex = 24
+        Me.Button1.Text = "Button1"
+        Me.Button1.UseVisualStyleBackColor = True
+        '
+        'cbSchool
+        '
+        Me.cbSchool.DisplayMember = "Name"
+        Me.cbSchool.FormattingEnabled = True
+        Me.cbSchool.Location = New System.Drawing.Point(1043, 0)
+        Me.cbSchool.Name = "cbSchool"
+        Me.cbSchool.Size = New System.Drawing.Size(102, 21)
+        Me.cbSchool.TabIndex = 25
+        Me.cbSchool.ValueMember = "Name"
+        '
+        'ToolStripMenuItem6
+        '
+        Me.ToolStripMenuItem6.DropDownItems.AddRange(New System.Windows.Forms.ToolStripItem() {Me.FacultyLoadToolStripMenuItem})
+        Me.ToolStripMenuItem6.Name = "ToolStripMenuItem6"
+        Me.ToolStripMenuItem6.Size = New System.Drawing.Size(59, 20)
+        Me.ToolStripMenuItem6.Text = "Reports"
+        '
+        'FacultyLoadToolStripMenuItem
+        '
+        Me.FacultyLoadToolStripMenuItem.Name = "FacultyLoadToolStripMenuItem"
+        Me.FacultyLoadToolStripMenuItem.Size = New System.Drawing.Size(152, 22)
+        Me.FacultyLoadToolStripMenuItem.Text = "Faculty Load"
         '
         'frmMain
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1202, 643)
+        Me.Controls.Add(Me.cbSchool)
+        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.userinfo)
         Me.Controls.Add(Me.FillByToolStrip1)
         Me.Controls.Add(Me.SplitContainer1)
-        Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.StatusStrip1)
-        Me.Controls.Add(Me.chkLabs)
         Me.Controls.Add(Me.ToolStrip1)
-        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.RadioButton2)
         Me.Controls.Add(Me.RadioButton1)
         Me.Controls.Add(Me.BatchF)
@@ -2297,12 +2359,12 @@ Partial Class frmMain
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
         Me.FillByToolStrip1.ResumeLayout(False)
         Me.FillByToolStrip1.PerformLayout()
+        CType(Me.VTimeTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.MSectionBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ECollegeDataSet, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.bsProgram, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.ECollegeDataSet1, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.bsSection, System.ComponentModel.ISupportInitialize).EndInit()
-        CType(Me.VTimeTableBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -2371,7 +2433,6 @@ Partial Class frmMain
     Friend WithEvents RadioButton1 As System.Windows.Forms.RadioButton
     Friend WithEvents RadioButton2 As System.Windows.Forms.RadioButton
     Friend WithEvents ColorDialog1 As System.Windows.Forms.ColorDialog
-    Friend WithEvents CheckBox1 As System.Windows.Forms.CheckBox
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents SettingsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PreferenceToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -2381,7 +2442,6 @@ Partial Class frmMain
     Friend WithEvents ToolStripSeparator1 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents cbSession As System.Windows.Forms.ToolStripComboBox
     Friend WithEvents cbSection As System.Windows.Forms.ToolStripComboBox
-    Friend WithEvents chkLabs As System.Windows.Forms.CheckBox
     Friend WithEvents ToolsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CheckTeacherConflictsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents CheckRoomConflictsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -2389,7 +2449,6 @@ Partial Class frmMain
     Friend WithEvents StatusStrip1 As System.Windows.Forms.StatusStrip
     Friend WithEvents ToolStripLabel1 As System.Windows.Forms.ToolStripStatusLabel
     Friend WithEvents TeachersToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents SubjectsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SectionsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents bsSection As System.Windows.Forms.BindingSource
     Friend WithEvents SectionTableAdapter As TimeTableManager.eCollegeDataSetTableAdapters.SectionTableAdapter
@@ -2397,14 +2456,12 @@ Partial Class frmMain
     Friend WithEvents RoomsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripButton1 As System.Windows.Forms.ToolStripButton
     Friend WithEvents ToolStripTextBox1 As System.Windows.Forms.ToolStripTextBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents SelctBatchG1ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents SelectBatchG2ToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents RefreshToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents TimetablesPreviewToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ActionsToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents PublishToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TestToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripSeparator2 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents ImportNWToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ExportTeacherToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -2460,8 +2517,6 @@ Partial Class frmMain
     Friend WithEvents ToolStripSeparator3 As System.Windows.Forms.ToolStripSeparator
     Friend WithEvents DeleteToolStripMenuItem1 As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents ToolStripButton3 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton4 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton5 As System.Windows.Forms.ToolStripButton
     Friend WithEvents OpenFileDialog1 As System.Windows.Forms.OpenFileDialog
     Friend WithEvents FillByToolStrip1 As System.Windows.Forms.ToolStrip
     Friend WithEvents SchoolToolStripLabel As System.Windows.Forms.ToolStripLabel
@@ -2481,5 +2536,21 @@ Partial Class frmMain
     Friend WithEvents TextBox73 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox72 As System.Windows.Forms.TextBox
     Friend WithEvents TextBox71 As System.Windows.Forms.TextBox
-    Friend WithEvents ToolStripButton6 As ToolStripButton
+    Friend WithEvents ColorModeToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ActionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UploadLocalPortalToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents UploadPDFToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripSeparator4 As ToolStripSeparator
+    Friend WithEvents QuickInsertToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ConvertToSQLITEToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem1 As ToolStripMenuItem
+    Friend WithEvents CurrentSessionToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents SendEmailsToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents ToolStripMenuItem5 As ToolStripMenuItem
+    Friend WithEvents ChangePasswordToolStripMenuItem As ToolStripMenuItem
+    Friend WithEvents Button1 As Button
+    Friend WithEvents tslDayTime As ToolStripStatusLabel
+    Friend WithEvents cbSchool As ComboBox
+    Friend WithEvents ToolStripMenuItem6 As ToolStripMenuItem
+    Friend WithEvents FacultyLoadToolStripMenuItem As ToolStripMenuItem
 End Class

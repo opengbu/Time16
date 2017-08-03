@@ -32,8 +32,6 @@ Partial Class frmSubject
         Me.ToolStripLabel2 = New System.Windows.Forms.ToolStripLabel()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
-        Me.SubjectBindingSource = New System.Windows.Forms.BindingSource(Me.components)
-        Me.SubjectTableAdapter = New TimeTableManager.eCollegeDataSetTableAdapters.SubjectTableAdapter()
         Me.IdDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.CodeDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.NameDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
@@ -41,6 +39,8 @@ Partial Class frmSubject
         Me.LDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.TDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.PDataGridViewTextBoxColumn = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.SubjectBindingSource = New System.Windows.Forms.BindingSource(Me.components)
+        Me.SubjectTableAdapter = New TimeTableManager.eCollegeDataSetTableAdapters.SubjectTableAdapter()
         CType(Me.TeacherBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ECollegeDataSet, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.ToolStrip1.SuspendLayout()
@@ -74,7 +74,7 @@ Partial Class frmSubject
         'ToolStripLabel1
         '
         Me.ToolStripLabel1.Name = "ToolStripLabel1"
-        Me.ToolStripLabel1.Size = New System.Drawing.Size(34, 22)
+        Me.ToolStripLabel1.Size = New System.Drawing.Size(37, 22)
         Me.ToolStripLabel1.Text = "SAVE"
         '
         'ToolStripSeparator1
@@ -85,7 +85,7 @@ Partial Class frmSubject
         'ToolStripLabel2
         '
         Me.ToolStripLabel2.Name = "ToolStripLabel2"
-        Me.ToolStripLabel2.Size = New System.Drawing.Size(54, 22)
+        Me.ToolStripLabel2.Size = New System.Drawing.Size(60, 22)
         Me.ToolStripLabel2.Text = "REFRESH"
         '
         'StatusStrip1
@@ -107,15 +107,6 @@ Partial Class frmSubject
         Me.DataGridView1.Name = "DataGridView1"
         Me.DataGridView1.Size = New System.Drawing.Size(752, 325)
         Me.DataGridView1.TabIndex = 2
-        '
-        'SubjectBindingSource
-        '
-        Me.SubjectBindingSource.DataMember = "Subject"
-        Me.SubjectBindingSource.DataSource = Me.ECollegeDataSet
-        '
-        'SubjectTableAdapter
-        '
-        Me.SubjectTableAdapter.ClearBeforeFill = True
         '
         'IdDataGridViewTextBoxColumn
         '
@@ -165,6 +156,15 @@ Partial Class frmSubject
         Me.PDataGridViewTextBoxColumn.FillWeight = 10.0!
         Me.PDataGridViewTextBoxColumn.HeaderText = "P"
         Me.PDataGridViewTextBoxColumn.Name = "PDataGridViewTextBoxColumn"
+        '
+        'SubjectBindingSource
+        '
+        Me.SubjectBindingSource.DataMember = "Subject"
+        Me.SubjectBindingSource.DataSource = Me.ECollegeDataSet
+        '
+        'SubjectTableAdapter
+        '
+        Me.SubjectTableAdapter.ClearBeforeFill = True
         '
         'frmSubject
         '

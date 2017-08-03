@@ -17,7 +17,14 @@ Public Class Preference
     Private Sub Preference_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.CheckBox1.Checked = My.Settings.DeleteConfirm
         Me.prfFilterCourse.Checked = My.Settings.ProgramFilter
+        tProxyServer.Text = My.Settings.Proxy
+        tProxyUser.Text = My.Settings.ProxyUser
+        tProxyPassword.Text = My.Settings.ProxyPassword
     End Sub
 
-   
+    Private Sub bSaveProxy_Click(sender As Object, e As EventArgs) Handles bSaveProxy.Click
+        My.Settings.Proxy = tProxyServer.Text.Trim
+        My.Settings.ProxyUser = tProxyUser.Text.Trim
+        My.Settings.ProxyPassword = tProxyPassword.Text
+    End Sub
 End Class

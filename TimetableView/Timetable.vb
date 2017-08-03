@@ -1,5 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
+Imports System.Net
 
 Module Timetable
     Dim ts(7, 10) As String
@@ -20,7 +21,7 @@ Module Timetable
         '  Dim cn2 As New SqlConnection
 
         cn.ConnectionString = My.Settings.conn
-        '  cn2.ConnectionString = My.Settings.conn
+        '  cn2.ConnectionString = My.Settings.eCollegeConnectionString
 
         Dim cmd As New SqlCommand
         Dim rd As SqlDataReader
@@ -69,22 +70,22 @@ Module Timetable
             Dim strp As String = ""
             HTMLByFacultyId(Facid)
 
-            Str = ""
+            str = ""
             str += "<html><head><title id='tMain'>Timetables::" & Facid.ToString & "</title> " _
                 & "<style>" & My.Resources.screencss & "</style>" _
                 & "<link href='print.css' rel='stylesheet' type='text/css' media='print' />" _
                 & "</head>"
-            Str += "<body><table>"
+            str += "<body><table>"
             daytime()
             For i = 0 To maxD
-                Str += "<tr>"
+                str += "<tr>"
                 For j = 0 To maxP
                     If tsd(i, j) = 0 Then
-                        Str += "<td class='tttd'>" + ts(i, j) + "</td>"
+                        str += "<td class='tttd'>" + ts(i, j) + "</td>"
                     Else
                         If tss(i, j) = 0 Then
                             'str += "<td class='tttd'>" + ts(i, j) + ":" + tss(i, j).ToString + "</td>"
-                            Str += "<td class='tttd' colspan='" + tsd(i, j).ToString + "'>" + ts(i, j) + "</td>"
+                            str += "<td class='tttd' colspan='" + tsd(i, j).ToString + "'>" + ts(i, j) + "</td>"
                             j = j + tsd(i, j) - 1
                         Else
                             'str += "<td class='tttd' colspan='" + tss(i, j).ToString + "'>" + ts(i, j) + "</td>"
@@ -93,11 +94,11 @@ Module Timetable
                     End If
 
                 Next
-                Str += "</tr>"
+                str += "</tr>"
             Next
-            Str += "</table>"
+            str += "</table>"
             '+ "<div>" + tblFooter + "</div>" + "<div class='Weblink'>SAVE PAPER: This timetable is available at http://portal.gbuonline.in/timetables </div>"
-            Str += "</body></html>"
+            str += "</body></html>"
 
             ' docstr += str & "<br><br><br>" & ts(0, 0) & "<br>"
         Catch ex As Exception
@@ -105,6 +106,12 @@ Module Timetable
         End Try
         Return str
     End Function
+
+
+    ' Function GetTimetableBySectionId(ByVal secid As Integer)
+
+    ' End Function
+
     Sub WriteToFile(ByVal content As String, ByVal filename As String, Optional ByVal Online As Boolean = False)
         Try
             Dim w As StreamWriter
@@ -112,7 +119,7 @@ Module Timetable
             w.Write(content)
             w.Flush()
             w.Close()
-            If Online Then UploadOnline(filename)
+            If Online Then UploadOnline2(filename)
             'MsgBox(filename)
         Catch ex As Exception
 
@@ -169,6 +176,36 @@ Module Timetable
         Return 1
     End Function
 
-    
+    Sub UploadOnline2(ByVal currFileName As String)
+        Dim tmppath As String = Path.GetTempPath()
+
+        If currFileName = "" Then
+            MsgBox("No timetable is selected.")
+        Else
+            ' Dim currFileNamerev As String = currFileName.Split(".")(0) + "_" + Now.Ticks.ToString + ".htm"
+            If (currFileName.Contains("/")) Then
+                currFileName = tmppath + currFileName
+            End If
+            Try
+                HttpUpload("http://172.25.5.15/tt/upload.php", currFileName)
+                HttpUpload("http://gbuonline.in/timetables/upload.php", currFileName)
+            Catch ex As Exception
+                MsgBox(Err.Description)
+            End Try
+        End If
+    End Sub
+
+    Sub HttpUpload(url, filename)
+        Dim Fileuri As String
+        Using we As New WebClient
+
+            Dim responseArray As Byte()
+            responseArray = we.UploadFile(url, filename)
+            Fileuri = System.Text.Encoding.ASCII.GetString(responseArray)
+            'MsgBox(Fileuri)
+            'Dim response As String
+            'response = Encoding.UTF8.GetString(responseArray)
+        End Using
+    End Sub
 
 End Module

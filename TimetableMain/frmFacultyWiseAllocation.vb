@@ -117,9 +117,8 @@ Public Class frmFacultyWiseAllocation
                                     & ", @T=" & Me.nTA.Value _
                                     & ", @P=" & Me.nPA.Value
 
-            '           cn.Open()
             Dim cmd1 As New SqlCommand(sQRy1, cn)
-            'MsgBox(cmd1.CommandText)
+
             csfid = cmd1.ExecuteScalar()
         Catch ex As Exception
             MsgBox(Err.Description)
@@ -128,10 +127,6 @@ Public Class frmFacultyWiseAllocation
         End Try
         
         If cn.State = ConnectionState.Open Then cn.Close()
-        ' End If
-        ' Me.DialogResult = System.Windows.Forms.DialogResult.OK
-        'Me.CSF_ViewTableAdapter.Fill(Me.ECollegeDataSet.CSF_View)
-
         ComboBox1.Focus()
 
         Me.CSF_ViewTableAdapter.FillByFacultyId(Me.ECollegeDataSet.CSF_View, ComboBox3.SelectedValue)

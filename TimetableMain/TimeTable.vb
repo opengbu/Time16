@@ -1,4 +1,6 @@
-﻿<ComClass(TimeTable.ClassId, TimeTable.InterfaceId, TimeTable.EventsId)>
+﻿Imports System.Data.SqlClient
+
+<ComClass(TimeTable.ClassId, TimeTable.InterfaceId, TimeTable.EventsId)>
 Public Class TimeTable
 
 #Region "COM GUIDs"
@@ -19,9 +21,49 @@ Public Class TimeTable
     End Sub
 
     Public Function Version() As String
-        Version = "2010.1.0"
+        Version = "2017.7.0"
     End Function
 
+    Public Function Session() As Integer
+        Dim _Session As Integer = 0
+        Dim sql As String =
+         "Select Id From Session Where CurrentActive=1"
+
+        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString)
+            Dim cmd As New SqlCommand(sql, conn)
+            Try
+                conn.Open()
+                _Session = Convert.ToInt32(cmd.ExecuteScalar())
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+
+        Return _Session
+
+    End Function
+
+    Public Function SessionName() As String
+        Dim _SessionName As String = ""
+        Dim sql As String =
+         "Select Title From Session Where CurrentActive=1"
+
+        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString)
+            Dim cmd As New SqlCommand(sql, conn)
+            Try
+                conn.Open()
+                _SessionName = Convert.ToString(cmd.ExecuteScalar())
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+        Return _SessionName
+
+    End Function
 
 End Class
 

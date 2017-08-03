@@ -1,7 +1,17 @@
 ﻿Partial Class eCollegeDataSet
+    Partial Public Class V_CourseStructureDataTable
+        Private Sub V_CourseStructureDataTable_V_CourseStructureRowChanging(sender As Object, e As V_CourseStructureRowChangeEvent) Handles Me.V_CourseStructureRowChanging
+
+        End Sub
+
+    End Class
+
+    Partial Public Class SectionDataTable
+    End Class
+
     Partial Class adCourseStructureDataTable
 
-        
+
 
     End Class
 
