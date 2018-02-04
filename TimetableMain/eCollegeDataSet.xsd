@@ -4,13 +4,13 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="eCollegeConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="eCollegeConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TimeTableManager.My.MySettings.0.Default.eCollegeConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="eCollegeConnectionString1" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="eCollegeConnectionString1 (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TimeTableManager.My.MySettings.0.Default.eCollegeConnectionString1" Provider="System.Data.SqlClient" />
           <Connection AppSettingsObjectName="MySettings" AppSettingsPropertyName="TIMETABLE_JAN2014_MDFConnectionString" IsAppSettingsProperty="true" Modifier="Assembly" Name="TIMETABLE_JAN2014_MDFConnectionString (MySettings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.TimeTableManager.My.MySettings.GlobalReference.Default.TIMETABLE_JAN2014_MDFConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_TimeTableTableAdapter" GeneratorDataComponentClassName="V_TimeTableTableAdapter" Name="V_TimeTable" UserDataComponentName="V_TimeTableTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="eCollege.dbo.V_TimeTable" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="eCollege.dbo.V_TimeTable" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT TimeTableId, Section_Id, TT_Day, TT_Period, CSF_Id, Room_Id, Batch_Id, Id, Name, Abr, Subject_Code, Subject, IsLab, Section_Name, Semester, Session_Id, Room, Group_Id, Dept, HOD, Section_Set FROM dbo.V_TimeTable</CommandText>
@@ -46,7 +46,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="L_Section_Subject_FacultyTableAdapter" GeneratorDataComponentClassName="L_Section_Subject_FacultyTableAdapter" Name="L_Section_Subject_Faculty" UserDataComponentName="L_Section_Subject_FacultyTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="L_Section_Subject_Faculty" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="L_Section_Subject_Faculty" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [L_Section_Subject_Faculty] WHERE (([CSF_Id] = @p1))</CommandText>
@@ -118,7 +118,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="M_SubjectTableAdapter" GeneratorDataComponentClassName="M_SubjectTableAdapter" Name="M_Subject" UserDataComponentName="M_SubjectTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="M_Subject" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="M_Subject" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [M_Subject] WHERE (([Id] = @p1))</CommandText>
@@ -211,7 +211,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_FacultyTableAdapter" GeneratorDataComponentClassName="V_FacultyTableAdapter" Name="V_Faculty" UserDataComponentName="V_FacultyTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="V_Faculty_Temp" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="V_Faculty_Temp" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [V_Faculty_Temp] WHERE (([id] = @p1))</CommandText>
@@ -274,7 +274,7 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="TeacherTableAdapter" GeneratorDataComponentClassName="TeacherTableAdapter" Name="Teacher" UserDataComponentName="TeacherTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="Timetable.dbo.Teacher" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="Timetable.dbo.Teacher" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [Teacher] WHERE (([id] = @Original_id) AND ([name] = @Original_name) AND ([abbr] = @Original_abbr))</CommandText>
@@ -328,7 +328,7 @@ SELECT id, name, abbr FROM Teacher WHERE (id = @id) ORDER BY name</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SubjectTableAdapter" GeneratorDataComponentClassName="SubjectTableAdapter" Name="Subject" UserDataComponentName="SubjectTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="Timetable.dbo.Subject" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="Timetable.dbo.Subject" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [Subject] WHERE (([id] = @Original_id) AND ([code] = @Original_code) AND ([name] = @Original_name) AND ([IsLab] = @Original_IsLab) AND ([L] = @Original_L) AND ([T] = @Original_T) AND ([P] = @Original_P))</CommandText>
@@ -402,7 +402,7 @@ SELECT id, code, name, IsLab, L, T, P FROM Subject WHERE (id = @id) ORDER BY cod
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SectionTableAdapter" GeneratorDataComponentClassName="SectionTableAdapter" Name="Section" UserDataComponentName="SectionTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.Section" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.Section" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [Section] WHERE (([Id] = @Original_Id) AND ([Name] = @Original_Name) AND ([Semester] = @Original_Semester) AND ([Date_of_Creation] = @Original_Date_of_Creation) AND ([LastEditDate] = @Original_LastEditDate) AND ([CreationDate] = @Original_CreationDate) AND ([ShowTimeTable] = @Original_ShowTimeTable) AND ([Program] = @Original_Program) AND ([ActiveState] = @Original_ActiveState))</CommandText>
@@ -481,7 +481,7 @@ ORDER BY Name</CommandText>
               <Mapping SourceColumn="ActiveState" DataSetColumn="ActiveState" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Section.Id, Section.Name, Section.Semester, Section.Date_of_Creation, Section.LastEditDate, Section.CreationDate, Section.ShowTimeTable, Section.Program, Program.Code, Program.Name AS pname, 
@@ -496,7 +496,7 @@ ORDER BY Section.Name</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.Section" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy1">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.Section" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy1">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT ActiveState, CreationDate, Date_of_Creation, Id, LastEditDate, Name, Program, Semester, ShowTimeTable FROM Section WHERE (Program = @Param1) ORDER BY Name</CommandText>
@@ -510,7 +510,7 @@ ORDER BY Section.Name</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="M_RoomTableAdapter" GeneratorDataComponentClassName="M_RoomTableAdapter" Name="M_Room" UserDataComponentName="M_RoomTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.M_Room" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.M_Room" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [M_Room] WHERE (([room_Id] = @Original_room_Id) AND ([Name] = @Original_Name) AND ((@IsNull_Rows = 1 AND [Rows] IS NULL) OR ([Rows] = @Original_Rows)) AND ((@IsNull_Cols = 1 AND [Cols] IS NULL) OR ([Cols] = @Original_Cols)) AND ([Capacity] = @Original_Capacity) AND ([IsLab] = @Original_IsLab) AND ([RoomType] = @Original_RoomType) AND ((@IsNull_Building = 1 AND [Building] IS NULL) OR ([Building] = @Original_Building)))</CommandText>
@@ -591,7 +591,7 @@ FROM            M_Room</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CSF_ViewTableAdapter" GeneratorDataComponentClassName="CSF_ViewTableAdapter" Name="CSF_View" UserDataComponentName="CSF_ViewTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.CSF_View" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.CSF_View" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        CSF_Id, Name AS Section_Name, Semester, Teacher_Name, abbr, Subject_Code, Subject_Name, IsLab, L, T, P, Abr_n, Teacher_Id_n, Teacher_name_n
@@ -619,7 +619,7 @@ ORDER BY CSF_Id DESC</CommandText>
               <Mapping SourceColumn="Teacher_name_n" DataSetColumn="Teacher_name_n" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.CSF_View" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.CSF_View" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT distinct Abr_n, CSF_Id, IsLab, L, Name AS Section_Name, P, Semester, Subject_Code, Subject_Name, T, Teacher_Id_n, Teacher_Name, Teacher_name_n, abbr FROM CSF_View WHERE (Name = @Param1) ORDER BY CSF_Id DESC</CommandText>
@@ -629,7 +629,7 @@ ORDER BY CSF_Id DESC</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.CSF_View" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="FillBy1" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy1">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.CSF_View" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy1" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy1" GeneratorSourceName="FillBy1" GetMethodModifier="Public" GetMethodName="GetDataBy1" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy1" UserSourceName="FillBy1">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        Id, Name, Semester, Subject_Id, Subject_Name, IsLab, L, T, P, Teacher_Id, Teacher_Name, abbr, ProgramName, school, Batch, CSF_Id, Section_Id, Subject_Code, Faculty_Id, IsRemoved, LA, TA, PA, Teacher_Id2, 
@@ -643,7 +643,7 @@ WHERE        (Id = @Param1) AND (Subject_Id = @Param2)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.CSF_View" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByFacultyId" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByFacultyId" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByFacultyId">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.CSF_View" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillByFacultyId" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillByFacultyId" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy2" UserSourceName="FillByFacultyId">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        CSF_ID,Name AS Section_Name, Semester, Teacher_Name, abbr, Subject_Code, Subject_Name, IsLab, L, T, P, Abr_n, Teacher_Id_n, Teacher_name_n
@@ -660,10 +660,10 @@ ORDER BY CSF_Id DESC</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ProgramTableAdapter" GeneratorDataComponentClassName="ProgramTableAdapter" Name="Program" UserDataComponentName="ProgramTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.Program" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="TIMETABLE_JAN2015.dbo.Program" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>DELETE FROM [dbo].[Program] WHERE (([id] = @Original_id) AND ((@IsNull_Code = 1 AND [Code] IS NULL) OR ([Code] = @Original_Code)) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_school = 1 AND [school] IS NULL) OR ([school] = @Original_school)))</CommandText>
+                    <CommandText>DELETE FROM [Program] WHERE (([id] = @Original_id) AND ((@IsNull_Code = 1 AND [Code] IS NULL) OR ([Code] = @Original_Code)) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_school = 1 AND [school] IS NULL) OR ([school] = @Original_school)) AND ([IsActive] = @Original_IsActive))</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Code" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Code" SourceColumnNullMapping="true" SourceVersion="Original" />
@@ -672,34 +672,40 @@ ORDER BY CSF_Id DESC</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_school" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="school" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_school" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="school" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_IsActive" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="IsActive" SourceColumnNullMapping="false" SourceVersion="Original" />
                     </Parameters>
                   </DbCommand>
                 </DeleteCommand>
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>INSERT INTO [dbo].[Program] ([Code], [Name], [school]) VALUES (@Code, @Name, @school);
-SELECT id, Code, Name, school FROM Program WHERE (id = SCOPE_IDENTITY())</CommandText>
+                    <CommandText>INSERT INTO [Program] ([Code], [Name], [school], [IsActive]) VALUES (@Code, @Name, @school, @IsActive);
+SELECT id, Code, Name, school, IsActive FROM Program WHERE (id = SCOPE_IDENTITY()) ORDER BY Name</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Code" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@school" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="school" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@IsActive" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="IsActive" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </InsertCommand>
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT id, Code, Name, school FROM dbo.Program</CommandText>
+                    <CommandText>SELECT        id, Code, Name, school, IsActive
+FROM            Program
+WHERE        (IsActive = 1)
+ORDER BY Name</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
                 <UpdateCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>UPDATE [dbo].[Program] SET [Code] = @Code, [Name] = @Name, [school] = @school WHERE (([id] = @Original_id) AND ((@IsNull_Code = 1 AND [Code] IS NULL) OR ([Code] = @Original_Code)) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_school = 1 AND [school] IS NULL) OR ([school] = @Original_school)));
-SELECT id, Code, Name, school FROM Program WHERE (id = @id)</CommandText>
+                    <CommandText>UPDATE [Program] SET [Code] = @Code, [Name] = @Name, [school] = @school, [IsActive] = @IsActive WHERE (([id] = @Original_id) AND ((@IsNull_Code = 1 AND [Code] IS NULL) OR ([Code] = @Original_Code)) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_school = 1 AND [school] IS NULL) OR ([school] = @Original_school)) AND ([IsActive] = @Original_IsActive));
+SELECT id, Code, Name, school, IsActive FROM Program WHERE (id = @id) ORDER BY Name</CommandText>
                     <Parameters>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Code" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@school" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="school" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@IsActive" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="IsActive" SourceColumnNullMapping="false" SourceVersion="Current" />
                       <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_id" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_Code" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="Code" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Code" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Code" SourceColumnNullMapping="false" SourceVersion="Original" />
@@ -707,7 +713,8 @@ SELECT id, Code, Name, school FROM Program WHERE (id = @id)</CommandText>
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_Name" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="Name" SourceColumnNullMapping="false" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_school" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="school" SourceColumnNullMapping="true" SourceVersion="Original" />
                       <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_school" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="school" SourceColumnNullMapping="false" SourceVersion="Original" />
-                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="[TIMETABLE_JAN2014.MDF].dbo.Program" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Boolean" Direction="Input" ParameterName="@Original_IsActive" Precision="0" ProviderType="Bit" Scale="0" Size="0" SourceColumn="IsActive" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="id" ColumnName="id" DataSourceName="TIMETABLE_JAN2015.dbo.Program" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@id" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="id" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </UpdateCommand>
@@ -718,16 +725,18 @@ SELECT id, Code, Name, school FROM Program WHERE (id = @id)</CommandText>
               <Mapping SourceColumn="Code" DataSetColumn="Code" />
               <Mapping SourceColumn="Name" DataSetColumn="Name" />
               <Mapping SourceColumn="school" DataSetColumn="school" />
+              <Mapping SourceColumn="IsActive" DataSetColumn="IsActive" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.Program" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="TIMETABLE_JAN2015.dbo.Program" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="false">
-                    <CommandText>SELECT        id, Code, Name, school
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        Code, IsActive, Name, id, school
 FROM            Program
-WHERE        (school = @school)</CommandText>
+WHERE        (school = @school) AND (IsActive = 1)
+ORDER BY Code</CommandText>
                     <Parameters>
-                      <Parameter AllowDbNull="true" AutogeneratedName="school" ColumnName="school" DataSourceName="[TIMETABLE_JAN2014.MDF].dbo.Program" DataTypeServer="varchar(10)" DbType="AnsiString" Direction="Input" ParameterName="@school" Precision="0" ProviderType="VarChar" Scale="0" Size="10" SourceColumn="school" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="school" ColumnName="school" DataSourceName="TIMETABLE_JAN2015.dbo.Program" DataTypeServer="varchar(10)" DbType="AnsiString" Direction="Input" ParameterName="@school" Precision="0" ProviderType="VarChar" Scale="0" Size="10" SourceColumn="school" SourceColumnNullMapping="false" SourceVersion="Current" />
                     </Parameters>
                   </DbCommand>
                 </SelectCommand>
@@ -736,7 +745,7 @@ WHERE        (school = @school)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CourseStructureTableAdapter" GeneratorDataComponentClassName="CourseStructureTableAdapter" Name="CourseStructure" UserDataComponentName="CourseStructureTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.CourseStructure" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.CourseStructure" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [CourseStructure] WHERE (([ProgramId] = @Original_ProgramId) AND ([CouseId] = @Original_CouseId))</CommandText>
@@ -788,10 +797,10 @@ SELECT ProgramId, CouseId, remark FROM CourseStructure WHERE (CouseId = @CouseId
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="V_CourseStructureTableAdapter" GeneratorDataComponentClassName="V_CourseStructureTableAdapter" Name="V_CourseStructure" UserDataComponentName="V_CourseStructureTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="TIMETABLE_JAN2015.dbo.V_CourseStructure" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="TIMETABLE_JAN2015.dbo.V_CourseStructure" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        id, Subject_Code, Subject_Code AS code, Subject_Name, IsLab, L, T, P, Section_Id, semester
+                    <CommandText>SELECT        id, Subject_Code, Subject_Code AS code, Subject_Name, IsLab, L, T, P, Section_Id, semester, SessionId
 FROM            V_CourseStructure
 WHERE        (Section_Id = @Param1)</CommandText>
                     <Parameters>
@@ -812,9 +821,10 @@ WHERE        (Section_Id = @Param1)</CommandText>
               <Mapping SourceColumn="Section_Id" DataSetColumn="Section_Id" />
               <Mapping SourceColumn="code" DataSetColumn="code" />
               <Mapping SourceColumn="semester" DataSetColumn="semester" />
+              <Mapping SourceColumn="SessionId" DataSetColumn="SessionId" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.V_CourseStructure" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.V_CourseStructure" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBy" GeneratorSourceName="FillBy" GetMethodModifier="Public" GetMethodName="GetDataBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT IsLab, L, P, Section_Id, Subject_Code, Subject_Name, T, id FROM V_CourseStructure</CommandText>
@@ -822,7 +832,7 @@ WHERE        (Section_Id = @Param1)</CommandText>
                   </DbCommand>
                 </SelectCommand>
               </DbSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.V_CourseStructure" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBySemester" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySemester" GeneratorSourceName="FillBySemester" GetMethodModifier="Public" GetMethodName="GetDataBySemester" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySemester" UserSourceName="FillBySemester">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.V_CourseStructure" DbObjectType="View" FillMethodModifier="Public" FillMethodName="FillBySemester" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataBySemester" GeneratorSourceName="FillBySemester" GetMethodModifier="Public" GetMethodName="GetDataBySemester" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBySemester" UserSourceName="FillBySemester">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        id, Subject_Code, Subject_Code AS code, Subject_Name, IsLab, L, T, P, Section_Id, semester
@@ -839,7 +849,7 @@ WHERE        (Section_Id = @Param1) AND (semester = @Param2)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SchoolTableAdapter" GeneratorDataComponentClassName="SchoolTableAdapter" Name="School" UserDataComponentName="SchoolTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="TIMETABLE_JAN2015.dbo.School" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="TIMETABLE_JAN2015.dbo.School" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <InsertCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>INSERT INTO [dbo].[School] ([Name], [FullName]) VALUES (@Name, @FullName)</CommandText>
@@ -865,7 +875,7 @@ WHERE        (Section_Id = @Param1) AND (semester = @Param2)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CSF_View1TableAdapter" GeneratorDataComponentClassName="CSF_View1TableAdapter" Name="CSF_View1" UserDataComponentName="CSF_View1TableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.CSF_View" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectName="[TIMETABLE_JAN2014.MDF].dbo.CSF_View" DbObjectType="View" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT       distinct  Abr_n, Teacher_Id_n, Teacher_name_n, LA, TA, PA, Subject_Code, Section_Id, CSF_Id, Batch, school, ProgramName, P, T, L, IsLab, Subject_Name, Subject_Id, Semester, Name, Id
@@ -905,7 +915,7 @@ WHERE        (Id = @Param1)</CommandText>
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="CSFTableTableAdapter" GeneratorDataComponentClassName="CSFTableTableAdapter" Name="CSFTable" UserDataComponentName="CSFTableTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>SELECT        CSF_Faculty.csf_id AS CSF, Teacher.name AS Faculty, Subject.code AS Subject_Code, Subject.name AS Subject_Name, Section.Name AS SectionName, Subject.L, Subject.T, Subject.P, CSF.LA, CSF.TA, CSF.PA
@@ -934,7 +944,7 @@ ORDER BY Faculty, Subject_Code</CommandText>
               <Mapping SourceColumn="PA" DataSetColumn="PA" />
             </Mappings>
             <Sources>
-              <DbSource ConnectionRef="eCollegeConnectionString (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
+              <DbSource ConnectionRef="eCollegeConnectionString1 (MySettings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillBy" GenerateMethods="Fill" GenerateShortCommands="true" GeneratorSourceName="FillBy" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="FillBy">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>SELECT        CSF_Faculty.csf_id AS CSF, Teacher.name AS Faculty, Subject.code AS Subject_Code, Subject.name AS Subject_Name, Section.Name AS SectionName, Subject.L, Subject.T, Subject.P
@@ -1335,6 +1345,7 @@ ORDER BY Faculty, Subject_Code</CommandText>
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name="IsActive" msprop:Generator_ColumnVarNameInTable="columnIsActive" msprop:Generator_ColumnPropNameInRow="IsActive" msprop:Generator_ColumnPropNameInTable="IsActiveColumn" msprop:Generator_UserColumnName="IsActive" type="xs:boolean" />
               <xs:element name="Section" msprop:Generator_TableClassName="SectionDataTable" msprop:Generator_TableVarName="tableSection" msprop:Generator_TablePropName="Section" msprop:Generator_RowDeletingName="SectionRowDeleting" msprop:Generator_RowChangingName="SectionRowChanging" msprop:Generator_RowEvHandlerName="SectionRowChangeEventHandler" msprop:Generator_RowDeletedName="SectionRowDeleted" msprop:Generator_UserTableName="Section" msprop:Generator_RowChangedName="SectionRowChanged" msprop:Generator_RowEvArgName="SectionRowChangeEvent" msprop:Generator_RowClassName="SectionRow" minOccurs="0" maxOccurs="unbounded">
                 <xs:annotation>
                   <xs:appinfo>
@@ -1396,6 +1407,7 @@ ORDER BY Faculty, Subject_Code</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="semester" msprop:Generator_ColumnVarNameInTable="columnsemester" msprop:Generator_ColumnPropNameInRow="semester" msprop:Generator_ColumnPropNameInTable="semesterColumn" msprop:Generator_UserColumnName="semester" type="xs:int" />
+              <xs:element name="SessionId" msprop:Generator_ColumnVarNameInTable="columnSessionId" msprop:Generator_ColumnPropNameInRow="SessionId" msprop:Generator_ColumnPropNameInTable="SessionIdColumn" msprop:Generator_UserColumnName="SessionId" type="xs:long" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

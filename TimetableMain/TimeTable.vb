@@ -21,15 +21,14 @@ Public Class TimeTable
     End Sub
 
     Public Function Version() As String
-        Version = "2017.7.0"
+        Version = "2018.1.0"
     End Function
 
     Public Function Session() As Integer
         Dim _Session As Integer = 0
         Dim sql As String =
          "Select Id From Session Where CurrentActive=1"
-
-        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString)
+        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString1)
             Dim cmd As New SqlCommand(sql, conn)
             Try
                 conn.Open()
@@ -50,7 +49,7 @@ Public Class TimeTable
         Dim sql As String =
          "Select Title From Session Where CurrentActive=1"
 
-        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString)
+        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString1)
             Dim cmd As New SqlCommand(sql, conn)
             Try
                 conn.Open()
@@ -62,9 +61,168 @@ Public Class TimeTable
             End Try
         End Using
         Return _SessionName
-
     End Function
 
+    Public Function GetLabDefaultRoom(labid) As Integer
+        Dim _labroom As Integer = 0
+        Dim sql As String = "SELECT Room_Id FROM Lab_Room where Subject_Id=" & labid
+        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString1)
+            Dim cmd As New SqlCommand(sql, conn)
+            Try
+                conn.Open()
+                _labroom = Convert.ToInt32(cmd.ExecuteScalar())
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+        Return _labroom
+    End Function
+    Public Function Room(id) As String
+        Dim _labroom = ""
+        Dim sql As String = "SELECT Name FROM M_Room where Room_Id=" & id
+        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString1)
+            Dim cmd As New SqlCommand(sql, conn)
+            Try
+                conn.Open()
+                _labroom = Convert.ToString(cmd.ExecuteScalar())
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+        Return _labroom
+    End Function
+
+    Public Function getSubjectId(subjectCode As String) As Integer
+        Dim _sid As Integer = 0
+        Dim sql As String = "SELECT id FROM Subject where TRIM(code)='" & subjectCode.Trim & "'"
+        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString1)
+            Dim cmd As New SqlCommand(sql, conn)
+            Try
+                conn.Open()
+                _sid = Convert.ToInt32(cmd.ExecuteScalar())
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+        Return _sid
+    End Function
+
+    Public Function Schools() As DataSet
+        Dim ds As New DataSet
+        Dim sql As String = "SELECT Name, FullName FROM School order by Name"
+        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString1)
+
+            Try
+                'conn.Open()
+                Dim da As SqlDataAdapter = New SqlDataAdapter(sql, conn)
+
+                da.Fill(ds)
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+        Return ds
+    End Function
+
+
+
+    Public Function SectionsByProgramId(ProgramId As Integer) As DataSet
+        Dim ds As New DataSet
+        Dim sql As String = "SELECT Id,Name FROM Section Where Program=" & ProgramId & " and ShowTimeTable=1 order by Name"
+        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString1)
+            Try
+                'conn.Open()
+                Dim da As SqlDataAdapter = New SqlDataAdapter(sql, conn)
+
+                da.Fill(ds)
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+        Return ds
+    End Function
+    Public Function Programs() As DataSet
+        Dim ds As New DataSet
+        Dim sql As String = "SELECT id,Code,Name,school FROM Program order by Name"
+        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString1)
+            Try
+                'conn.Open()
+                Dim da As SqlDataAdapter = New SqlDataAdapter(sql, conn)
+
+                da.Fill(ds)
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+        Return ds
+    End Function
+
+    Public Function ProgramsBySchool(SchoolCode As String) As DataSet
+        Dim ds As New DataSet
+        Dim sql As String = "SELECT id,Code,Name FROM Program Where school='" & SchoolCode & "' order by Name"
+        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString1)
+            Try
+                'conn.Open()
+                Dim da As SqlDataAdapter = New SqlDataAdapter(sql, conn)
+
+                da.Fill(ds)
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+        Return ds
+    End Function
+
+    Public Function TTCellAll() As DataSet
+        Dim ds As New DataSet
+        Dim sql As String = "SELECT ContGroupCode,Section_Id, TT_Day,TT_Period,CSF_Id,Room_Id, Batch_Id,ActivityTag FROM M_Time_Table"
+        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString1)
+            Try
+                'conn.Open()
+                Dim da As SqlDataAdapter = New SqlDataAdapter(sql, conn)
+
+                da.Fill(ds)
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+        Return ds
+    End Function
+
+
+    Public Function TTCellBySectionId(id) As DataSet
+        Dim ds As New DataSet
+        Dim sql As String = "SELECT ContGroupCode, TT_Day,TT_Period,CSF_Id,Room_Id, Batch_Id,ActivityTag FROM M_Time_Table Where Section_Id=" & id
+        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString1)
+            Try
+                'conn.Open()
+                Dim da As SqlDataAdapter = New SqlDataAdapter(sql, conn)
+
+                da.Fill(ds)
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+        Return ds
+    End Function
 End Class
 
 

@@ -43,7 +43,7 @@ Public Class frmSection
             ' valid connection string for a Northwind SQL Server sample 
             ' database accessible to your system. 
             Dim connectionString As String = _
-                My.Settings.eCollegeConnectionString
+                My.Settings.eCollegeConnectionString1
 
             ' Create a new data adapter based on the specified query. 
             Me.dataAdapter = New SqlDataAdapter(selectCommand, connectionString)
@@ -77,7 +77,7 @@ Public Class frmSection
 
     Private Sub btnAddSection_Click(sender As Object, e As EventArgs) Handles btnAddSection.Click
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         Dim cmd As New SqlCommand
         cmd.CommandText = "Insert Into Section (Name, Semester, ShowTimeTable, Program) Values ('" & txtSection.Text.ToUpper & "',1,1," & cbProgram.SelectedValue & ")"
         cmd.Connection = cn

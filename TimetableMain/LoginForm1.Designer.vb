@@ -186,7 +186,7 @@ Partial Class LoginForm1
         Me.TabPage2.Padding = New System.Windows.Forms.Padding(3)
         Me.TabPage2.Size = New System.Drawing.Size(323, 239)
         Me.TabPage2.TabIndex = 1
-        Me.TabPage2.Text = "LDAP Login"
+        Me.TabPage2.Text = "Email Login"
         Me.TabPage2.UseVisualStyleBackColor = True
         '
         'Button1

@@ -24,11 +24,11 @@ Partial Class frmImportTimetable
     Private Sub InitializeComponent()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ReadXMLToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.tsectionid = New System.Windows.Forms.ToolStripTextBox()
         Me.StatusStrip1 = New System.Windows.Forms.StatusStrip()
         Me.DataGridView1 = New System.Windows.Forms.DataGridView()
         Me.TimeTableXMLData = New System.Data.DataSet()
         Me.ListBox1 = New System.Windows.Forms.ListBox()
-        Me.tsectionid = New System.Windows.Forms.ToolStripTextBox()
         Me.MenuStrip1.SuspendLayout()
         CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.TimeTableXMLData, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -49,6 +49,12 @@ Partial Class frmImportTimetable
         Me.ReadXMLToolStripMenuItem.Size = New System.Drawing.Size(72, 23)
         Me.ReadXMLToolStripMenuItem.Text = "Read XML"
         '
+        'tsectionid
+        '
+        Me.tsectionid.Name = "tsectionid"
+        Me.tsectionid.Size = New System.Drawing.Size(100, 23)
+        Me.tsectionid.Text = "0"
+        '
         'StatusStrip1
         '
         Me.StatusStrip1.Location = New System.Drawing.Point(0, 405)
@@ -61,9 +67,9 @@ Partial Class frmImportTimetable
         '
         Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
         Me.DataGridView1.Dock = System.Windows.Forms.DockStyle.Fill
-        Me.DataGridView1.Location = New System.Drawing.Point(0, 27)
+        Me.DataGridView1.Location = New System.Drawing.Point(0, 0)
         Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(693, 378)
+        Me.DataGridView1.Size = New System.Drawing.Size(693, 405)
         Me.DataGridView1.TabIndex = 2
         '
         'TimeTableXMLData
@@ -78,21 +84,15 @@ Partial Class frmImportTimetable
         Me.ListBox1.Size = New System.Drawing.Size(301, 134)
         Me.ListBox1.TabIndex = 3
         '
-        'tsectionid
-        '
-        Me.tsectionid.Name = "tsectionid"
-        Me.tsectionid.Size = New System.Drawing.Size(100, 23)
-        Me.tsectionid.Text = "0"
-        '
         'frmImportTimetable
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(693, 427)
+        Me.Controls.Add(Me.MenuStrip1)
         Me.Controls.Add(Me.ListBox1)
         Me.Controls.Add(Me.DataGridView1)
         Me.Controls.Add(Me.StatusStrip1)
-        Me.Controls.Add(Me.MenuStrip1)
         Me.MainMenuStrip = Me.MenuStrip1
         Me.Name = "frmImportTimetable"
         Me.Text = "frmImportTimetable"

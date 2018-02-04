@@ -40,7 +40,7 @@ Module Module1
         Dim sQry As String = ""
         sQry = "DELETE FROM [CourseStructure] WHERE ProgramId=@pid AND CouseId=@cid"
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         Dim cmd As New SqlCommand(sQry, cn)
         cmd.Parameters.Add("@pid", SqlDbType.Int)
         cmd.Parameters("@pid").Value = progid
@@ -54,7 +54,7 @@ Module Module1
     End Sub
     Public Function GetFacultyById(Id As Integer)
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         GetFacultyById = ""
         Try
 
@@ -79,7 +79,7 @@ Module Module1
 
     Function GetSchool(ldapuser As String)
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         GetSchool = ""
         Try
             Dim sQry As String = ""
@@ -137,7 +137,7 @@ Module Module1
 
     Public Function ValidateLoginByEmail(uid As String, pwd As String) As Boolean
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         ValidateLoginByEmail = False
         Try
             Dim sQry As String = ""
@@ -169,7 +169,7 @@ Module Module1
 
     Public Function ChangePassword(uid As String, pwd As String) As Boolean
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         ChangePassword = False
         Try
             Dim sQry As String = ""

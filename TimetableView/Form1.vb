@@ -37,10 +37,13 @@ Public Class Form1
     Dim _clsCode As String = ""
     Dim _clsName As String = ""
     Dim docstr As String = ""
+
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
         Me.SectionTableAdapter.Fill(Me.TimetableDataSet.Section)
         Me.M_RoomTableAdapter.Fill(Me.TimetableDataSet.M_Room)
         Me.TeacherTableAdapter.Fill(Me.TimetableDataSet.Teacher)
+
+
     End Sub
 
     Sub GetHTML(ByVal facid As Integer, ByVal typecode As Integer)
@@ -294,6 +297,26 @@ Public Class Form1
         End While
         daytime()
     End Sub
+    Public Function SessionName() As String
+        Dim _SessionName As String = ""
+        Dim sql As String =
+         "Select Title From Session Where CurrentActive=1"
+
+        Using conn As New SqlConnection(My.Settings.conn)
+            Dim cmd As New SqlCommand(sql, conn)
+            Try
+                conn.Open()
+                _SessionName = Convert.ToString(cmd.ExecuteScalar())
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+        Return _SessionName
+
+    End Function
+
     Sub doExcel()
         Dim oExcel As Object
         Dim oBook As Object
@@ -312,7 +335,7 @@ Public Class Form1
         '    DataArray(r, 1) = Rnd() * 1000
         '    DataArray(r, 2) = DataArray(r, 1) * 0.07
         'Next
-        Dim sQry3 = "SELECT distinct  Section_Id, Name from CSF_View_with_Load ORDER BY Name"
+        Dim sQry3 = "SELECT distinct  Section_Id, Name from CSF_View_with_Load Where SessionID=" & Session().ToString & " ORDER BY Name"
 
         Dim cn As New SqlConnection
         cn.ConnectionString = My.Settings.conn
@@ -377,7 +400,7 @@ Public Class Form1
             If typecode = 3 Then
                 strp += "<p><table style='border:0'><tr><td><img height='78'src='gbu100.png' width='79'></td><td class='style1'>"
                 strp += "<span class='style2'>GAUTAM BUDDHA UNIVERSITY<br></span>Greater Noida, UP, India<br><br>"
-                strp += "<span class='style3'>Session 2014-2015 (Odd Semester )</span></td></tr>"
+                strp += "<span class='style3'>Session " & SessionName() & " (Odd Semester )</span></td></tr>"
                 'strp += "<tr><td class='style4' colspan='2'>" + ts(0, 0) + "</td></tr></table></p>"
                 getCSF(Facid)
             End If
@@ -389,8 +412,8 @@ Public Class Form1
 
             str = ""
             If chkShowHeader.Checked Then str = strp
-            str += "<html><head><title id='tMain'>Timetables :: 2014-2015</title> " _
-                & "<link href='StyleSheet.css' rel='stylesheet' type='text/css' media='screen'/>" _
+            str += "<html><head><title id='tMain'>Timetables :: " & SessionName() & "</title> " _
+                & "<style>" & My.Resources.screencss & "</style>" _
                 & "<link href='print.css' rel='stylesheet' type='text/css' media='print' />" _
                 & "</head>"
             str += "<body><table>"
@@ -493,9 +516,9 @@ Public Class Form1
             str11 += "</tr>"
             str12 += "</tr>"
             If str12 = "<tr></tr>" Then
-                str11 += "<tr><td></td></tr>"
+                str11 += "<tr><td>&nbsp;</td></tr>"
             Else
-                str11 += str12
+                str11 += "<tr><td>&nbsp;</td></tr>"
             End If
 
         Next
@@ -506,9 +529,12 @@ Public Class Form1
     End Sub
 
     Private Sub getCSF(ByVal SectionId As Integer)
+        Dim _Session = Session()
+        Dim _SessionName = SessionName()
+
         Dim sQry = "SELECT distinct csf_id,subject_code, subject_name as subject,L,T,P, " _
                    & " abr_n as abr,Teacher_name_n as name, " _
-                   & " [TEACHER_ID_n] AS ID2 from CSF_View_with_Load WHERE (section_id=" & SectionId & ")"
+                   & " [TEACHER_ID_n] AS ID2 from CSF_View_with_Load WHERE (section_id=" & SectionId & ") AND SessionID=" & Session().ToString
 
         Dim cn As New SqlConnection
         cn.ConnectionString = My.Settings.conn
@@ -590,9 +616,9 @@ Public Class Form1
     Private Sub MakeIndexf()
 
         'Dim sQry = "SELECT distinct csf_id,subject_code, subject_name as subject, abr,Teacher_name as name,l_load,L,T,P from CSF_View_with_Load"
-        Dim sQry1 = "SELECT distinct Subject_Id, subject_code, subject_name as subject From CSF_View_with_Load order by subject_code"
+        Dim sQry1 = "SELECT distinct Subject_Id, subject_code, subject_name as subject From CSF_View_with_Load where SessionID=" & Session().ToString & " order by subject_code"
         'Dim sQry2 = "SELECT distinct Faculty_Id, abr,Teacher_name as name from CSF_View_with_Load order by name"
-        Dim sQry3 = "SELECT distinct  Section_Id, Name from CSF_View_with_Load order by name"
+        Dim sQry3 = "SELECT distinct  Section_Id, Name from CSF_View_with_Load where SessionID=" & Session().ToString & " order by name"
         Dim sQry2 = "SELECT distinct id as Faculty_Id, abbr as abr, name,school from Teacher order by name"
 
         Dim cn As New SqlConnection
@@ -629,8 +655,8 @@ Public Class Form1
 
         'Dim sQry = "SELECT distinct csf_id,subject_code, subject_name as subject, abr,Teacher_name as name,l_load,L,T,P from CSF_View_with_Load"
         Dim sQry1 = "SELECT distinct room_Id, name From m_room ORDER BY name"
-        Dim sQry2 = "SELECT distinct Faculty_Id, abr,Teacher_name as name from CSF_View_with_Load ORDER BY Teacher_name"
-        Dim sQry3 = "SELECT distinct  Section_Id, Name from CSF_View_with_Load ORDER BY name"
+        Dim sQry2 = "SELECT distinct Faculty_Id, abr,Teacher_name as name from CSF_View_with_Load where SessionID=" & Session().ToString & " ORDER BY Teacher_name"
+        Dim sQry3 = "SELECT distinct  Section_Id, Name from CSF_View_with_Load Where SessionID=" & Session().ToString & " ORDER BY name"
 
         Dim cn As New SqlConnection
         cn.ConnectionString = My.Settings.conn
@@ -718,9 +744,9 @@ Public Class Form1
     Private Sub MakeIndexsd()
 
         'Dim sQry = "SELECT distinct csf_id,subject_code, subject_name as subject, abr,Teacher_name as name,l_load,L,T,P from CSF_View_with_Load"
-        Dim sQry1 = "SELECT distinct Subject_Id, subject_code, subject_name as subject From CSF_View_with_Load  ORDER BY subject_code"
-        Dim sQry2 = "SELECT distinct Faculty_Id, abr,Teacher_name as name from CSF_View_with_Load  ORDER BY Teacher_name"
-        Dim sQry3 = "SELECT distinct  Section_Id, Name from CSF_View_with_Load ORDER BY Name"
+        Dim sQry1 = "SELECT distinct Subject_Id, subject_code, subject_name as subject From CSF_View_with_Load where SessionID=" & Session().ToString & "  ORDER BY subject_code"
+        Dim sQry2 = "SELECT distinct Faculty_Id, abr,Teacher_name as name from CSF_View_with_Load  where SessionID=" & Session().ToString & " ORDER BY Teacher_name"
+        Dim sQry3 = "SELECT distinct  Section_Id, Name from CSF_View_with_Load where SessionID=" & Session().ToString & " ORDER BY Name"
 
 
         Dim cn As New SqlConnection
@@ -770,7 +796,7 @@ Public Class Form1
             If typecode = 3 Then
                 strp += "<p><table style='border:0'><tr><td><img height='78'src='gbu100.png' width='79'></td><td class='style1'>"
                 strp += "<span class='style2'>GAUTAM BUDDHA UNIVERSITY<br></span>Greater Noida, UP, India<br><br>"
-                strp += "<span class='style3'>Session 2014-2015 (Odd Semester )</span></td></tr>"
+                strp += "<span class='style3'>Session " & SessionName() & "</span></td></tr>"
                 'strp += "<tr><td class='style4' colspan='2'>" + ts(0, 0) + "</td></tr></table></p>"
                 getCSF(Facid)
             End If
@@ -783,7 +809,7 @@ Public Class Form1
             Dim tmint As Integer = 8
             str = ""
             If chkShowHeader.Checked Then str = strp
-            str += "<html><head><title id='tMain'>Timetables :: 2014-2015</title> " _
+            str += "<html><head><title id='tMain'>Timetables :: " & SessionName() & "</title> " _
                 & "<link href='StyleSheet.css' rel='stylesheet' type='text/css' media='screen'/>" _
                 & "<link href='print.css' rel='stylesheet' type='text/css' media='print' />" _
                 & "</head>"
@@ -1000,7 +1026,7 @@ Public Class Form1
         Dim cn As New SqlConnection
         cn.ConnectionString = My.Settings.conn
         Dim cmd As New SqlCommand
-        Dim rd As SqlDataReader
+        Dim rd17 As SqlDataReader
 
         cmd.CommandText = "SELECT  TT_Day, TT_Period, Subject_Code, Section_Name,  " _
             & " Abr_n as abr, name,room, " _
@@ -1012,7 +1038,7 @@ Public Class Form1
 
         cmd.Connection = cn
         cn.Open()
-        rd = cmd.ExecuteReader()
+        rd17 = cmd.ExecuteReader()
         ' Dim LTP As String
         Dim tsval As String = ""
         Dim _abr, _room As String
@@ -1027,58 +1053,58 @@ Public Class Form1
 
         Dim tmpstr = ""
         Dim tmpstr1 = ""
-        While (rd.Read)
+        While (rd17.Read)
 
 
-            Dim d As Integer = rd.Item("TT_Day")
-            Dim p As Integer = rd.Item("TT_Period")
-            Dim loc As Integer = rd.Item("ContGroupCode")
+            Dim d As Integer = rd17.Item("TT_Day")
+            Dim p As Integer = rd17.Item("TT_Period")
+            Dim loc As Integer = rd17.Item("ContGroupCode")
             Dim sem As Integer
 
-            _clsCode = rd.Item("section_name").ToString.Trim
-            sem = Int(rd.Item("semester"))
+            _clsCode = rd17.Item("section_name").ToString.Trim
+            sem = Int(rd17.Item("semester"))
             If Now.Month < 6 Or Now.Month = 12 Then sem = sem + 1
 
 
-            _clsName = rd.Item("ProgramName").ToString.Trim & "(Semester - " & sem & ")"
-            _abr = "(" & rd.Item("abr") & ")"
-            _room = rd.Item("room")
+            _clsName = rd17.Item("ProgramName").ToString.Trim & "(Semester - " & sem & ")"
+            _abr = "(" & rd17.Item("abr") & ")"
+            _room = rd17.Item("room")
 
 
-            If rd.Item("Batch_Id") = 0 Then
-                tmpstr1 = rd.Item("Subject_Code").ToString.Trim & " " & _abr + _room.Trim
-                tmpstr = rd.Item("Subject_Code").ToString.Trim & " " & _abr + "<br/>" & _room.Trim
+            If rd17.Item("Batch_Id") = 0 Then
+                tmpstr1 = rd17.Item("Subject_Code").ToString.Trim & " " & _abr + _room.Trim
+                tmpstr = rd17.Item("Subject_Code").ToString.Trim & " " & _abr + "<br/>" & _room.Trim
 
-                If rd.Item("P") < 2 Then
-                    If Not (tsHTML(rd.Item("TT_Day"), rd.Item("TT_Period")) = "<td rowspan=2 class='tttd'></td>") Then
-                        tmpstr = tsHTML(rd.Item("TT_Day"), rd.Item("TT_Period")).Substring(27, tsHTML(rd.Item("TT_Day"), rd.Item("TT_Period")).Length - 32) & "<br/>" & tmpstr
+                If rd17.Item("P") < 2 Then
+                    If Not (tsHTML(rd17.Item("TT_Day"), rd17.Item("TT_Period")) = "<td rowspan=2 class='tttd'></td>") Then
+                        tmpstr = tsHTML(rd17.Item("TT_Day"), rd17.Item("TT_Period")).Substring(27, tsHTML(rd17.Item("TT_Day"), rd17.Item("TT_Period")).Length - 32) & "<br/>" & tmpstr
                     End If
-                    tsHTML.SetValue("<td class='tttd' " & "rowspan=2" & ">" & tmpstr & "</td>", rd.Item("TT_Day"), rd.Item("TT_Period"))
+                    tsHTML.SetValue("<td class='tttd' " & "rowspan=2" & ">" & tmpstr & "</td>", rd17.Item("TT_Day"), rd17.Item("TT_Period"))
                 Else
-                    tsHTML.SetValue("<td class='LongCell' " & "colspan=" & rd.Item("P").ToString & " rowspan=2" & ">" & tmpstr1 & "</td>", rd.Item("TT_Day"), rd.Item("TT_Period"))
+                    tsHTML.SetValue("<td class='LongCell' " & "colspan=" & rd17.Item("P").ToString & " rowspan=2" & ">" & tmpstr1 & "</td>", rd17.Item("TT_Day"), rd17.Item("TT_Period"))
                 End If
-                tsd.SetValue(rd.Item("P"), d, p)
-                tsHTML2.SetValue("", rd.Item("TT_Day"), rd.Item("TT_Period"))
+                tsd.SetValue(rd17.Item("P"), d, p)
+                tsHTML2.SetValue("", rd17.Item("TT_Day"), rd17.Item("TT_Period"))
             Else
                 IsRowSpan = True
                 r(d) = " rowspan=2"
-                If rd.Item("Batch_Id") = 1 Then
-                    tsd.SetValue(rd.Item("P"), d, p)
-                    tmpstr = rd.Item("Subject_Code").ToString.Trim & " G1" & _abr + _room.Trim
-                    If rd.Item("P") < 2 Then
-                        tsHTML.SetValue("<td class='TuteCell' class='tttd'>" & tmpstr & "</td>", rd.Item("TT_Day"), rd.Item("TT_Period"))
+                If rd17.Item("Batch_Id") = 1 Then
+                    tsd.SetValue(rd17.Item("P"), d, p)
+                    tmpstr = rd17.Item("Subject_Code").ToString.Trim & " G1" & _abr + _room.Trim
+                    If rd17.Item("P") < 2 Then
+                        tsHTML.SetValue("<td class='TuteCell' class='tttd'>" & tmpstr & "</td>", rd17.Item("TT_Day"), rd17.Item("TT_Period"))
                     Else
-                        tsHTML.SetValue("<td bgcolor='#F0F0F0' class='LongCell'" & " colspan=" & rd.Item("P").ToString & "><span>" & tmpstr & "</span></td>", rd.Item("TT_Day"), rd.Item("TT_Period"))
+                        tsHTML.SetValue("<td bgcolor='#F0F0F0' class='LongCell'" & " colspan=" & rd17.Item("P").ToString & "><span>" & tmpstr & "</span></td>", rd17.Item("TT_Day"), rd17.Item("TT_Period"))
                     End If
                     tsHTML2(d, p) = "<td class='tttd'></td>"
                 Else
-                    tsd2.SetValue(rd.Item("P"), d, p)
-                    tmpstr = rd.Item("Subject_Code").ToString.Trim & "G2" & _abr + _room.Trim
+                    tsd2.SetValue(rd17.Item("P"), d, p)
+                    tmpstr = rd17.Item("Subject_Code").ToString.Trim & "G2" & _abr + _room.Trim
                     If tsHTML(d, p) = "<td rowspan=2 class='tttd'></td>" Then tsHTML(d, p) = "<td class='tttd'></td>"
-                    If rd.Item("P") < 2 Then
-                        tsHTML2.SetValue("<td class='TuteCell'>" & tmpstr & "</td>", rd.Item("TT_Day"), rd.Item("TT_Period"))
+                    If rd17.Item("P") < 2 Then
+                        tsHTML2.SetValue("<td class='TuteCell'>" & tmpstr & "</td>", rd17.Item("TT_Day"), rd17.Item("TT_Period"))
                     Else
-                        tsHTML2.SetValue("<td bgcolor='#F0FFFF' class='LongCell'" & " colspan=" & rd.Item("P").ToString & "><span>" & tmpstr & "</span></td>", rd.Item("TT_Day"), rd.Item("TT_Period"))
+                        tsHTML2.SetValue("<td bgcolor='#F0FFFF' class='LongCell'" & " colspan=" & rd17.Item("P").ToString & "><span>" & tmpstr & "</span></td>", rd17.Item("TT_Day"), rd17.Item("TT_Period"))
                     End If
 
                 End If
@@ -1109,16 +1135,17 @@ Public Class Form1
 
         Try
             Dim strp As String = ""
-            strp += "<div><table style='border:0'><tr><td><img height='78'src='gbu100.png' width='79'></td><td class='style1'>"
+            strp += "<div><table><tr><td><img height='78'src='gbu100.png' width='79'></td><td class='style1'>"
             strp += "<span class='style2'>GAUTAM BUDDHA UNIVERSITY<br></span>Greater Noida, UP, India<br><br>"
-            strp += "<span class='style3'>Session 2014-2015 (Odd Semester )</span></td></tr>"
+            strp += "<span class='style3'>Session " & SessionName() & "</span></td></tr>"
             getCSF(facid)
             str = ""
             '  If chkShowHeader.Checked Then str = strp
-            str = "<html><head><title id='tMain'>Timetables :: 2014-2015</title> " _
-                & "<link href='common/stylesheet.css' rel='stylesheet' type='text/css' media='screen'/>" _
-                & "<link href='common/print.css' rel='stylesheet' type='text/css' media='print' />" _
-                & "</head><body>"
+            str = "<html><head><title id='tMain'>Timetables :: " & SessionName() & "</title> " _
+                & "<style>" & My.Resources.screencss & "</style>" _
+                & "<link href='print.css' rel='stylesheet' type='text/css' media='print' />" _
+                & "</head>"
+            str += "<body>"
             If chkShowHeader.Checked Then str += strp + "</table></div>"
             'str += "<tr><td border=1 colspan=2>" & "<span class='section'>" + _clsName + "</span>" & "</td></tr>"
             'THIS LINE IS JUST NOW FOR TEST

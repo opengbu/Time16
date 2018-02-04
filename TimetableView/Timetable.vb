@@ -21,7 +21,7 @@ Module Timetable
         '  Dim cn2 As New SqlConnection
 
         cn.ConnectionString = My.Settings.conn
-        '  cn2.ConnectionString = My.Settings.eCollegeConnectionString
+
 
         Dim cmd As New SqlCommand
         Dim rd As SqlDataReader
@@ -176,6 +176,47 @@ Module Timetable
         Return 1
     End Function
 
+    Public Function Session() As Integer
+        Dim _Session As Integer = 0
+        Dim sql As String =
+         "Select Id From Session Where CurrentActive=1"
+
+        Using conn As New SqlConnection(My.Settings.conn)
+            Dim cmd As New SqlCommand(sql, conn)
+            Try
+                conn.Open()
+                _Session = Convert.ToInt32(cmd.ExecuteScalar())
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+
+        Return _Session
+
+    End Function
+
+    Public Function SessionName() As String
+        Dim _SessionName As String = ""
+        Dim sql As String =
+         "Select Title From Session Where CurrentActive=1"
+
+        Using conn As New SqlConnection(My.Settings.conn)
+            Dim cmd As New SqlCommand(sql, conn)
+            Try
+                conn.Open()
+                _SessionName = Convert.ToString(cmd.ExecuteScalar())
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+        Return _SessionName
+
+    End Function
+
     Sub UploadOnline2(ByVal currFileName As String)
         Dim tmppath As String = Path.GetTempPath()
 
@@ -208,4 +249,51 @@ Module Timetable
         End Using
     End Sub
 
+
+
+
+
+    Function nGetTimetableByFacultyId(ByVal Facid As Integer)
+        Dim str = ""
+        Try
+
+            Dim strp As String = ""
+            HTMLByFacultyId(Facid)
+
+            str = ""
+            str += "<html><head><title id='tMain'>Timetables::" & Facid.ToString & "</title> " _
+                & "<style>" & My.Resources.screencss & "</style>" _
+                & "<link href='print.css' rel='stylesheet' type='text/css' media='print' />" _
+                & "</head>"
+            str += "<body><table>"
+            daytime()
+            For i = 0 To maxD
+                str += "<tr>"
+                For j = 0 To maxP
+                    If tsd(i, j) = 0 Then
+                        str += "<td class='tttd'>" + ts(i, j) + "</td>"
+                    Else
+                        If tss(i, j) = 0 Then
+                            'str += "<td class='tttd'>" + ts(i, j) + ":" + tss(i, j).ToString + "</td>"
+                            str += "<td class='tttd' colspan='" + tsd(i, j).ToString + "'>" + ts(i, j) + "</td>"
+                            j = j + tsd(i, j) - 1
+                        Else
+                            'str += "<td class='tttd' colspan='" + tss(i, j).ToString + "'>" + ts(i, j) + "</td>"
+                        End If
+
+                    End If
+
+                Next
+                str += "</tr>"
+            Next
+            str += "</table>"
+            '+ "<div>" + tblFooter + "</div>" + "<div class='Weblink'>SAVE PAPER: This timetable is available at http://portal.gbuonline.in/timetables </div>"
+            str += "</body></html>"
+
+            ' docstr += str & "<br><br><br>" & ts(0, 0) & "<br>"
+        Catch ex As Exception
+            MsgBox(ex.Message)
+        End Try
+        Return str
+    End Function
 End Module

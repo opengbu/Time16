@@ -9,10 +9,14 @@ Public Class frmCopyStructure
 
     Private Sub Button1_Click(sender As System.Object, e As System.EventArgs) Handles Button1.Click
         Try
-            Dim sQry = "INSERT INTO [Coursestructure] SELECT @toPrgId as ProgramId, CouseId,remark From [Coursestructure] AS CourseStructureTmp WHERE ProgramId=@prgid"
+            Dim sQry = "INSERT INTO [Coursestructure] SELECT @toPrgId as ProgramId, CouseId,remark,@seessionid as SessionId 
+                        From [Coursestructure] AS CourseStructureTmp WHERE ProgramId=@prgid"
             Dim cn As New SqlConnection
-            cn.ConnectionString = My.Settings.eCollegeConnectionString
+            cn.ConnectionString = My.Settings.eCollegeConnectionString1
             Dim cmd As New SqlCommand(sQry, cn)
+            cmd.Parameters.Add("@seessionid", SqlDbType.Int)
+            cmd.Parameters("@seessionid").Value = _currentSession
+
             cmd.Parameters.Add("@toPrgId", SqlDbType.Int)
             cmd.Parameters("@toPrgId").Value = ComboBox2.SelectedValue
             cmd.Parameters.Add("@prgid", SqlDbType.Int)

@@ -1,7 +1,9 @@
-﻿Imports System.IO
-Imports System.Net
-Imports Novell.Directory.Ldap
-Imports Novell.Directory.Ldap.Utilclass
+﻿'Imports System.IO
+'Imports System.Net
+'Imports Novell.Directory.Ldap
+'Imports ImapX
+'Imports ImapX.Authentication
+Imports System.Deployment.Application
 
 Public Class LoginForm1
     Dim group As String = ",ou=faculty,"
@@ -15,8 +17,13 @@ Public Class LoginForm1
 
 
     Private Sub LoginForm1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-        appVer.Text = My.Application.Info.Version.ToString
+        'appVer.Text = My.Application.Info.Version.ToString
+        Dim myVersion As New Version
 
+        If ApplicationDeployment.IsNetworkDeployed Then
+            myVersion = ApplicationDeployment.CurrentDeployment.CurrentVersion
+        End If
+        appVer.Text = myVersion.ToString
         UsernameTextBox.Text = My.Settings.Username
         PasswordTextBox.Text = My.Settings.Password
 
@@ -36,10 +43,24 @@ Public Class LoginForm1
         'MsgBox(MachineName)
 
     End Sub
+    'Private Sub bLogin_Click(sender As Object, e As EventArgs) Handles bLogin.Click
+    '    If txtUserName.Text <> "" And txtPassword.Text <> "" Then
+    '        If ValidateLogin_AD(txtUserName.Text.Trim, txtPassword.Text.Trim, "172.25.5.10", 389, group & "dc=gbu,dc=ac,dc=in", "(uid=*)") Then
+    '            _school = GetSchool(txtUserName.Text.Trim)
+    '            Me.Hide()
+    '            frmMain.Show()
+    '        Else
+    '            MsgBox("Login Failed.")
+    '        End If
 
+    '    Else
+    '        MsgBox("Username/Password Missing.")
+    '        Exit Sub
+    '    End If
+    'End Sub
     Private Sub bLogin_Click(sender As Object, e As EventArgs) Handles bLogin.Click
         If txtUserName.Text <> "" And txtPassword.Text <> "" Then
-            If ValidateLogin_AD(txtUserName.Text.Trim, txtPassword.Text.Trim, "172.25.5.10", 389, group & "dc=gbu,dc=ac,dc=in", "(uid=*)") Then
+            If ValidateLogin_Email(txtUserName.Text.Trim, txtPassword.Text.Trim) Then
                 _school = GetSchool(txtUserName.Text.Trim)
                 Me.Hide()
                 frmMain.Show()
@@ -53,25 +74,42 @@ Public Class LoginForm1
         End If
     End Sub
 
+    Private Function ValidateLogin_Email(trim1 As String, trim2 As String) As Boolean
+
+        'Dim MyImapClient = New ImapClient
+        ''Dim ssl As ImapX.SslProtocols = If((Me.cmbEncryption.SelectedIndex = 0), SslProtocols.None, If((Me.cmbEncryption.SelectedIndex = 1), SslProtocols.Default, SslProtocols.Tls))
+
+        'MyImapClient.Host = "mail1.gbu.ac.in"
+        'MyImapClient.Port = 143
+        'MyImapClient.SslProtocol = start System.Security.Authentication.SslProtocols.Tls
+        'MyImapClient.ValidateServerCertificate = False
+        'MyImapClient.Connect()
+        'MyImapClient.Credentials = New PlainCredentials("amitkawasthi@gbu.ac.in", "dyapm5mx")
+        'MsgBox(MyImapClient.Login)
+
+
+        Throw New NotImplementedException()
+    End Function
+
     Public Shared Function ValidateLogin_AD(ByVal UserName As String, ByVal Password As String, Server As String, Port As Integer, searchBase As String, searchFilter As String) As Boolean
         'Dim UserName1 = "uid=" & UserName & ",cn=faculty,ou=Groups,dc=gbu,dc=ac,dc=in"
         'Dim UserName1 = "uid=" & UserName & Form1.group & "ou=Groups,dc=gbu,dc=ac,dc=in"
         Dim UserName1 = "uid=" & UserName & ",ou=faculty,dc=gbu,dc=ac,dc=in"
         'UserName = "uid=" & UserName & searchBase
-        Dim ldapconnection As LdapConnection = New LdapConnection()
+        '  Dim ldapconnection As LdapConnection = New LdapConnection()
         Dim Success As Boolean = False
         Try
-            ldapconnection.Connect(Server, Port)
-            ldapconnection.Bind(UserName1, Password)
-            Dim lsc As LdapSearchResults
-            lsc = ldapconnection.Search(searchBase, ldapconnection.SCOPE_SUB, searchFilter, Nothing, False)
-            Success = ldapconnection.Connected
+            '    ldapconnection.Connect(Server, Port)
+            '     ldapconnection.Bind(UserName1, Password)
+            '  Dim lsc As LdapSearchResults
+            '    lsc = ldapconnection.Search(searchBase, LdapConnection.SCOPE_SUB, searchFilter, Nothing, False)
+            '  Success = ldapconnection.Connected
         Catch ex As Exception
-            If ldapconnection.Connected Then
-                MsgBox("Invalid Credential.")
-            Else
-                '  MsgBox(ex.Message)
-            End If
+            '   If ldapconnection.Connected Then
+            '   MsgBox("Invalid Credential.")
+            '  Else
+            '  MsgBox(ex.Message)
+            ' End If
 
         End Try
         Return Success

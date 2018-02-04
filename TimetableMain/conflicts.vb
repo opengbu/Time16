@@ -11,7 +11,7 @@ Public Class conflicts
 
         Dim cn As New SqlConnection
 
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
         Dim cmd As New SqlCommand(sqlQry, cn)
         Dim ad As New SqlDataAdapter(cmd)
@@ -35,7 +35,7 @@ Public Class conflicts
 
         Dim cn As New SqlConnection
 
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
         Dim cmd As New SqlCommand(sqlQry, cn)
         Dim ad As New SqlDataAdapter(cmd)
@@ -80,7 +80,7 @@ Public Class conflicts
         Dim sQry = "SELECT TimeTableId, CSF_Id,rtrim(Section_Name) as section_name, Subject_Code, Subject, IsLab from [V_Timetable_2013] WHERE (id=" & Id & ") AND (TT_DAY=" & ttday & ") AND (TT_peRIOD=" & ttperiod & ")"
 
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
         ' Dim sQry = "SELECT TimeTableId, Section_Id, TT_Day, TT_Period, CSF_Id, Room_Id, Batch_Id, Id, Name, Abr, Subject_Code, Subject, IsLab, Section_Name, Semester, Session_Id, Room, Group_Id, Dept, HOD, Section_Set  FROM [V_TimeTable_2013] WHERE (TimeTableId = " & My.Settings.TTid & ") and (Section_id=" & SectionId & ")"
         Dim cmd As New SqlCommand(sQry, cn)
@@ -93,18 +93,16 @@ Public Class conflicts
         If cn.State = ConnectionState.Open Then cn.Close()
     End Sub
     Sub RoomSecList(ByVal Id As Integer, ByVal ttday As Integer, ByVal ttperiod As Integer)
-        ' Dim sQry = "SELECT distinct Room, rtrim(Section_Name) as section_name, Abr, Name FROM [V_TimeTable_2013] " _
-        '           & "WHERE (TimeTableId = " & My.Settings.TTid & ") AND (Room_Id = " & Id & ")"
+
         Dim sQry = "SELECT distinct Room, rtrim(Section_Name) as section_name, Abr, Name FROM [V_TimeTable_2013] " _
                    & "WHERE (TimeTableId = " & My.Settings.TTid & ") AND (Room_Id = " & Id & ") AND (TT_DAY=" & ttday & ") AND (TT_peRIOD=" & ttperiod & ")"
 
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
-        ' Dim sQry = "SELECT TimeTableId, Section_Id, TT_Day, TT_Period, CSF_Id, Room_Id, Batch_Id, Id, Name, Abr, Subject_Code, Subject, IsLab, Section_Name, Semester, Session_Id, Room, Group_Id, Dept, HOD, Section_Set  FROM [V_TimeTable_2013] WHERE (TimeTableId = " & My.Settings.TTid & ") and (Section_id=" & SectionId & ")"
+
         Dim cmd As New SqlCommand(sQry, cn)
 
-        'cmd.Parameters.Add(1)
         Dim ad As New SqlDataAdapter(cmd)
         Dim ds As New DataSet
         ad.Fill(ds)

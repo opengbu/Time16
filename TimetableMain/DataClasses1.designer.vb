@@ -34,7 +34,7 @@ Partial Public Class DataClasses1DataContext
   #End Region
 	
 	Public Sub New()
-		MyBase.New(Global.TimeTableManager.My.MySettings.Default.eCollegeConnectionString, mappingSource)
+		MyBase.New(Global.TimeTableManager.My.MySettings.Default.eCollegeConnectionString1, mappingSource)
 		OnCreated
 	End Sub
 	

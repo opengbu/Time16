@@ -9,8 +9,8 @@ Imports System.Runtime.InteropServices
 ' Review the values of the assembly attributes
 
 <Assembly: AssemblyTitle("TimeTableManager")> 
-<Assembly: AssemblyDescription("Timetables")> 
-<Assembly: AssemblyCompany("infos Solution")> 
+<Assembly: AssemblyDescription("Timetables")>
+<Assembly: AssemblyCompany("Digital Information Cell")>
 <Assembly: AssemblyProduct("TimeTableManager")>
 <Assembly: AssemblyCopyright("Copyright ©  2017, Amit K Awasthi")>
 <Assembly: AssemblyTrademark("infos")> 
@@ -32,4 +32,4 @@ Imports System.Runtime.InteropServices
 ' <Assembly: AssemblyVersion("1.0.*")> 
 
 <Assembly: AssemblyVersion("4.0.*")>
-<Assembly: AssemblyFileVersion("4.0")>
+<Assembly: AssemblyFileVersion("9.0")>

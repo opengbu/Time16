@@ -13,7 +13,7 @@ Public Class FRMcsfupdate
             ''sQry = "Exec UpdateCSF @csfid=" & TextBox1.Text.Trim & ",@facid=" & Me.ComboBox3.SelectedValue
             'sQry = "Update CSF Set Faculty_Id=@facid WHERE (csf_id = @csfid)"
             Dim cn As New SqlConnection
-            cn.ConnectionString = My.Settings.eCollegeConnectionString
+            cn.ConnectionString = My.Settings.eCollegeConnectionString1
             'Dim cmd1 As New SqlCommand(sQry, cn)
 
             'cmd1.Parameters.Add("@facid", SqlDbType.Int)
@@ -45,7 +45,7 @@ Public Class FRMcsfupdate
             'sQry = "INSERT INTO [CSF] ([Section_Id] ,[Subject_Code],[Faculty_Id],[IsRemoved],[Assign_Date] ,[SessionID])         VALUES (" & Me.ComboBox1.SelectedValue & " ,'" & Me.ComboBox2.SelectedValue & "' ," & Me.ComboBox3.SelectedValue & ",0 ,Current_timestamp  ,11 )"
             'sQry = "INSERT INTO [CSF] ([Section_Id],[Subject_Id] ,[Subject_Code],[Faculty_Id],[IsRemoved],[LA],[TA],[PA]) VALUES (" & Me.ComboBox1.SelectedValue & " ,'" & Me.ComboBox2.SelectedValue & "' ,'" & Me.ComboBox2.Text.Trim & "' ," & Me.ComboBox3.SelectedValue & ",0," & Me.nLA.Value & " ," & Me.nTA.Value & " ," & Me.nPA.Value & ")"
             Dim cn As New SqlConnection
-            cn.ConnectionString = My.Settings.eCollegeConnectionString
+            cn.ConnectionString = My.Settings.eCollegeConnectionString1
       
             Try
                 Dim csfid As Integer = 0
@@ -182,7 +182,7 @@ Public Class FRMcsfupdate
 
     Private Sub Delete_Button_Click(sender As Object, e As EventArgs) Handles Delete_Button.Click
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         Try
             Dim sQry As String = ""
 
@@ -204,7 +204,7 @@ Public Class FRMcsfupdate
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         Try
             Dim sQry As String = ""
             'If chkF2.Checked Then
