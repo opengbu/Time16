@@ -6,7 +6,7 @@ Public Class Timesheet
 
             sQry = "INSERT INTO Subject ([code] ,[name],L,T,P)  VALUES ('" & sub_code & "' ,'" & sub_name & "'," & L & "," & T & "," & P & ")"
             Dim cn As New SqlConnection
-            cn.ConnectionString = My.Settings.eCollegeConnectionString
+            cn.ConnectionString = My.Settings.eCollegeConnectionString1
             cn.Open()
             ' MsgBox(sQry)
             Dim cmd As New SqlCommand(sQry, cn)
@@ -36,7 +36,7 @@ Public Class Timesheet
             End If
 
             Dim cn As New SqlConnection
-            cn.ConnectionString = My.Settings.eCollegeConnectionString
+            cn.ConnectionString = My.Settings.eCollegeConnectionString1
             cn.Open()
             ' MsgBox(sQry)
             Dim cmd As New SqlCommand(sQry, cn)
@@ -58,7 +58,7 @@ Public Class Timesheet
             rr = MsgBox("Sure to import", MsgBoxStyle.OkCancel)
             If rr = MsgBoxResult.Ok Then
                 Dim cn As New SqlConnection
-                cn.ConnectionString = My.Settings.eCollegeConnectionString
+                cn.ConnectionString = My.Settings.eCollegeConnectionString1
                 cn.Open()
                 ' MsgBox(sQry)
                 Dim cmd1 As New SqlCommand(sqrydel, cn)
@@ -81,7 +81,7 @@ Public Class Timesheet
             rr = MsgBox("Delete Previous Timetable", MsgBoxStyle.OkCancel)
             If rr = MsgBoxResult.Ok Then
                 Dim cn As New SqlConnection
-                cn.ConnectionString = My.Settings.eCollegeConnectionString
+                cn.ConnectionString = My.Settings.eCollegeConnectionString1
                 cn.Open()
                 ' MsgBox(sQry)
                 Dim cmd1 As New SqlCommand(sqrydel, cn)
@@ -106,7 +106,7 @@ Public Class Timesheet
             rr = MsgBox("Delete Previous Timetable", MsgBoxStyle.OkCancel)
             If rr = MsgBoxResult.Ok Then
                 Dim cn As New SqlConnection
-                cn.ConnectionString = My.Settings.eCollegeConnectionString
+                cn.ConnectionString = My.Settings.eCollegeConnectionString1
                 cn.Open()
                 ' MsgBox(sQry)
                 Dim cmd1 As New SqlCommand(sqrydel, cn)
@@ -129,7 +129,7 @@ Public Class Timesheet
         Dim pr = j
         Dim sQry = ""
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
 
         'If chkLabs.Checked = True Then
         'sQry = "SELECT room_id ,name  FROM M_Room where islab=1 and (roomtype<3) EXCEPT SELECT Room_Id,Room FROM V_TimeTable_2013 WHERE (TimeTableId = " & My.Settings.TTid & ") AND (TT_Day = " & da & ") AND (TT_Period = " & pr & ") order by Name"
@@ -157,7 +157,7 @@ Public Class Timesheet
         Dim pr = j
         Dim sQry = ""
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
 
         'If chkLabs.Checked = True Then
         'sQry = "SELECT room_id ,name  FROM M_Room where islab=1 and (roomtype<3) EXCEPT SELECT Room_Id,Room FROM V_TimeTable_2013 WHERE (TimeTableId = " & My.Settings.TTid & ") AND (TT_Day = " & da & ") AND (TT_Period = " & pr & ") order by Name"
@@ -200,7 +200,7 @@ Public Class Timesheet
             Dim ISDEL As Integer = 1
             Dim sQry = "Exec Timetablemanager @TTId=" & TTId & ",@TTDay=" & TTDay & ",@TTPeriod=" & TTPeriod & ",@Sectionid=" & Sectionid & ",@CSF_ID= " & CSF_ID & ", @RooM_ID=" & RooM_ID & ",@BATCHID=" & BATCHID & ",@ISDEL=" & ISDEL
             Dim cn As New SqlConnection
-            cn.ConnectionString = My.Settings.eCollegeConnectionString
+            cn.ConnectionString = My.Settings.eCollegeConnectionString1
             cn.Open()
             Dim cmd As New SqlCommand(sQry, cn)
             cmd.ExecuteNonQuery()

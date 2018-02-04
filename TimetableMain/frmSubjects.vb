@@ -103,6 +103,8 @@ Public Class frmSubjects
     End Sub
 
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+        Dim deptid = cbDept.SelectedValue
+
         If txtSubjectCode.Text <> "" And txtSubjectCode.Text <> "" Then
             cmd = New SqlCommand("INSERT INTO [dbo].[Subject]
            ([code]
@@ -112,7 +114,7 @@ Public Class frmSubjects
            ,[T]
            ,[P]
            ,[dept])
-     VALUES (@code,@name,@lab,@L,@T,@P,1)", cn)
+     VALUES (@code,@name,@lab,@L,@T,@P,@deptid)", cn)
             cn.Open()
             cmd.Parameters.AddWithValue("@code", txtSubjectCode.Text)
             cmd.Parameters.AddWithValue("@name", txtSubjectName.Text)
@@ -120,6 +122,7 @@ Public Class frmSubjects
             cmd.Parameters.AddWithValue("@L", txtL.Text)
             cmd.Parameters.AddWithValue("@T", txtT.Text)
             cmd.Parameters.AddWithValue("@P", txtP.Text)
+            cmd.Parameters.AddWithValue("@deptid", deptid)
             cmd.ExecuteNonQuery()
             MessageBox.Show("Record Added Successfully")
             cn.Close()

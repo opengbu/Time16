@@ -29,7 +29,7 @@ Public Class TimeTable
         Dim sql As String =
          "Select Id From Session Where CurrentActive=1"
 
-        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString)
+        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString1)
             Dim cmd As New SqlCommand(sql, conn)
             Try
                 conn.Open()
@@ -50,7 +50,7 @@ Public Class TimeTable
         Dim sql As String =
          "Select Title From Session Where CurrentActive=1"
 
-        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString)
+        Using conn As New SqlConnection(My.Settings.eCollegeConnectionString1)
             Dim cmd As New SqlCommand(sql, conn)
             Try
                 conn.Open()

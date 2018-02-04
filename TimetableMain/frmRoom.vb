@@ -34,7 +34,7 @@ Public Class frmRoom
             ' valid connection string for a Northwind SQL Server sample 
             ' database accessible to your system. 
             Dim connectionString As String = _
-                My.Settings.eCollegeConnectionString
+                My.Settings.eCollegeConnectionString1
 
             ' Create a new data adapter based on the specified query. 
             Me.dataAdapter = New SqlDataAdapter(selectCommand, connectionString)

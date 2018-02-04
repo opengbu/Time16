@@ -3,7 +3,7 @@
 Public Class frmImportTimetable
 
     Private Sub ReadXMLToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ReadXMLToolStripMenuItem.Click
-        Dim filepath As String = "C:\Users\Amit K Awasthi\fet-results\timetables\unnamed-single\teachers.xml"
+        Dim filepath As String = "C:\Users\awasthi\fet-results\timetables\REVA-UNIVERSITY_JANUARY2016-single\timetables\timetables\untitled-single\untitled_activities.xml"
         Dim xmldoc As New XmlDocument
         Dim str As String = ""
         xmldoc.Load(filepath)

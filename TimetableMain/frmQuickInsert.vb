@@ -28,7 +28,7 @@ Public Class frmQuickInsert
         Dim sQry As String = ""
         sQry = "IF NOT EXISTS (SELECT * FROM [CourseStructure] WHERE CouseId = '" & Me.cbQISubjectCode.Text.Trim & "' AND ProgramId=" & Me.txtQISection.Text.Trim & ") INSERT INTO [CourseStructure] (ProgramId, CouseId,semester) VALUES (" & Me.txtQISection.Text.Trim & " ,'" & Me.cbQISubjectCode.Text.Trim & "'," & _currentSemester & ")"
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
 
         Dim cmd1 As New SqlCommand(sQry, cn)

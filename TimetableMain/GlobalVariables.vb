@@ -1,3 +1,3 @@
 ﻿Public Module GlobalVariables
-    Public ApplicationName As String = "Time 17"
+    Public ApplicationName As String = "Timetables "
 End Module

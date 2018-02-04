@@ -4534,6 +4534,8 @@ Partial Public Class eCollegeDataSet
         
         Private columnschool As Global.System.Data.DataColumn
         
+        Private columnIsActive As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -4602,6 +4604,14 @@ Partial Public Class eCollegeDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property IsActiveColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnIsActive
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -4638,9 +4648,9 @@ Partial Public Class eCollegeDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddProgramRow(ByVal Code As String, ByVal Name As String, ByVal school As String) As ProgramRow
+        Public Overloads Function AddProgramRow(ByVal Code As String, ByVal Name As String, ByVal school As String, ByVal IsActive As Boolean) As ProgramRow
             Dim rowProgramRow As ProgramRow = CType(Me.NewRow,ProgramRow)
-            Dim columnValuesArray() As Object = New Object() {Nothing, Code, Name, school}
+            Dim columnValuesArray() As Object = New Object() {Nothing, Code, Name, school, IsActive}
             rowProgramRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowProgramRow)
             Return rowProgramRow
@@ -4673,6 +4683,7 @@ Partial Public Class eCollegeDataSet
             Me.columnCode = MyBase.Columns("Code")
             Me.columnName = MyBase.Columns("Name")
             Me.columnschool = MyBase.Columns("school")
+            Me.columnIsActive = MyBase.Columns("IsActive")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -4686,6 +4697,8 @@ Partial Public Class eCollegeDataSet
             MyBase.Columns.Add(Me.columnName)
             Me.columnschool = New Global.System.Data.DataColumn("school", GetType(String), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnschool)
+            Me.columnIsActive = New Global.System.Data.DataColumn("IsActive", GetType(Boolean), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnIsActive)
             Me.Constraints.Add(New Global.System.Data.UniqueConstraint("Constraint1", New Global.System.Data.DataColumn() {Me.columnid}, true))
             Me.columnid.AutoIncrement = true
             Me.columnid.AutoIncrementSeed = -1
@@ -4696,6 +4709,7 @@ Partial Public Class eCollegeDataSet
             Me.columnCode.MaxLength = 10
             Me.columnName.MaxLength = 80
             Me.columnschool.MaxLength = 10
+            Me.columnIsActive.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5148,6 +5162,8 @@ Partial Public Class eCollegeDataSet
         
         Private columnsemester As Global.System.Data.DataColumn
         
+        Private columnSessionId As Global.System.Data.DataColumn
+        
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Sub New()
@@ -5264,6 +5280,14 @@ Partial Public Class eCollegeDataSet
         End Property
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public ReadOnly Property SessionIdColumn() As Global.System.Data.DataColumn
+            Get
+                Return Me.columnSessionId
+            End Get
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Browsable(false)>  _
         Public ReadOnly Property Count() As Integer
@@ -5300,9 +5324,9 @@ Partial Public Class eCollegeDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
-        Public Overloads Function AddV_CourseStructureRow(ByVal id As Long, ByVal Subject_Code As String, ByVal Subject_Name As String, ByVal IsLab As Boolean, ByVal L As Integer, ByVal T As Integer, ByVal P As Integer, ByVal Section_Id As Integer, ByVal code As String, ByVal semester As Integer) As V_CourseStructureRow
+        Public Overloads Function AddV_CourseStructureRow(ByVal id As Long, ByVal Subject_Code As String, ByVal Subject_Name As String, ByVal IsLab As Boolean, ByVal L As Integer, ByVal T As Integer, ByVal P As Integer, ByVal Section_Id As Integer, ByVal code As String, ByVal semester As Integer, ByVal SessionId As Long) As V_CourseStructureRow
             Dim rowV_CourseStructureRow As V_CourseStructureRow = CType(Me.NewRow,V_CourseStructureRow)
-            Dim columnValuesArray() As Object = New Object() {id, Subject_Code, Subject_Name, IsLab, L, T, P, Section_Id, code, semester}
+            Dim columnValuesArray() As Object = New Object() {id, Subject_Code, Subject_Name, IsLab, L, T, P, Section_Id, code, semester, SessionId}
             rowV_CourseStructureRow.ItemArray = columnValuesArray
             Me.Rows.Add(rowV_CourseStructureRow)
             Return rowV_CourseStructureRow
@@ -5335,6 +5359,7 @@ Partial Public Class eCollegeDataSet
             Me.columnSection_Id = MyBase.Columns("Section_Id")
             Me.columncode = MyBase.Columns("code")
             Me.columnsemester = MyBase.Columns("semester")
+            Me.columnSessionId = MyBase.Columns("SessionId")
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -5360,6 +5385,8 @@ Partial Public Class eCollegeDataSet
             MyBase.Columns.Add(Me.columncode)
             Me.columnsemester = New Global.System.Data.DataColumn("semester", GetType(Integer), Nothing, Global.System.Data.MappingType.Element)
             MyBase.Columns.Add(Me.columnsemester)
+            Me.columnSessionId = New Global.System.Data.DataColumn("SessionId", GetType(Long), Nothing, Global.System.Data.MappingType.Element)
+            MyBase.Columns.Add(Me.columnSessionId)
             Me.columnid.AllowDBNull = false
             Me.columnSubject_Code.AllowDBNull = false
             Me.columnSubject_Code.MaxLength = 10
@@ -5372,6 +5399,7 @@ Partial Public Class eCollegeDataSet
             Me.columncode.AllowDBNull = false
             Me.columncode.MaxLength = 10
             Me.columnsemester.AllowDBNull = false
+            Me.columnSessionId.AllowDBNull = false
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -8879,6 +8907,17 @@ Partial Public Class eCollegeDataSet
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property IsActive() As Boolean
+            Get
+                Return CType(Me(Me.tableProgram.IsActiveColumn),Boolean)
+            End Get
+            Set
+                Me(Me.tableProgram.IsActiveColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Public Function IsCodeNull() As Boolean
             Return Me.IsNull(Me.tableProgram.CodeColumn)
         End Function
@@ -9147,6 +9186,17 @@ Partial Public Class eCollegeDataSet
             End Get
             Set
                 Me(Me.tableV_CourseStructure.semesterColumn) = value
+            End Set
+        End Property
+        
+        <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
+        Public Property SessionId() As Long
+            Get
+                Return CType(Me(Me.tableV_CourseStructure.SessionIdColumn),Long)
+            End Get
+            Set
+                Me(Me.tableV_CourseStructure.SessionIdColumn) = value
             End Set
         End Property
         
@@ -10459,7 +10509,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString
+            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -10687,7 +10737,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString
+            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11105,7 +11155,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString
+            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11620,7 +11670,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString
+            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -11993,7 +12043,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString
+            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12358,7 +12408,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString
+            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -12755,7 +12805,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString
+            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13210,7 +13260,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString
+            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13591,7 +13641,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString
+            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13851,13 +13901,14 @@ Namespace eCollegeDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Code", "Code")
             tableMapping.ColumnMappings.Add("Name", "Name")
             tableMapping.ColumnMappings.Add("school", "school")
+            tableMapping.ColumnMappings.Add("IsActive", "IsActive")
             Me._adapter.TableMappings.Add(tableMapping)
             Me._adapter.DeleteCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.DeleteCommand.Connection = Me.Connection
-            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Program] WHERE (([id] = @Original_id) AND ((@IsNull_Code = 1 A"& _ 
-                "ND [Code] IS NULL) OR ([Code] = @Original_Code)) AND ((@IsNull_Name = 1 AND [Nam"& _ 
-                "e] IS NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_school = 1 AND [school] "& _ 
-                "IS NULL) OR ([school] = @Original_school)))"
+            Me._adapter.DeleteCommand.CommandText = "DELETE FROM [Program] WHERE (([id] = @Original_id) AND ((@IsNull_Code = 1 AND [Co"& _ 
+                "de] IS NULL) OR ([Code] = @Original_Code)) AND ((@IsNull_Name = 1 AND [Name] IS "& _ 
+                "NULL) OR ([Name] = @Original_Name)) AND ((@IsNull_school = 1 AND [school] IS NUL"& _ 
+                "L) OR ([school] = @Original_school)) AND ([IsActive] = @Original_IsActive))"
             Me._adapter.DeleteCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Code", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Code", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
@@ -13866,25 +13917,30 @@ Namespace eCollegeDataSetTableAdapters
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Name", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_school", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "school", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_school", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "school", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.DeleteCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IsActive", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsActive", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.InsertCommand.Connection = Me.Connection
-            Me._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Program] ([Code], [Name], [school]) VALUES (@Code, @Name, @sch"& _ 
-                "ool);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id, Code, Name, school FROM Program WHERE (id = SCOPE_IDENTITY())"
+            Me._adapter.InsertCommand.CommandText = "INSERT INTO [Program] ([Code], [Name], [school], [IsActive]) VALUES (@Code, @Name"& _ 
+                ", @school, @IsActive);"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id, Code, Name, school, IsActive FROM Program WHE"& _ 
+                "RE (id = SCOPE_IDENTITY()) ORDER BY Name"
             Me._adapter.InsertCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Code", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Code", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@school", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "school", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.InsertCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsActive", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsActive", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand = New Global.System.Data.SqlClient.SqlCommand()
             Me._adapter.UpdateCommand.Connection = Me.Connection
-            Me._adapter.UpdateCommand.CommandText = "UPDATE [dbo].[Program] SET [Code] = @Code, [Name] = @Name, [school] = @school WHE"& _ 
-                "RE (([id] = @Original_id) AND ((@IsNull_Code = 1 AND [Code] IS NULL) OR ([Code] "& _ 
-                "= @Original_Code)) AND ((@IsNull_Name = 1 AND [Name] IS NULL) OR ([Name] = @Orig"& _ 
-                "inal_Name)) AND ((@IsNull_school = 1 AND [school] IS NULL) OR ([school] = @Origi"& _ 
-                "nal_school)));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT id, Code, Name, school FROM Program WHERE (id = @id)"
+            Me._adapter.UpdateCommand.CommandText = "UPDATE [Program] SET [Code] = @Code, [Name] = @Name, [school] = @school, [IsActiv"& _ 
+                "e] = @IsActive WHERE (([id] = @Original_id) AND ((@IsNull_Code = 1 AND [Code] IS"& _ 
+                " NULL) OR ([Code] = @Original_Code)) AND ((@IsNull_Name = 1 AND [Name] IS NULL) "& _ 
+                "OR ([Name] = @Original_Name)) AND ((@IsNull_school = 1 AND [school] IS NULL) OR "& _ 
+                "([school] = @Original_school)) AND ([IsActive] = @Original_IsActive));"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"SELECT i"& _ 
+                "d, Code, Name, school, IsActive FROM Program WHERE (id = @id) ORDER BY Name"
             Me._adapter.UpdateCommand.CommandType = Global.System.Data.CommandType.Text
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Code", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Code", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Name", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@school", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "school", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsActive", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsActive", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_id", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "id", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_Code", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Code", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Code", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Code", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
@@ -13892,6 +13948,7 @@ Namespace eCollegeDataSetTableAdapters
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_Name", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "Name", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@IsNull_school", Global.System.Data.SqlDbType.Int, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "school", Global.System.Data.DataRowVersion.Original, true, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_school", Global.System.Data.SqlDbType.VarChar, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "school", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
+            Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Original_IsActive", Global.System.Data.SqlDbType.Bit, 0, Global.System.Data.ParameterDirection.Input, 0, 0, "IsActive", Global.System.Data.DataRowVersion.Original, false, Nothing, "", "", ""))
             Me._adapter.UpdateCommand.Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@id", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
         
@@ -13899,7 +13956,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString
+            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -13908,12 +13965,13 @@ Namespace eCollegeDataSetTableAdapters
             Me._commandCollection = New Global.System.Data.SqlClient.SqlCommand(1) {}
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
-            Me._commandCollection(0).CommandText = "SELECT id, Code, Name, school FROM dbo.Program"
+            Me._commandCollection(0).CommandText = "SELECT        id, Code, Name, school, IsActive"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Program"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE   "& _ 
+                "     (IsActive = 1)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Name"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(1).Connection = Me.Connection
-            Me._commandCollection(1).CommandText = "SELECT        id, Code, Name, school"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Program"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (scho"& _ 
-                "ol = @school)"
+            Me._commandCollection(1).CommandText = "SELECT        Code, IsActive, Name, id, school"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            Program"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE   "& _ 
+                "     (school = @school) AND (IsActive = 1)"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"ORDER BY Code"
             Me._commandCollection(1).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(1).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@school", Global.System.Data.SqlDbType.VarChar, 10, Global.System.Data.ParameterDirection.Input, 0, 0, "school", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
         End Sub
@@ -13992,7 +14050,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Delete, true)>  _
-        Public Overloads Overridable Function Delete(ByVal Original_id As Integer, ByVal Original_Code As String, ByVal Original_Name As String, ByVal Original_school As String) As Integer
+        Public Overloads Overridable Function Delete(ByVal Original_id As Integer, ByVal Original_Code As String, ByVal Original_Name As String, ByVal Original_school As String, ByVal Original_IsActive As Boolean) As Integer
             Me.Adapter.DeleteCommand.Parameters(0).Value = CType(Original_id,Integer)
             If (Original_Code Is Nothing) Then
                 Me.Adapter.DeleteCommand.Parameters(1).Value = CType(1,Object)
@@ -14015,6 +14073,7 @@ Namespace eCollegeDataSetTableAdapters
                 Me.Adapter.DeleteCommand.Parameters(5).Value = CType(0,Object)
                 Me.Adapter.DeleteCommand.Parameters(6).Value = CType(Original_school,String)
             End If
+            Me.Adapter.DeleteCommand.Parameters(7).Value = CType(Original_IsActive,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.DeleteCommand.Connection.State
             If ((Me.Adapter.DeleteCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -14034,7 +14093,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Insert, true)>  _
-        Public Overloads Overridable Function Insert(ByVal Code As String, ByVal Name As String, ByVal school As String) As Integer
+        Public Overloads Overridable Function Insert(ByVal Code As String, ByVal Name As String, ByVal school As String, ByVal IsActive As Boolean) As Integer
             If (Code Is Nothing) Then
                 Me.Adapter.InsertCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -14050,6 +14109,7 @@ Namespace eCollegeDataSetTableAdapters
             Else
                 Me.Adapter.InsertCommand.Parameters(2).Value = CType(school,String)
             End If
+            Me.Adapter.InsertCommand.Parameters(3).Value = CType(IsActive,Boolean)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.InsertCommand.Connection.State
             If ((Me.Adapter.InsertCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -14069,7 +14129,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Code As String, ByVal Name As String, ByVal school As String, ByVal Original_id As Integer, ByVal Original_Code As String, ByVal Original_Name As String, ByVal Original_school As String, ByVal id As Integer) As Integer
+        Public Overloads Overridable Function Update(ByVal Code As String, ByVal Name As String, ByVal school As String, ByVal IsActive As Boolean, ByVal Original_id As Integer, ByVal Original_Code As String, ByVal Original_Name As String, ByVal Original_school As String, ByVal Original_IsActive As Boolean, ByVal id As Integer) As Integer
             If (Code Is Nothing) Then
                 Me.Adapter.UpdateCommand.Parameters(0).Value = Global.System.DBNull.Value
             Else
@@ -14085,29 +14145,31 @@ Namespace eCollegeDataSetTableAdapters
             Else
                 Me.Adapter.UpdateCommand.Parameters(2).Value = CType(school,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(Original_id,Integer)
+            Me.Adapter.UpdateCommand.Parameters(3).Value = CType(IsActive,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(4).Value = CType(Original_id,Integer)
             If (Original_Code Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(5).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(4).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(Original_Code,String)
+                Me.Adapter.UpdateCommand.Parameters(5).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(Original_Code,String)
             End If
             If (Original_Name Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(6).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(Original_Name,String)
+                Me.Adapter.UpdateCommand.Parameters(7).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(Original_Name,String)
             End If
             If (Original_school Is Nothing) Then
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(1,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = Global.System.DBNull.Value
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(1,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = Global.System.DBNull.Value
             Else
-                Me.Adapter.UpdateCommand.Parameters(8).Value = CType(0,Object)
-                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(Original_school,String)
+                Me.Adapter.UpdateCommand.Parameters(9).Value = CType(0,Object)
+                Me.Adapter.UpdateCommand.Parameters(10).Value = CType(Original_school,String)
             End If
-            Me.Adapter.UpdateCommand.Parameters(10).Value = CType(id,Integer)
+            Me.Adapter.UpdateCommand.Parameters(11).Value = CType(Original_IsActive,Boolean)
+            Me.Adapter.UpdateCommand.Parameters(12).Value = CType(id,Integer)
             Dim previousConnectionState As Global.System.Data.ConnectionState = Me.Adapter.UpdateCommand.Connection.State
             If ((Me.Adapter.UpdateCommand.Connection.State And Global.System.Data.ConnectionState.Open)  _
                         <> Global.System.Data.ConnectionState.Open) Then
@@ -14127,8 +14189,8 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0"),  _
          Global.System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter"),  _
          Global.System.ComponentModel.DataObjectMethodAttribute(Global.System.ComponentModel.DataObjectMethodType.Update, true)>  _
-        Public Overloads Overridable Function Update(ByVal Code As String, ByVal Name As String, ByVal school As String, ByVal Original_id As Integer, ByVal Original_Code As String, ByVal Original_Name As String, ByVal Original_school As String) As Integer
-            Return Me.Update(Code, Name, school, Original_id, Original_Code, Original_Name, Original_school, Original_id)
+        Public Overloads Overridable Function Update(ByVal Code As String, ByVal Name As String, ByVal school As String, ByVal IsActive As Boolean, ByVal Original_id As Integer, ByVal Original_Code As String, ByVal Original_Name As String, ByVal Original_school As String, ByVal Original_IsActive As Boolean) As Integer
+            Return Me.Update(Code, Name, school, IsActive, Original_id, Original_Code, Original_Name, Original_school, Original_IsActive, Original_id)
         End Function
     End Class
     
@@ -14297,7 +14359,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString
+            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -14500,6 +14562,7 @@ Namespace eCollegeDataSetTableAdapters
             tableMapping.ColumnMappings.Add("Section_Id", "Section_Id")
             tableMapping.ColumnMappings.Add("code", "code")
             tableMapping.ColumnMappings.Add("semester", "semester")
+            tableMapping.ColumnMappings.Add("SessionId", "SessionId")
             Me._adapter.TableMappings.Add(tableMapping)
         End Sub
         
@@ -14507,7 +14570,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString
+            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -14517,8 +14580,8 @@ Namespace eCollegeDataSetTableAdapters
             Me._commandCollection(0) = New Global.System.Data.SqlClient.SqlCommand()
             Me._commandCollection(0).Connection = Me.Connection
             Me._commandCollection(0).CommandText = "SELECT        id, Subject_Code, Subject_Code AS code, Subject_Name, IsLab, L, T, "& _ 
-                "P, Section_Id, semester"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_CourseStructure"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE        (Sectio"& _ 
-                "n_Id = @Param1)"
+                "P, Section_Id, semester, SessionId"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"FROM            V_CourseStructure"&Global.Microsoft.VisualBasic.ChrW(13)&Global.Microsoft.VisualBasic.ChrW(10)&"WHERE    "& _ 
+                "    (Section_Id = @Param1)"
             Me._commandCollection(0).CommandType = Global.System.Data.CommandType.Text
             Me._commandCollection(0).Parameters.Add(New Global.System.Data.SqlClient.SqlParameter("@Param1", Global.System.Data.SqlDbType.Int, 4, Global.System.Data.ParameterDirection.Input, 0, 0, "Section_Id", Global.System.Data.DataRowVersion.Current, false, Nothing, "", "", ""))
             Me._commandCollection(1) = New Global.System.Data.SqlClient.SqlCommand()
@@ -14757,7 +14820,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString
+            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -15008,7 +15071,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString
+            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
@@ -15197,7 +15260,7 @@ Namespace eCollegeDataSetTableAdapters
          Global.System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")>  _
         Private Sub InitConnection()
             Me._connection = New Global.System.Data.SqlClient.SqlConnection()
-            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString
+            Me._connection.ConnectionString = TimeTableManager.My.MySettings.Default.eCollegeConnectionString1
         End Sub
         
         <Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _

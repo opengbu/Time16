@@ -22,7 +22,7 @@ Public Class frmMultiSectionView
         Next
 
         Dim sqry = "SELECT Section_Id, TT_Day, TT_Period FROM M_Time_Table WHERE (Section_Id IN (" & TextBox1.Text & "))"
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
         Dim cmd As New SqlCommand(sqry, cn)
         Dim ad As SqlDataReader

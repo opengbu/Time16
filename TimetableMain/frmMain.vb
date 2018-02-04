@@ -31,6 +31,7 @@ Public Class frmMain
     Dim disession As SessionData
     Private url As Object = "http://172.25.5.15/tt/upload.php"
 
+
     Sub TTAdd(ByVal day As Integer, ByVal period As Integer, ByVal value As String)
         TableLayoutPanel1.GetControlFromPosition(period - 1, day - 1).Text = TableLayoutPanel1.GetControlFromPosition(period - 1, day - 1).Text.Trim & vbCrLf & value
     End Sub
@@ -79,7 +80,9 @@ Public Class frmMain
         For i = 0 To TableLayoutPanel1.Controls.Count - 1
             TableLayoutPanel1.Controls.Item(i).BackColor = Color.White
         Next
-        Dim sQry = "SELECT TT_Day, TT_Period FROM [V_TimeTable_2013] WHERE (TimeTableId = " & My.Settings.TTid & ") and (Room_id=" & RoomId & ")"
+        'Dim sQry = "SELECT TT_Day, TT_Period FROM [V_TimeTable_2013] WHERE (TimeTableId = " & My.Settings.TTid & ") and (Room_id=" & RoomId & ")"
+        'Removing View Access. Now direct from table
+        Dim sQry = "SELECT TT_Day, TT_Period FROM [M_Time_Table] WHERE (TimeTableId = " & My.Settings.TTid & ") and (Room_id=" & RoomId & ")"
         Dim cmd As New SqlCommand(sQry)
         Dim ad As SqlDataReader
         If cn.State = ConnectionState.Closed Then cn.Open()
@@ -93,10 +96,10 @@ Public Class frmMain
         LoadLockTT(_currentSection)
     End Sub
 
-    Sub LoadFacTT(ByVal FacultyId As String, Optional FacultyId2 As Integer = 0)
+    'Sub LoadFacTT(ByVal FacultyId As String, Optional FacultyId2 As Integer = 0)
+    Sub LoadFacTT(ByVal FacultyId As String, Optional FacultyId2 As Integer = 0, Optional csf_id As Integer = 0)
         FacultyId = _currFacId
         FacultyId2 = _currFacId2
-
         For i = 0 To TableLayoutPanel1.Controls.Count - 1
             If Not _colorMode Then
                 TableLayoutPanel1.Controls.Item(i).BackColor = Color.White
@@ -109,12 +112,17 @@ Public Class frmMain
 
         Next
 
-        Dim sQry = "SELECT TT_Day, TT_Period, section_id FROM [V_TimeTable_2013] WHERE  (id IN (" & FacultyId & "))"
+        ' Dim sQry = "SELECT TT_Day, TT_Period, section_id FROM [V_TimeTable_2013] WHERE  (id IN (" & FacultyId & "))"
+        Dim sQry = "Select TT_Day, TT_Period, section_id,faculty_id FROM M_Time_Table,CSF_Faculty
+                    where faculty_id in (" & FacultyId & ") And CSF_Faculty.csf_id = M_Time_Table.CSF_Id"
+
+
+
         Dim cmd As New SqlCommand(sQry)
 
         Dim ad As SqlDataReader
         If cn.State = ConnectionState.Open Then cn.Close()
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
         cmd.Connection = cn
         ad = cmd.ExecuteReader()
@@ -130,11 +138,26 @@ Public Class frmMain
             TableLayoutPanel1.Controls.Item(i).Text = ""
         Next
 
-        Dim sQry = "SELECT distinct TimeTableId, Section_Id, TT_Day, TT_Period, CSF_Id, Room_Id, Batch_Id, Abr_n as abr, Subject_Code, Subject, IsLab, Section_Name, Semester, Room, Group_Id  FROM [V_TimeTable_2013] WHERE (TimeTableId = " & My.Settings.TTid & ") and (Section_id=" & SectionId & ")"
+        ' Dim sQry = "Select distinct TimeTableId, Section_Id, TT_Day, TT_Period, CSF_Id, Room_Id, Batch_Id, Abr_n As abr, 
+        'Subject_Code, Subject, IsLab, Section_Name, Semester, Room, Group_Id  
+        'From [V_TimeTable_2013] WHERE (TimeTableId = " & My.Settings.TTid & ") And (Section_id=" & SectionId & ")"
+        Dim sQry = "SELECT DISTINCT 
+        dbo.M_Time_Table.TimeTableId, dbo.M_Time_Table.Section_Id, dbo.M_Time_Table.TT_Day,dbo.M_Time_Table.TT_Period, 
+        dbo.M_Time_Table.CSF_Id, dbo.M_Time_Table.Room_Id, dbo.M_Time_Table.Batch_Id, dbo.CSF_View.Teacher_Id AS Id, 
+        dbo.CSF_View.Teacher_Name AS name, dbo.CSF_View.abbr AS abr, dbo.CSF_View.Subject_Code, 
+        dbo.CSF_View.Subject_Name AS subject, dbo.CSF_View.IsLab, dbo.CSF_View.Name AS Section_Name, dbo.CSF_View.Semester, 
+        CASE WHEN dbo.M_Room.Name IS NULL THEN ' ' ELSE dbo.M_Room.Name END AS Room, 
+        dbo.M_Time_Table.Section_Group_Id AS Group_Id, dbo.CSF_View.Teacher_Id AS Faculty_Id, dbo.CSF_View.ProgramName, 
+        dbo.CSF_View.school, dbo.M_Time_Table.ActivityTag, dbo.CSF_View.Teacher_Id2,dbo.CSF_View.Teacher_Name2, 
+        dbo.CSF_View.abbr2, dbo.M_Time_Table.ContGroupCode, dbo.CSF_View.P, dbo.CSF_View.L, dbo.CSF_View.T
+                         FROM  dbo.M_Time_Table INNER JOIN
+                         dbo.CSF_View ON dbo.M_Time_Table.CSF_Id = dbo.CSF_View.CSF_Id LEFT OUTER JOIN
+                         dbo.M_Room ON dbo.M_Time_Table.Room_Id = dbo.M_Room.room_Id
+                         WHERE (TimeTableId = " & My.Settings.TTid & ") And (CSF_View.Section_id=" & SectionId & ")"
         Dim cmd As New SqlCommand(sQry)
         'SqlCommand cmd = new SqlCommand(sQry, GlobalCnx); 
         Dim ad As SqlDataReader
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
         cmd.Connection = cn
         ad = cmd.ExecuteReader()
@@ -164,12 +187,20 @@ Public Class frmMain
         LoginForm1.Close()
     End Sub
     Private Sub Form1_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
 
-        Me.Text = ApplicationName
+        If My.Settings.Username = "admin" Then ActionAdminMenu.Visible = True
+        If My.Settings.Username = "admin" Then ActionsAutoMenu.Visible = True
+        ' ToolStripMenuItem5.Text = My.Settings.Username.ToUpper
+
+
         Dim t As TimeTable = New TimeTable
         _Session = t.Session
         _SessionName = t.SessionName
+
+
+        Me.Text = ApplicationName & " (" & _Session & "::" & _SessionName & ")"
+
 
         ' frmCourseStructure.ShowDialog()
         Dim schoolname As String = Module1._school
@@ -189,7 +220,7 @@ Public Class frmMain
         Try
             If schoolname = "all" Then
                 Me.ProgramTableAdapter1.Fill(ECollegeDataSet.Program)
-                Me.ActionToolStripMenuItem.Enabled = True
+                Me.ActionAdminMenu.Enabled = True
             Else
                 Me.ProgramTableAdapter1.FillBy(ECollegeDataSet.Program, schoolname)
             End If
@@ -267,7 +298,7 @@ Public Class frmMain
     End Sub
 
     Sub CSFUpdate(ByVal SectionId As Integer)
-        Dim sQry = "SELECT distinct csf_id,subject_code,abr_n as abr,cast(Teacher_id_n as varchar(10)) as id,Teacher_name as Name,l_load,L,T,P,LA,TA,PA,IsLab,subject_name as Subject  from CSF_View_with_Load WHERE (section_id=" & SectionId & ")"
+        Dim sQry = "Select distinct csf_id,subject_code,abr_n As abr,cast(Teacher_id_n As varchar(10)) As id,Teacher_name As Name,l_load,L,T,P,LA,TA,PA,IsLab,subject_name As Subject  from CSF_View_with_Load WHERE SessionId=" & _Session & " AND (section_id=" & SectionId & ")"
 
         Try
             If cn.State = ConnectionState.Closed Then cn.Open()
@@ -309,7 +340,7 @@ Public Class frmMain
         If CSF_ID = 0 Then Exit Sub
         'If CheckBox1.Checked = True Then
         'sQry = "INSERT INTO  M_Time_Table  (TimeTableId, Section_Id, TT_Day, TT_Period, CSF_Id, Room_Id, Batch_Id, Section_Group_Id, MergeCSF, ActivityTag)"
-        'sQry = sQry & "SELECT  " & TTId & " as TimeTableId ,   " & Sectionid & " as Section_Id,   " & TTDay & " as TT_Day,   " & TTPeriod & " as TT_Period, CSF_Id, Room_Id, Batch_Id, Section_Group_Id,MergeCSF,ActivityTag "
+        'sQry = sQry & "Select  " & TTId & " As TimeTableId ,   " & Sectionid & " As Section_Id,   " & TTDay & " As TT_Day,   " & TTPeriod & " As TT_Period, CSF_Id, Room_Id, Batch_Id, Section_Group_Id,MergeCSF,ActivityTag "
         'sQry = sQry & "FROM M_Time_Table "
         'sQry = sQry & "WHERE (TimeTableId = " & _TTIdCopy & ") And (Section_Id = " & _sectionCopy & ") And (TT_Day = " & _TTDayCopy & ") And (TT_Period = " & _TTPeriodCopy & ")"
         '
@@ -318,7 +349,7 @@ Public Class frmMain
         'MsgBox(sQry)
         'End If
         'Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
         Dim cmd As New SqlCommand(sQry, cn)
 
@@ -349,10 +380,10 @@ Public Class frmMain
         Dim TTId As Integer = My.Settings.TTid
         Dim sQry As String = ""
         sQry = "Update [M_time_table] "
-        sQry = sQry & " SET Room_Id=" & _room
-        sQry = sQry & " WHERE (TimeTableId = " & TTId & ") And (Section_Id = " & _section & ")  AND (Batch_Id = 0) "
+        sQry = sQry & " Set Room_Id=" & _room
+        sQry = sQry & " WHERE (TimeTableId = " & TTId & ") And (Section_Id = " & _section & ")  And (Batch_Id = 0) "
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
         Dim cmd As New SqlCommand(sQry, cn)
         cmd.ExecuteNonQuery()
@@ -371,7 +402,7 @@ Public Class frmMain
             ' Else
 
             If My.Settings.DeleteConfirm = True Then
-                    result = MessageBox.Show("Are you sure to delete?", "Time Table 2010", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+                    result = MessageBox.Show("Are you sure To delete?", "Time Table 2010", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
                 Else
                     result = Windows.Forms.DialogResult.Yes
                 End If
@@ -388,7 +419,7 @@ Public Class frmMain
                     Dim ISDEL As Integer = 1
                 Dim sQry = "Exec Timetablemanager @by=" & uid & " ,@session=" & _Session & " , @TTId=" & TTId & ",@TTDay=" & TTDay & ",@TTPeriod=" & TTPeriod & ",@Sectionid=" & Sectionid & ",@CSF_ID= " & CSF_ID & ", @RooM_ID=" & RooM_ID & ",@BATCHID=" & BATCHID & ",@ISDEL=" & ISDEL & ",@duration=" & _duration
                 'Dim cn As New SqlConnection
-                cn.ConnectionString = My.Settings.eCollegeConnectionString
+                cn.ConnectionString = My.Settings.eCollegeConnectionString1
                     cn.Open()
                     Dim cmd As New SqlCommand(sQry, cn)
                     cmd.ExecuteNonQuery()
@@ -418,9 +449,9 @@ Public Class frmMain
         Dim sQry As String = ""
         If (e.ColumnIndex = 6 Or e.ColumnIndex = 7 Or e.ColumnIndex = 8) Then
             Try
-                sQry = "UPDATE Subject SET L=" & CSFList(6, e.RowIndex).Value & ", T=" & CSFList(7, e.RowIndex).Value & ", P=" & CSFList(8, e.RowIndex).Value & " WHERE (Code = '" & CSFList(1, e.RowIndex).Value & "')"
+                sQry = "UPDATE Subject Set L=" & CSFList(6, e.RowIndex).Value & ", T=" & CSFList(7, e.RowIndex).Value & ", P=" & CSFList(8, e.RowIndex).Value & " WHERE (Code = '" & CSFList(1, e.RowIndex).Value & "')"
                 'Dim cn As New SqlConnection
-                cn.ConnectionString = My.Settings.eCollegeConnectionString
+                cn.ConnectionString = My.Settings.eCollegeConnectionString1
                 cn.Open()
                 ' MsgBox(sQry)
                 Dim cmd As New SqlCommand(sQry, cn)
@@ -435,7 +466,7 @@ Public Class frmMain
             Try
                 sQry = "UPDATE CSF SET LA=" & CSFList(9, e.RowIndex).Value & ", TA=" & CSFList(10, e.RowIndex).Value & ", PA=" & CSFList(11, e.RowIndex).Value & " WHERE (CSF_Id = '" & CSFList(0, e.RowIndex).Value & "')"
                 'Dim cn As New SqlConnection
-                cn.ConnectionString = My.Settings.eCollegeConnectionString
+                cn.ConnectionString = My.Settings.eCollegeConnectionString1
                 cn.Open()
                 ' MsgBox(sQry)
                 Dim cmd As New SqlCommand(sQry, cn)
@@ -490,14 +521,6 @@ Public Class frmMain
     Private Sub RadioButton2_CheckedChanged(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles RadioButton2.CheckedChanged
         _Batch = 2
     End Sub
-
-    Private Sub PreferenceToolStripMenuItem_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles PreferenceToolStripMenuItem.Click
-        TimeTableManager.Preference.ShowDialog()
-    End Sub
-
-
-
-
     Private Sub CSFList_RowEnter(ByVal sender As Object, ByVal e As System.Windows.Forms.DataGridViewCellEventArgs) Handles CSFList.RowEnter
         CSFSelect(e)
     End Sub
@@ -520,6 +543,8 @@ Public Class frmMain
         _currFacId = CSFList.Item(3, e.RowIndex).Value
         ToolStripTextBox1.Text = _csf
         LoadRoomTT(_room)
+        ' MsgBox(_currFacId)
+        ' MsgBox(_currFacId2)
         LoadFacTT(_currFacId, _currFacId2)
         LoadLockTT(_currentSection)
     End Sub
@@ -654,7 +679,7 @@ Public Class frmMain
         SQLString = "Select * from V_Timetable_2013"
         ' Dim cmd As SqlCommand
         Dim DbConnection As New SqlConnection
-        DbConnection.ConnectionString = My.Settings.eCollegeConnectionString
+        DbConnection.ConnectionString = My.Settings.eCollegeConnectionString1
         Dim ad As New SqlDataAdapter
         ad.SelectCommand = New SqlCommand(SQLString, DbConnection)
         Dim dbc As SqlCommandBuilder
@@ -681,7 +706,7 @@ Public Class frmMain
 
     Private Sub ExportTeacherToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportTeacherToolStripMenuItem.Click
         Dim q1 As String = "SELECT distinct [name] FROM [Teacher]"
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
         Dim cmd As New SqlCommand(q1, cn)
         Dim rd As SqlDataReader
@@ -701,7 +726,7 @@ Public Class frmMain
 
     Private Sub ExportSubjectToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExportSubjectToolStripMenuItem.Click
         Dim q1 As String = "SELECT distinct [name] FROM [Subject]"
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
         Dim cmd As New SqlCommand(q1, cn)
         Dim rd As SqlDataReader
@@ -721,7 +746,7 @@ Public Class frmMain
     Private Sub ExportSectionsToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExportSectionsToolStripMenuItem.Click
         Dim q1 As String = "SELECT * FROM [Section]"
         ' MsgBox(q1)
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
         Dim cmd As New SqlCommand(q1, cn)
         Dim rd As SqlDataReader
@@ -746,7 +771,7 @@ Public Class frmMain
 
     Private Sub ExportRoomsToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExportRoomsToolStripMenuItem.Click
         Dim q1 As String = "SELECT * FROM [M_Room]"
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
         Dim cmd As New SqlCommand(q1, cn)
         Dim rd As SqlDataReader
@@ -766,7 +791,7 @@ Public Class frmMain
 
     Private Sub ExportCSFToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExportCSFToolStripMenuItem.Click
         Dim q1 As String = "SELECT [Name],[Subject_Code],[Teacher_Name],* FROM [CSF_View]"
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
         Dim cmd As New SqlCommand(q1, cn)
         Dim rd As SqlDataReader
@@ -788,18 +813,19 @@ Public Class frmMain
 
 
     Private Sub ImportNWToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ImportNWToolStripMenuItem.Click
-        MsgBox("Automatic Timetable Not Functional in this version")
-        'Dim fITT As New frmImportTimetable
-        'fITT.ShowDialog()
+        ' MsgBox("Automatic Timetable Not Functional in this version")
+        Dim fITT As New frmImportTimetable
+        fITT.ShowDialog()
     End Sub
 
     Private Sub ExportActivitiesToolStripMenuItem_Click(sender As System.Object, e As System.EventArgs) Handles ExportActivitiesToolStripMenuItem.Click
         'Dim q1 As String = "SELECT [Name],[Subject_Code],[Teacher_Name],* FROM [TIMETABLE_JAN2014.MDF].[dbo].[CSF_View]"
-        Dim q1 As String = "SELECT  [Name], [Subject_Code], [Teacher_Name], [Subject_Id], [L], [T], [P]  FROM [CSF_View]"
+        Dim q1 As String = "SELECT  [Name], [Subject_Code], [Teacher_Name], [Subject_Id], [L], [T], [P]  FROM [CSF_View] where sessionid=" & _Session
+
         'SELECT   Section_Id, Subject_Code, Faculty_Id, Subject_ID, CreationDate, IsRemoved, LA, TA, PA
         'FROM(CSF)
 
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
         Dim cmd As New SqlCommand(q1, cn)
         Dim rd As SqlDataReader
@@ -826,9 +852,6 @@ Public Class frmMain
         w.Close()
     End Sub
 
-    Private Sub CourseStructureToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles CourseStructureToolStripMenuItem.Click
-        frmCS.ShowDialog()
-    End Sub
 
     Private Sub CheckRoomSchool()
         If rSOBT.Checked Then _school = "SOBT"
@@ -896,7 +919,7 @@ Public Class frmMain
         '    sQry = "Exec Timetablemanager @TTId=" & TTId & ",@TTDay=" & TTDay & ",@TTPeriod=" & TTPeriod & ",@Sectionid=" & Sectionid & ",@CSF_ID= " & CSF_ID & ", @RooM_ID=" & RooM_ID & ",@BATCHID=" & BATCHID & ",@ISDEL=" & ISDEL & ",@atag=" & ATAG & ",@duration=" & _duration
         'End If
         'Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
         Dim cmd As New SqlCommand(sQry, cn)
         Dim cmd2 As New SqlCommand(sQry2, cn)
@@ -968,7 +991,7 @@ Public Class frmMain
         sQry2 = "UPDate  M_Time_Table SET TT_Day=" & jDay & ", TT_Period=" & jPeriod
         sQry2 = sQry2 & "WHERE (TimeTableId = " & _TTIdCopy & ") And (Section_Id = " & _sectionCopy & ") And (TT_Day = 0) And (TT_Period = 0)"
 
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
         transaction = cn.BeginTransaction("SampleTransaction")
         Dim cmd As New SqlCommand(sQry, cn)
@@ -1038,7 +1061,7 @@ Public Class frmMain
             Dim ISDEL As Integer = 1
             Dim sQry = "Exec Timetablemanager @by=" & My.Settings.Username & " ,@session=" & _Session & " ,@TTId=" & TTId & ",@TTDay=" & TTDay & ",@TTPeriod=" & TTPeriod & ",@Sectionid=" & Sectionid & ",@CSF_ID= " & CSF_ID & ", @RooM_ID=" & RooM_ID & ",@BATCHID=" & BATCHID & ",@ISDEL=" & ISDEL & ",@duration=" & _duration
             'Dim cn As New SqlConnection
-            cn.ConnectionString = My.Settings.eCollegeConnectionString
+            cn.ConnectionString = My.Settings.eCollegeConnectionString1
             cn.Open()
             Dim cmd As New SqlCommand(sQry, cn)
             cmd.ExecuteNonQuery()
@@ -1174,9 +1197,9 @@ Public Class frmMain
         End If
     End Sub
 
-    Private Sub FacultyWiseAllocationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FacultyWiseAllocationToolStripMenuItem.Click
-        frmFacultyWiseAllocation.ShowDialog()
-    End Sub
+    'Private Sub FacultyWiseAllocationToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FacultyWiseAllocationToolStripMenuItem.Click
+    '    frmFacultyWiseAllocation.ShowDialog()
+    'End Sub
 
 
     Private Sub ColorModeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ColorModeToolStripMenuItem.Click
@@ -1230,7 +1253,7 @@ Public Class frmMain
     End Sub
 
     Private Sub ConvertToSQLITEToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ConvertToSQLITEToolStripMenuItem.Click
-        Process.Start("C:/Timetable/Converter.exe")
+        Process.Start(GetAppDataPath() & "/OpenGBU/SQLTOLITE/Converter.exe")
     End Sub
 
     Private Sub ToolStripMenuItem1_Click(sender As Object, e As EventArgs) Handles ToolStripMenuItem1.Click
@@ -1244,17 +1267,9 @@ Public Class frmMain
         SendEmail()
     End Sub
 
-    Private Sub SettingsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles SettingsToolStripMenuItem.Click
-
-    End Sub
-
-    Private Sub ChangePasswordToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ChangePasswordToolStripMenuItem.Click
-        frmChangePass.ShowDialog()
-    End Sub
-
-    Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
-        LoadLockTT(7)
-    End Sub
+    'Private Sub Button1_Click(sender As Object, e As EventArgs) Handles Button1.Click
+    '    LoadLockTT(7)
+    'End Sub
 
     Private Sub cbSchool_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cbSchool.SelectedIndexChanged
         Me.ProgramTableAdapter1.FillBy(ECollegeDataSet.Program, cbSchool.SelectedValue)
@@ -1287,9 +1302,72 @@ Public Class frmMain
     End Sub
 
     Private Sub FacultyLoadToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FacultyLoadToolStripMenuItem.Click
-        frmFacultyLoad.ShowDialog()
+        ' frmFacultyLoad.ShowDialog()
+        MsgBox("Not Implemented yet.")
+    End Sub
+    Function GetAppDataPath() As String
+        Return Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData)
+    End Function
+
+    Private Sub UpdateAppToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles UpdateAppToolStripMenuItem.Click
+        Dim myWebClient As New WebClient()
+        ' Dim fileName As String = GetAppDataPath() & "\varun.db"
+        Dim fileName As String = "D:\Timetables2014\varun.db"
+        If My.Computer.FileSystem.FileExists(fileName) Then
+            System.Net.ServicePointManager.Expect100Continue = False
+            Dim responseArray As Byte() = myWebClient.UploadFile("http://gbuonline.in/timetable/uploaddb.php", fileName)
+            MsgBox(responseArray.ToString())
+
+        Else
+            MsgBox("Update File First.")
+        End If
 
     End Sub
+
+
+
+    Private Sub OptionsToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles OptionsToolStripMenuItem.Click
+        TimeTableManager.Preference.ShowDialog()
+    End Sub
+
+    Private Sub ChangePasswordToolStripMenuItem_Click_1(sender As Object, e As EventArgs) Handles ChangePasswordToolStripMenuItem.Click
+        frmChangePass.ShowDialog()
+    End Sub
+
+    Private Sub AddNewProgramToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles AddNewProgramToolStripMenuItem.Click
+        Dim fSub As New frmPrograms
+        fSub.ShowDialog()
+    End Sub
+
+    Private Sub ToolStripMenuItem5_Click(sender As Object, e As EventArgs)
+        CreateDatatable()
+    End Sub
+
+    Private Sub CreateDatatable()
+        Dim dt As New DataTable
+        dt.Columns.Add("id")
+        dt.Columns.Add("name")
+        For i As Integer = 0 To 10
+            dt.Rows.Add()
+            dt.Rows(i)(0) = i
+            dt.Rows(i)(1) = i & "-Sample"
+        Next
+        Dim _json As String = GetJson(dt)
+    End Sub
+
+    Private Function GetJson(ByVal dt As DataTable) As String
+        ' Dim Jserializer As New System.Web.Web.Script.Serialization.JavaScriptSerializer()
+        Dim rowsList As New List(Of Dictionary(Of String, Object))()
+        Dim row As Dictionary(Of String, Object)
+        For Each dr As DataRow In dt.Rows
+            row = New Dictionary(Of String, Object)()
+            For Each col As DataColumn In dt.Columns
+                row.Add(col.ColumnName, dr(col))
+            Next
+            rowsList.Add(row)
+        Next
+        ' Return Jserializer.Serialize(rowsList)
+    End Function
 End Class
 'Public Sub restore(ByVal dat As Date, Optional ByVal Encrypt As Boolean = False, Optional ByVal key As String = "")
 '    frmMain.ActiveForm.Text = "Waiting"

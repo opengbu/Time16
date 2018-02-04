@@ -32,7 +32,7 @@
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>true</UpdateEnabled>
-    <UpdateMode>Background</UpdateMode>
+    <UpdateMode>Foreground</UpdateMode>
     <UpdateInterval>1</UpdateInterval>
     <UpdateIntervalUnits>Days</UpdateIntervalUnits>
     <UpdatePeriodically>false</UpdatePeriodically>
@@ -40,12 +40,12 @@
     <MapFileExtensions>true</MapFileExtensions>
     <InstallUrl>http://172.25.5.15/Setup/</InstallUrl>
     <ProductName>TimeX 2017</ProductName>
-    <PublisherName>infos Solutions</PublisherName>
+    <PublisherName>Digital Information Cell</PublisherName>
     <SuiteName>TimeTables</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.php</WebPage>
-    <ApplicationRevision>14</ApplicationRevision>
-    <ApplicationVersion>8.2017.01.%2a</ApplicationVersion>
+    <ApplicationRevision>17</ApplicationRevision>
+    <ApplicationVersion>8.2017.02.%2a</ApplicationVersion>
     <UseApplicationTrust>true</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -71,11 +71,13 @@
     <DebugType>pdbonly</DebugType>
     <DefineDebug>false</DefineDebug>
     <DefineTrace>true</DefineTrace>
-    <Optimize>false</Optimize>
+    <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DocumentationFile>TimeTable.xml</DocumentationFile>
     <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
     <RegisterForComInterop>true</RegisterForComInterop>
+    <RemoveIntegerChecks>true</RemoveIntegerChecks>
+    <CodeAnalysisIgnoreGeneratedCode>false</CodeAnalysisIgnoreGeneratedCode>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>22A7F13C5AAC262063B098559489B74DF18BCCFF</ManifestCertificateThumbprint>
@@ -91,7 +93,7 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Tinylab-Android-Lollipop-Apps-7-Minutes.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\Write2.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <PropertyGroup>
@@ -142,6 +144,7 @@
     <Compile Include="conflicts.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="DBUtilities.vb" />
     <Compile Include="frmChangePass.Designer.vb">
       <DependentUpon>frmChangePass.vb</DependentUpon>
     </Compile>
@@ -152,12 +155,6 @@
       <DependentUpon>frmFacultyLoad.vb</DependentUpon>
     </Compile>
     <Compile Include="frmFacultyLoad.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmFacultyWiseAllocation.Designer.vb">
-      <DependentUpon>frmFacultyWiseAllocation.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmFacultyWiseAllocation.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCSFNew.Designer.vb">
@@ -175,12 +172,6 @@
       <DependentUpon>frmCopyStructure.vb</DependentUpon>
     </Compile>
     <Compile Include="frmCopyStructure.vb">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCS.Designer.vb">
-      <DependentUpon>frmCS.vb</DependentUpon>
-    </Compile>
-    <Compile Include="frmCS.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmActivation.Designer.vb">
@@ -205,6 +196,12 @@
       <DependentUpon>frmMultiSectionView.vb</DependentUpon>
     </Compile>
     <Compile Include="frmMultiSectionView.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrograms.Designer.vb">
+      <DependentUpon>frmPrograms.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmPrograms.vb">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmQuickInsert.Designer.vb">
@@ -306,6 +303,12 @@
     <Compile Include="Preference.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="pyth.Designer.vb">
+      <DependentUpon>pyth.vb</DependentUpon>
+    </Compile>
+    <Compile Include="pyth.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SessionData.vb" />
     <Compile Include="Timesheet.vb" />
     <Compile Include="TimeTable.vb" />
@@ -318,7 +321,15 @@
       <DependentUpon>conflicts.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <EmbeddedResource Include="frmPrograms.resx">
+      <DependentUpon>frmPrograms.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="pyth.resx">
+      <DependentUpon>pyth.vb</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="DataClasses1.dbml.layout">
       <DependentUpon>DataClasses1.dbml</DependentUpon>
     </None>
@@ -328,20 +339,12 @@
     <EmbeddedResource Include="frmFacultyLoad.resx">
       <DependentUpon>frmFacultyLoad.vb</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmFacultyWiseAllocation.resx">
-      <DependentUpon>frmFacultyWiseAllocation.vb</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
     <EmbeddedResource Include="frmCSFNew.resx">
       <DependentUpon>frmCSFNew.vb</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCopyStructure.resx">
       <DependentUpon>frmCopyStructure.vb</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmCS.resx">
-      <DependentUpon>frmCS.vb</DependentUpon>
-      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmActivation.resx">
       <DependentUpon>frmActivation.vb</DependentUpon>
@@ -455,18 +458,26 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Save_6530.ico" />
-    <None Include="Resources\Open_6296.ico" />
     <None Include="Resources\refresh_16xLG.png" />
-    <None Include="Resources\view_16xLG.png" />
-    <None Include="Resources\WebForm%28ASPX%29_815.ico" />
-    <None Include="Resources\VSNETWebServiceDynamicDiscovery_8215.ico" />
-    <None Include="Resources\ComponentDiagramFile_componentdiagram_13449.ico" />
-    <None Include="Resources\CheckIn_13188.png" />
-    <None Include="Resources\CheckIn_13188_32x.png" />
-    <None Include="Resources\Preview%28Thumbnail%29.png" />
     <None Include="Resources\screencss.txt" />
-    <Content Include="Tinylab-Android-Lollipop-Apps-7-Minutes.ico" />
+    <Content Include="Resources\Application.ico" />
+    <Content Include="Resources\Applications.ico" />
+    <Content Include="Resources\Attach.ico" />
+    <Content Include="Resources\Audio Message.ico" />
+    <Content Include="Resources\Back Top.ico" />
+    <Content Include="Resources\Back.ico" />
+    <Content Include="Resources\Bubble 1.ico" />
+    <Content Include="Resources\Bubble 3.ico" />
+    <Content Include="Resources\Burn.ico" />
+    <Content Include="Resources\Calc.ico" />
+    <Content Include="Resources\Calendar.ico" />
+    <Content Include="Resources\Cancel.ico" />
+    <Content Include="Resources\Currency Dollar.ico" />
+    <Content Include="Resources\Write.ico" />
+    <Content Include="Resources\Write2.ico" />
+    <Content Include="Resources\Write3.ico" />
+    <Content Include="Resources\Zoom In.ico" />
+    <Content Include="Resources\Zoom Out.ico" />
     <Content Include="Timetable.xslt" />
   </ItemGroup>
   <ItemGroup>

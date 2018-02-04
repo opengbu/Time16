@@ -2,14 +2,6 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="My" GeneratedClassName="MySettings" UseMySettingsClassName="true">
   <Profiles />
   <Settings>
-    <Setting Name="eCollegeConnectionString" Type="(Connection string)" Scope="Application">
-      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
-  &lt;ConnectionString&gt;Data Source=10.10.32.10;Initial Catalog=TIMETABLE_JAN2015;Persist Security Info=True;User ID=sa;Password=12345;Network Library=dbmssocn;User Instance=False&lt;/ConnectionString&gt;
-  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
-&lt;/SerializableConnectionString&gt;</DesignTimeValue>
-      <Value Profile="(Default)">Data Source=10.10.32.10;Initial Catalog=TIMETABLE_JAN2015;Persist Security Info=True;User ID=sa;Password=12345;Network Library=dbmssocn;User Instance=False</Value>
-    </Setting>
     <Setting Name="DeleteConfirm" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
@@ -23,7 +15,7 @@
       <Value Profile="(Default)">False</Value>
     </Setting>
     <Setting Name="Setting" Type="System.String" Scope="User">
-      <Value Profile="(Default)">Data Source=10.10.32.10;Initial Catalog=TIMETABLE_JAN2015.MDF;Persist Security Info=True;User ID=sa;Password=12345</Value>
+      <Value Profile="(Default)">Data Source=.;Initial Catalog=TIMETABLE_JAN2015.MDF;Persist Security Info=True;User ID=sa;Password=12345</Value>
     </Setting>
     <Setting Name="Proxy" Type="System.String" Scope="User">
       <Value Profile="(Default)">http://172.25.6.6:3128</Value>
@@ -35,10 +27,18 @@
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Username" Type="System.String" Scope="User">
-      <Value Profile="(Default)">admin</Value>
+      <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Password" Type="System.String" Scope="User">
-      <Value Profile="(Default)">pass</Value>
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="eCollegeConnectionString1" Type="(Connection string)" Scope="Application">
+      <DesignTimeValue Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;SerializableConnectionString xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"&gt;
+  &lt;ConnectionString&gt;Data Source=10.10.32.10;Initial Catalog=TIMETABLE_JAN2015;Persist Security Info=True;User ID=sa;Password=12345;Network Library=dbmssocn;User Instance=False&lt;/ConnectionString&gt;
+  &lt;ProviderName&gt;System.Data.SqlClient&lt;/ProviderName&gt;
+&lt;/SerializableConnectionString&gt;</DesignTimeValue>
+      <Value Profile="(Default)">Data Source=10.10.32.10;Initial Catalog=TIMETABLE_JAN2015;Persist Security Info=True;User ID=sa;Password=12345;Network Library=dbmssocn;User Instance=False</Value>
     </Setting>
   </Settings>
 </SettingsFile>

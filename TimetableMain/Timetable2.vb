@@ -21,7 +21,7 @@ Module Timetable2
         '  Dim cn2 As New SqlConnection
 
         ' cn.ConnectionString = My.Settings.conn
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
 
         Dim cmd As New SqlCommand
         Dim rd As SqlDataReader

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="TIMETABLE_JAN2014.MDF" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=10.10.32.10;Initial Catalog=TIMETABLE_JAN2015;User ID=sa;Network Library=dbmssocn" SettingsObjectName="TimeTableManager.My.MySettings" SettingsPropertyName="eCollegeConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=10.10.32.10;Initial Catalog=TIMETABLE_JAN2015;User ID=sa;Network Library=dbmssocn" SettingsObjectName="TimeTableManager.My.MySettings" SettingsPropertyName="eCollegeConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.M_Time_Table" Member="M_Time_Tables">
     <Type Name="M_Time_Table">
       <Column Name="TimeTableId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />

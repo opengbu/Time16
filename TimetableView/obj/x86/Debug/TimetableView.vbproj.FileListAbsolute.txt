@@ -23,13 +23,14 @@ C:\Users\awasthi\Source\Repos\Time16\TimetableView\bin\Debug\TimetableView.appli
 C:\Users\awasthi\Source\Repos\Time16\TimetableView\bin\Debug\TimetableView.exe
 C:\Users\awasthi\Source\Repos\Time16\TimetableView\bin\Debug\TimetableView.pdb
 C:\Users\awasthi\Source\Repos\Time16\TimetableView\bin\Debug\TimetableView.xml
-C:\Users\awasthi\Source\Repos\Time16\TimetableView\obj\x86\Debug\TimetableView.vbprojResolveAssemblyReference.cache
 C:\Users\awasthi\Source\Repos\Time16\TimetableView\obj\x86\Debug\TimetableView.frmXMLBased.resources
 C:\Users\awasthi\Source\Repos\Time16\TimetableView\obj\x86\Debug\TimetableView.Form1.resources
 C:\Users\awasthi\Source\Repos\Time16\TimetableView\obj\x86\Debug\TimetableView.Resources.resources
 C:\Users\awasthi\Source\Repos\Time16\TimetableView\obj\x86\Debug\TimetableView.vbproj.GenerateResource.Cache
+C:\Users\awasthi\Source\Repos\Time16\TimetableView\obj\x86\Debug\TimetableView.vbproj.CoreCompileInputs.cache
 C:\Users\awasthi\Source\Repos\Time16\TimetableView\obj\x86\Debug\TimetableView.exe.manifest
 C:\Users\awasthi\Source\Repos\Time16\TimetableView\obj\x86\Debug\TimetableView.application
 C:\Users\awasthi\Source\Repos\Time16\TimetableView\obj\x86\Debug\TimetableView.exe
 C:\Users\awasthi\Source\Repos\Time16\TimetableView\obj\x86\Debug\TimetableView.xml
 C:\Users\awasthi\Source\Repos\Time16\TimetableView\obj\x86\Debug\TimetableView.pdb
+C:\Users\awasthi\Source\Repos\Time16\TimetableView\obj\x86\Debug\TimetableView.vbprojResolveAssemblyReference.cache

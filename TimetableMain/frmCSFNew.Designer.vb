@@ -66,6 +66,8 @@ Partial Class FRMcsfnew
         Me.SectionTableAdapter1 = New TimeTableManager.eCollegeDataSetTableAdapters.SectionTableAdapter()
         Me.TeacherTableAdapter1 = New TimeTableManager.eCollegeDataSetTableAdapters.TeacherTableAdapter()
         Me.V_CourseStructureTableAdapter1 = New TimeTableManager.eCollegeDataSetTableAdapters.V_CourseStructureTableAdapter()
+        Me.lblSemester = New System.Windows.Forms.Label()
+        Me.dgvFacultyAssigned = New System.Windows.Forms.DataGridView()
         Me.TableLayoutPanel1.SuspendLayout()
         CType(Me.SectionBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.ECollegeDataSet3, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -76,6 +78,7 @@ Partial Class FRMcsfnew
         Me.GroupBox1.SuspendLayout()
         CType(Me.dgvCourse, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.VCourseStructureBindingSource, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvFacultyAssigned, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'TableLayoutPanel1
@@ -85,7 +88,7 @@ Partial Class FRMcsfnew
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 57.63547!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 42.36453!))
         Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 90.0!))
-        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 72.0!))
+        Me.TableLayoutPanel1.ColumnStyles.Add(New System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 76.0!))
         Me.TableLayoutPanel1.Controls.Add(Me.Button2, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.Delete_Button, 0, 0)
         Me.TableLayoutPanel1.Controls.Add(Me.OK_Button, 0, 0)
@@ -100,7 +103,7 @@ Partial Class FRMcsfnew
         'Button2
         '
         Me.Button2.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Button2.Location = New System.Drawing.Point(127, 3)
+        Me.Button2.Location = New System.Drawing.Point(123, 3)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(84, 23)
         Me.Button2.TabIndex = 8
@@ -110,9 +113,9 @@ Partial Class FRMcsfnew
         'Delete_Button
         '
         Me.Delete_Button.Anchor = System.Windows.Forms.AnchorStyles.None
-        Me.Delete_Button.Location = New System.Drawing.Point(75, 3)
+        Me.Delete_Button.Location = New System.Drawing.Point(72, 3)
         Me.Delete_Button.Name = "Delete_Button"
-        Me.Delete_Button.Size = New System.Drawing.Size(46, 23)
+        Me.Delete_Button.Size = New System.Drawing.Size(45, 23)
         Me.Delete_Button.TabIndex = 7
         Me.Delete_Button.Text = "Delete"
         Me.Delete_Button.Visible = False
@@ -122,7 +125,7 @@ Partial Class FRMcsfnew
         Me.OK_Button.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.OK_Button.Location = New System.Drawing.Point(3, 3)
         Me.OK_Button.Name = "OK_Button"
-        Me.OK_Button.Size = New System.Drawing.Size(66, 23)
+        Me.OK_Button.Size = New System.Drawing.Size(63, 23)
         Me.OK_Button.TabIndex = 6
         Me.OK_Button.Text = "Add/Update"
         Me.OK_Button.Visible = False
@@ -131,7 +134,7 @@ Partial Class FRMcsfnew
         '
         Me.Cancel_Button.Anchor = System.Windows.Forms.AnchorStyles.None
         Me.Cancel_Button.DialogResult = System.Windows.Forms.DialogResult.Cancel
-        Me.Cancel_Button.Location = New System.Drawing.Point(226, 3)
+        Me.Cancel_Button.Location = New System.Drawing.Point(224, 3)
         Me.Cancel_Button.Name = "Cancel_Button"
         Me.Cancel_Button.Size = New System.Drawing.Size(48, 23)
         Me.Cancel_Button.TabIndex = 5
@@ -469,6 +472,24 @@ Partial Class FRMcsfnew
         '
         Me.V_CourseStructureTableAdapter1.ClearBeforeFill = True
         '
+        'lblSemester
+        '
+        Me.lblSemester.AutoSize = True
+        Me.lblSemester.Location = New System.Drawing.Point(248, 31)
+        Me.lblSemester.Name = "lblSemester"
+        Me.lblSemester.Size = New System.Drawing.Size(54, 13)
+        Me.lblSemester.TabIndex = 40
+        Me.lblSemester.Text = "Semester:"
+        '
+        'dgvFacultyAssigned
+        '
+        Me.dgvFacultyAssigned.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvFacultyAssigned.Location = New System.Drawing.Point(401, 15)
+        Me.dgvFacultyAssigned.Name = "dgvFacultyAssigned"
+        Me.dgvFacultyAssigned.Size = New System.Drawing.Size(100, 69)
+        Me.dgvFacultyAssigned.TabIndex = 41
+        Me.dgvFacultyAssigned.Visible = False
+        '
         'FRMcsfnew
         '
         Me.AcceptButton = Me.OK_Button
@@ -476,6 +497,8 @@ Partial Class FRMcsfnew
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.CancelButton = Me.Cancel_Button
         Me.ClientSize = New System.Drawing.Size(856, 468)
+        Me.Controls.Add(Me.dgvFacultyAssigned)
+        Me.Controls.Add(Me.lblSemester)
         Me.Controls.Add(Me.Button8)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.GroupBox1)
@@ -516,6 +539,7 @@ Partial Class FRMcsfnew
         Me.GroupBox1.ResumeLayout(False)
         CType(Me.dgvCourse, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.VCourseStructureBindingSource, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvFacultyAssigned, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -576,4 +600,6 @@ Partial Class FRMcsfnew
     Friend WithEvents DataGridViewTextBoxColumn5 As DataGridViewTextBoxColumn
     Friend WithEvents DataGridViewTextBoxColumn6 As DataGridViewTextBoxColumn
     Friend WithEvents SemesterDataGridViewTextBoxColumn As DataGridViewTextBoxColumn
+    Friend WithEvents lblSemester As Label
+    Friend WithEvents dgvFacultyAssigned As DataGridView
 End Class

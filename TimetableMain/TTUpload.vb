@@ -80,7 +80,7 @@ Public Class TTUpload
         If facid = 0 Then Exit Sub
 
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
 
         Dim cmd As New SqlCommand
         Dim rd As SqlDataReader
@@ -239,7 +239,7 @@ Public Class TTUpload
                            & " [TEACHER_ID_n] AS ID2 from CSF_View_with_Load WHERE (section_id=" & SectionId & ")"
 
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
 
         cn.Open()
         Dim faclink As String = ""

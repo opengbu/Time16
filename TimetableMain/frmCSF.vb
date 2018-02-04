@@ -5,7 +5,7 @@ Public Class frmCSF
     Dim _crrsec As Integer = 1
     Friend cn As New SqlConnection
     Private Sub frmCSF_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         Me.SchoolTableAdapter.Fill(Me.ECollegeDataSet.School)
         ECollegeDataSet.EnforceConstraints = False
         Me.CSF_ViewTableAdapter.Fill(Me.ECollegeDataSet.CSF_View)
@@ -47,7 +47,7 @@ Public Class frmCSF
             End If
 
             Dim cn As New SqlConnection
-            cn.ConnectionString = My.Settings.eCollegeConnectionString
+            cn.ConnectionString = My.Settings.eCollegeConnectionString1
             cn.Open()
             Dim cmd As New SqlCommand(sQry, cn)
             cmd.ExecuteNonQuery()
@@ -153,7 +153,7 @@ Public Class frmCSF
 
 
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         cn.Open()
 
         Dim cmd As New SqlCommand(sQry, cn)

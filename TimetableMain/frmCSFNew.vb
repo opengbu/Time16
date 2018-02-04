@@ -13,7 +13,7 @@ Public Class FRMcsfnew
             ''sQry = "Exec UpdateCSF @csfid=" & TextBox1.Text.Trim & ",@facid=" & Me.ComboBox3.SelectedValue
             'sQry = "Update CSF Set Faculty_Id=@facid WHERE (csf_id = @csfid)"
             Dim cn As New SqlConnection With {
-                .ConnectionString = My.Settings.eCollegeConnectionString
+                .ConnectionString = My.Settings.eCollegeConnectionString1
             }
             Dim pfacid As Integer
             pfacid = GetFaculty()
@@ -30,7 +30,7 @@ Public Class FRMcsfnew
         Else
             Dim cn As New SqlConnection
             Dim data, data1 As String
-            cn.ConnectionString = My.Settings.eCollegeConnectionString
+            cn.ConnectionString = My.Settings.eCollegeConnectionString1
             Try
                 Data = dgvCourse.Item(0, dgvCourse.CurrentRow.Index).Value.ToString
                 data1 = dgvCourse.Item(1, dgvCourse.CurrentRow.Index).Value.ToString
@@ -42,7 +42,8 @@ Public Class FRMcsfnew
                                         & ", @subjectcode=" & data1 _
                                         & ", @L=" & Me.nLA.Value _
                                         & ", @T=" & Me.nTA.Value _
-                                        & ", @P=" & Me.nPA.Value
+                                        & ", @P=" & Me.nPA.Value _
+                                        & ", @sessionid=" & _Session
 
                 cn.Open()
                 Dim cmd As New SqlCommand(sQry, cn)
@@ -78,21 +79,29 @@ Public Class FRMcsfnew
         If SubjectId = 0 Then Exit Sub
         Dim cn As New SqlConnection
         Try
-            cn.ConnectionString = My.Settings.eCollegeConnectionString
+            cn.ConnectionString = My.Settings.eCollegeConnectionString1
             Dim sQry As String = ""
-            sQry = "  SELECT distinct Teacher_name_n, csf_id FROM CSF_View WHERE (Section_Id = @sid) AND (Subject_Id = @subid)"
+            sQry = "  SELECT distinct Teacher_name_n, csf_id FROM CSF_View WHERE (Section_Id = @sid) AND (Subject_Id = @subid) and SessionId=@sessid"
 
             Dim cmd As New SqlCommand
             cmd.CommandText = sQry
             cmd.Connection = cn
             cmd.Parameters.Add("@sid", SqlDbType.Int)
             cmd.Parameters("@sid").Value = SectionId
+            cmd.Parameters.Add("@sessid", SqlDbType.Int)
+            cmd.Parameters("@sessid").Value = _Session
+
             cmd.Parameters.Add("@subid", SqlDbType.BigInt)
             cmd.Parameters("@subid").Value = SubjectId
             cn.Open()
             Dim da As SqlDataAdapter = New SqlDataAdapter(cmd)
             Dim ds As DataSet = New DataSet()
             da.Fill(ds)
+
+            dgvFacultyAssigned.DataSource = ds.Tables(0)
+            dgvFacultyAssigned.Invalidate()
+
+
             ListBox3.DataSource = ds.Tables(0)
             ListBox3.ValueMember = ds.Tables(0).Columns(1).ColumnName
             ListBox3.DisplayMember = ds.Tables(0).Columns(0).ColumnName
@@ -143,6 +152,9 @@ Public Class FRMcsfnew
 
         Try
             ComboBox1.SelectedValue = _currentSection
+            _currentSemester = _Session Mod 2
+
+            lblSemester.Text = _currentSemester
         Catch ex As Exception
 
         End Try
@@ -228,7 +240,7 @@ Public Class FRMcsfnew
 
     Private Sub Delete_Button_Click(sender As Object, e As EventArgs) Handles Delete_Button.Click
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         Try
             Dim sQry As String = ""
 
@@ -250,7 +262,7 @@ Public Class FRMcsfnew
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles Button2.Click
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         Try
             Dim sQry As String = ""
             'If chkF2.Checked Then
@@ -272,14 +284,14 @@ Public Class FRMcsfnew
     End Sub
 
 
-    Private Sub Button1_Click(sender As Object, e As EventArgs) 
-        Dim fSub As New frmCS
-        fSub.ShowDialog()
-        V_CourseStructureTableAdapter1.FillBySemester(ECollegeDataSet3.V_CourseStructure, _currentSection, _currentSemester)
-        'ListBox1.Invalidate()
-        ' ListBox2.Invalidate()
-        'Me.Refresh()
-    End Sub
+    'Private Sub Button1_Click(sender As Object, e As EventArgs) 
+    '    Dim fSub As New frmCS
+    '    fSub.ShowDialog()
+    '    V_CourseStructureTableAdapter1.FillBySemester(ECollegeDataSet3.V_CourseStructure, _currentSection, _currentSemester)
+    '    'ListBox1.Invalidate()
+    '    ' ListBox2.Invalidate()
+    '    'Me.Refresh()
+    'End Sub
 
     Private Sub Button3_Click(sender As Object, e As EventArgs) Handles Button3.Click
         Dim fSub As New frmTeacher
@@ -304,7 +316,7 @@ Public Class FRMcsfnew
         Try
             data = dgvCourse.Item(0, dgvCourse.CurrentRow.Index).Value.ToString
             data1 = dgvCourse.Item(1, dgvCourse.CurrentRow.Index).Value.ToString
-            cn.ConnectionString = My.Settings.eCollegeConnectionString
+            cn.ConnectionString = My.Settings.eCollegeConnectionString1
             Dim csfid As Integer = 0
             sQRy = "Exec InsertCSf " _
                                     & " @facid=" & Me.ComboBox3.SelectedValue _
@@ -313,7 +325,8 @@ Public Class FRMcsfnew
                                     & ", @subjectcode=" & data1 _
                                     & ", @L=" & Me.nLA.Value _
                                     & ", @T=" & Me.nTA.Value _
-                                    & ", @P=" & Me.nPA.Value
+                                    & ", @P=" & Me.nPA.Value _
+                                    & ", @SessionId=" & _Session
 
             cn.Open()
             Dim cmd As New SqlCommand(sQRy, cn)
@@ -332,7 +345,7 @@ Public Class FRMcsfnew
         If TextBox1.Text.Trim > 0 Then
             Dim sqry As String
             Dim cn As New SqlConnection
-            cn.ConnectionString = My.Settings.eCollegeConnectionString
+            cn.ConnectionString = My.Settings.eCollegeConnectionString1
             Dim pfacid As Integer
             pfacid = GetFaculty()
             Try
@@ -365,7 +378,7 @@ Public Class FRMcsfnew
 
     Private Sub Button6_Click(sender As Object, e As EventArgs) Handles Button6.Click
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         Try
             If ListBox3.Text.ToString.Split(",").Count > 1 Then
                 doMultiDelete()
@@ -396,7 +409,7 @@ Public Class FRMcsfnew
 
     Private Sub doMultiDelete()
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         Dim sQry As String = ""
         sQry = "SELECT TOP(20) csf_id, faculty_id FROM CSF_Faculty WHERE (csf_id =" + TextBox1.Text.ToString.Trim + ")"
         'sQry = "SELECT distinct Teacher_name_n, Teacher_Id_n, csf_id FROM CSF_View WHERE (Section_Id =" + SectionId + ") AND (Subject_Id =" + SubjectId + ")"
@@ -431,7 +444,7 @@ Public Class FRMcsfnew
 
     Private Sub Button7_Click(sender As Object, e As EventArgs) Handles Button7.Click
         Dim cn As New SqlConnection
-        cn.ConnectionString = My.Settings.eCollegeConnectionString
+        cn.ConnectionString = My.Settings.eCollegeConnectionString1
         Try
             Dim sQry As String = ""
             'If chkF2.Checked Then
@@ -476,7 +489,7 @@ Public Class FRMcsfnew
             sQry = "INSERT INTO [CourseStructure] (ProgramId, CouseId,semester,SessionId) VALUES (" & Me.ComboBox1.SelectedValue & " ,'" & Me.TextBox2.Text.Trim & "'," & _currentSemester & "," & _Session & ")"
 
             Dim cn As New SqlConnection
-            cn.ConnectionString = My.Settings.eCollegeConnectionString
+            cn.ConnectionString = My.Settings.eCollegeConnectionString1
             cn.Open()
 
             Dim cmd As New SqlCommand(sQry, cn)
@@ -487,7 +500,10 @@ Public Class FRMcsfnew
             V_CourseStructureTableAdapter1.FillBySemester(ECollegeDataSet3.V_CourseStructure, _currentSection, _currentSemester)
             'dgvCourse.Invalidate()
         Catch ex As Exception
-            MsgBox(ex.Message)
+
+            Dim f As New frmSubjects
+            f.ShowDialog()
+
 
         End Try
 

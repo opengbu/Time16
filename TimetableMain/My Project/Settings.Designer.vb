@@ -15,14 +15,13 @@ Option Explicit On
 Namespace My
     
     <Global.System.Runtime.CompilerServices.CompilerGeneratedAttribute(),  _
-     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.1.0.0"),  _
+     Global.System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Editors.SettingsDesigner.SettingsSingleFileGenerator", "15.3.0.0"),  _
      Global.System.ComponentModel.EditorBrowsableAttribute(Global.System.ComponentModel.EditorBrowsableState.Advanced)>  _
     Partial Friend NotInheritable Class MySettings
         Inherits Global.System.Configuration.ApplicationSettingsBase
         
         Private Shared defaultInstance As MySettings = CType(Global.System.Configuration.ApplicationSettingsBase.Synchronized(New MySettings()),MySettings)
-        Friend TIMETABLE_JAN2014_MDFConnectionString As String
-
+        
 #Region "My.Settings Auto-Save Functionality"
 #If _MyType = "WindowsForms" Then
     Private Shared addedHandler As Boolean
@@ -37,7 +36,7 @@ Namespace My
     End Sub
 #End If
 #End Region
-
+        
         Public Shared ReadOnly Property [Default]() As MySettings
             Get
                 
@@ -52,17 +51,6 @@ Namespace My
                 End If
 #End If
                 Return defaultInstance
-            End Get
-        End Property
-        
-        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
-         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=10.10.32.10;Initial Catalog=TIMETABLE_JAN2015;Persist Security Info=T"& _ 
-            "rue;User ID=sa;Password=12345;Network Library=dbmssocn;User Instance=False")>  _
-        Public ReadOnly Property eCollegeConnectionString() As String
-            Get
-                Return CType(Me("eCollegeConnectionString"),String)
             End Get
         End Property
         
@@ -113,8 +101,8 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=10.10.32.10;Initial Catalog=TIMETABLE_JAN2015.MDF;Persist Security In"& _ 
-            "fo=True;User ID=sa;Password=12345")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=.;Initial Catalog=TIMETABLE_JAN2015.MDF;Persist Security Info=True;Us"& _ 
+            "er ID=sa;Password=12345")>  _
         Public Property Setting() As String
             Get
                 Return CType(Me("Setting"),String)
@@ -162,7 +150,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("admin")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property Username() As String
             Get
                 Return CType(Me("Username"),String)
@@ -174,7 +162,7 @@ Namespace My
         
         <Global.System.Configuration.UserScopedSettingAttribute(),  _
          Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
-         Global.System.Configuration.DefaultSettingValueAttribute("pass")>  _
+         Global.System.Configuration.DefaultSettingValueAttribute("")>  _
         Public Property Password() As String
             Get
                 Return CType(Me("Password"),String)
@@ -182,6 +170,17 @@ Namespace My
             Set
                 Me("Password") = value
             End Set
+        End Property
+        
+        <Global.System.Configuration.ApplicationScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.SpecialSettingAttribute(Global.System.Configuration.SpecialSetting.ConnectionString),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("Data Source=10.10.32.10;Initial Catalog=TIMETABLE_JAN2015;Persist Security Info=T"& _ 
+            "rue;User ID=sa;Password=12345;Network Library=dbmssocn;User Instance=False")>  _
+        Public ReadOnly Property eCollegeConnectionString1() As String
+            Get
+                Return CType(Me("eCollegeConnectionString1"),String)
+            End Get
         End Property
     End Class
 End Namespace

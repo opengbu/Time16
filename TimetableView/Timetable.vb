@@ -21,7 +21,7 @@ Module Timetable
         '  Dim cn2 As New SqlConnection
 
         cn.ConnectionString = My.Settings.conn
-        '  cn2.ConnectionString = My.Settings.eCollegeConnectionString
+
 
         Dim cmd As New SqlCommand
         Dim rd As SqlDataReader
@@ -174,6 +174,47 @@ Module Timetable
 
         End Try
         Return 1
+    End Function
+
+    Public Function Session() As Integer
+        Dim _Session As Integer = 0
+        Dim sql As String =
+         "Select Id From Session Where CurrentActive=1"
+
+        Using conn As New SqlConnection(My.Settings.conn)
+            Dim cmd As New SqlCommand(sql, conn)
+            Try
+                conn.Open()
+                _Session = Convert.ToInt32(cmd.ExecuteScalar())
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+
+        Return _Session
+
+    End Function
+
+    Public Function SessionName() As String
+        Dim _SessionName As String = ""
+        Dim sql As String =
+         "Select Title From Session Where CurrentActive=1"
+
+        Using conn As New SqlConnection(My.Settings.conn)
+            Dim cmd As New SqlCommand(sql, conn)
+            Try
+                conn.Open()
+                _SessionName = Convert.ToString(cmd.ExecuteScalar())
+            Catch ex As Exception
+                MsgBox(ex.Message)
+            Finally
+                conn.Close()
+            End Try
+        End Using
+        Return _SessionName
+
     End Function
 
     Sub UploadOnline2(ByVal currFileName As String)

@@ -3,7 +3,7 @@ Imports System.Data.SqlClient
 
 
 Public Class frmTeacher
-    Dim cn As New SqlConnection(My.Settings.eCollegeConnectionString)
+    Dim cn As New SqlConnection(My.Settings.eCollegeConnectionString1)
     Dim da As SqlDataAdapter
     Dim dt As DataTable
     Dim dv As DataView
