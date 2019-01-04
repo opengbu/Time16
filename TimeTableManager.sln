@@ -1,21 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.10
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28315.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TimeTable", "TimetableMain\TimeTable.vbproj", "{F4348F8F-750A-41FE-9EC7-F445C1340D5B}"
 EndProject
-Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "CommonUMS", "CommonUMS\CommonUMS.shproj", "{5EA6461C-9D0C-4C81-B86D-01A5D1C24AEF}"
-EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "TimetableView", "TimetableView\TimetableView.vbproj", "{222087AC-A926-49E8-B526-A16F212B13E0}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{7A295442-C401-4DC8-9C7E-1DC5BD318680}"
-EndProject
 Global
-	GlobalSection(SharedMSBuildProjectFiles) = preSolution
-		CommonUMS\CommonUMS.projitems*{5ea6461c-9d0c-4c81-b86d-01a5d1c24aef}*SharedItemsImports = 13
-		CommonUMS\CommonUMS.projitems*{f4348f8f-750a-41fe-9ec7-f445c1340d5b}*SharedItemsImports = 4
-	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Debug|Mixed Platforms = Debug|Mixed Platforms
@@ -46,16 +38,6 @@ Global
 		{222087AC-A926-49E8-B526-A16F212B13E0}.Release|Mixed Platforms.Build.0 = Release|x86
 		{222087AC-A926-49E8-B526-A16F212B13E0}.Release|x86.ActiveCfg = Release|x86
 		{222087AC-A926-49E8-B526-A16F212B13E0}.Release|x86.Build.0 = Release|x86
-		{7A295442-C401-4DC8-9C7E-1DC5BD318680}.Debug|Any CPU.ActiveCfg = Debug
-		{7A295442-C401-4DC8-9C7E-1DC5BD318680}.Debug|Mixed Platforms.ActiveCfg = Debug
-		{7A295442-C401-4DC8-9C7E-1DC5BD318680}.Debug|Mixed Platforms.Build.0 = Debug
-		{7A295442-C401-4DC8-9C7E-1DC5BD318680}.Debug|x86.ActiveCfg = Debug
-		{7A295442-C401-4DC8-9C7E-1DC5BD318680}.Debug|x86.Build.0 = Debug
-		{7A295442-C401-4DC8-9C7E-1DC5BD318680}.Release|Any CPU.ActiveCfg = Release
-		{7A295442-C401-4DC8-9C7E-1DC5BD318680}.Release|Mixed Platforms.ActiveCfg = Release
-		{7A295442-C401-4DC8-9C7E-1DC5BD318680}.Release|Mixed Platforms.Build.0 = Release
-		{7A295442-C401-4DC8-9C7E-1DC5BD318680}.Release|x86.ActiveCfg = Release
-		{7A295442-C401-4DC8-9C7E-1DC5BD318680}.Release|x86.Build.0 = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
