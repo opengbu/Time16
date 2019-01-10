@@ -5,6 +5,7 @@ Imports System.IO
 Imports System.Net
 Imports System.Deployment
 Imports System.Deployment.Application
+Imports System.ComponentModel.Design
 
 Public Class frmMain
     Public DelTTDay As Integer
@@ -452,7 +453,7 @@ Public Class frmMain
             ' Else
 
             If My.Settings.DeleteConfirm = True Then
-                result = MessageBox.Show("Are you sure To delete?", "Time Table 2010", MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
+                result = MessageBox.Show("Are you sure To delete?", ApplicationName, MessageBoxButtons.YesNo, MessageBoxIcon.Exclamation)
             Else
                 result = Windows.Forms.DialogResult.Yes
             End If
@@ -478,6 +479,7 @@ Public Class frmMain
                 Dim BATCHID As Integer = _Batch
                 Dim ISDEL As Integer = 1
                 Dim sQry = "Exec Timetablemanager @by=" & uid & " ,@session=" & _Session & " , @TTId=" & TTId & ",@TTDay=" & DelTTDay & ",@TTPeriod=" & DelTTPeriod & ",@Sectionid=" & Sectionid & ",@CSF_ID= " & DelCSFID & ", @RooM_ID=" & RooM_ID & ",@BATCHID=" & BATCHID & ",@ISDEL=" & ISDEL & ",@duration=" & _duration
+
                 'MsgBox(sQry)
                 'Dim cn As New SqlConnection
                 cn.ConnectionString = My.Settings.eCollegeConnectionString1
@@ -528,11 +530,11 @@ Public Class frmMain
         End If
         If (e.ColumnIndex = 9 Or e.ColumnIndex = 10 Or e.ColumnIndex = 11) Then
             Try
-                sQry = "UPDATE CSF SET LA=" & CSFList(9, e.RowIndex).Value & ", TA=" & CSFList(10, e.RowIndex).Value & ", PA=" & CSFList(11, e.RowIndex).Value & " WHERE (CSF_Id = '" & CSFList(0, e.RowIndex).Value & "')"
+                sQry = "UPDATE CSF_Faculty SET LA=" & CSFList(9, e.RowIndex).Value & ", TA=" & CSFList(10, e.RowIndex).Value & ", PA=" & CSFList(11, e.RowIndex).Value & " WHERE (CSF_Id = '" & CSFList(0, e.RowIndex).Value & "')"
                 'Dim cn As New SqlConnection
                 cn.ConnectionString = My.Settings.eCollegeConnectionString1
                 cn.Open()
-                ' MsgBox(sQry)
+                'MsgBox(sQry)
                 Dim cmd As New SqlCommand(sQry, cn)
                 cmd.ExecuteNonQuery()
                 If cn.State = ConnectionState.Open Then cn.Close()
@@ -1406,11 +1408,11 @@ Public Class frmMain
             dt.Rows(i)(0) = i
             dt.Rows(i)(1) = i & "-Sample"
         Next
-        Dim _json As String = GetJson(dt)
+        'Dim _json As String = GetJson(dt)
     End Sub
 
-    Private Function GetJson(ByVal dt As DataTable) As String
-        ' Dim Jserializer As New System.Web.Web.Script.Serialization.JavaScriptSerializer()
+    Private Sub GetJson(ByVal dt As DataTable)
+        '  Dim Jserializer As New System.Runtime.Serialization.JavaScriptSerializer()
         Dim rowsList As New List(Of Dictionary(Of String, Object))()
         Dim row As Dictionary(Of String, Object)
         For Each dr As DataRow In dt.Rows
@@ -1421,7 +1423,7 @@ Public Class frmMain
             rowsList.Add(row)
         Next
         ' Return Jserializer.Serialize(rowsList)
-    End Function
+    End Sub
 
 End Class
 'Public Sub restore(ByVal dat As Date, Optional ByVal Encrypt As Boolean = False, Optional ByVal key As String = "")

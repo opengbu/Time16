@@ -1,10 +1,6 @@
 ﻿Imports System.Data.SqlClient
 Imports System.IO
 Imports System.Net
-'Imports MyFTP
-'Imports MyFTP.ftp
-'Imports Microsoft.Office.Interop
-'Imports Microsoft.Office.Interop
 
 Public Class Form1
     Dim uctSign As String = "<br/><br/><div><img src='sign.png' width='150'><br/> University Cordinator, Timetables</div>"
@@ -31,7 +27,6 @@ Public Class Form1
     Dim str As String = ""
     Dim tblFooter As String = ""
     Dim indxSubj As String = ""
-    'Dim pagePath As String = "C:\xampp\htdocs\Timetables2014\" '"D:\Timetables2014\"
     Dim pagePath As String = Path.GetTempPath() '  "D:\Timetables2014\"
     Dim facid = 0
     Dim _clsCode As String = ""
@@ -42,8 +37,6 @@ Public Class Form1
         Me.SectionTableAdapter.Fill(Me.TimetableDataSet.Section)
         Me.M_RoomTableAdapter.Fill(Me.TimetableDataSet.M_Room)
         Me.TeacherTableAdapter.Fill(Me.TimetableDataSet.Teacher)
-
-
     End Sub
 
     Sub GetHTML(ByVal facid As Integer, ByVal typecode As Integer)
